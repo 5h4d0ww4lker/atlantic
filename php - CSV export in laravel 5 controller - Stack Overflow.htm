@@ -1,0 +1,2175 @@
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/QAPage" class="html__responsive"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+        <title>php - CSV export in laravel 5 controller - Stack Overflow</title>
+        <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+        <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+        <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="https://stackoverflow.com/opensearch.xml">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://stackoverflow.com/questions/32441327/csv-export-in-laravel-5-controller">
+        <meta property="og:site_name" content="Stack Overflow">
+        <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="stackoverflow.com">
+        <meta name="twitter:title" property="og:title" itemprop="name" content="CSV export in laravel 5 controller">
+        <meta name="twitter:description" property="og:description" itemprop="description" content="So I have made a little ajax request to my reviewsController@export.
+
+Now when I console.log() the data in my success method, the ajax response shows the correct data. However my CSV has not downlo...">
+        <script src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/osd.js"></script><script src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/amp4ads-host-v0.js"></script><script src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/pubads_impl_rendering_319.js"></script><script src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/rules-p-c1rF4kxgLUzNc.js" async=""></script><script async="" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/quant.js"></script><script async="" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/beacon.js"></script><script async="" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/analytics.js"></script><script src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/jquery.js"></script>
+        <script src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/stub.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/stacks.css">
+    <link rel="stylesheet" type="text/css" href="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/primary.css">
+
+    
+            <link rel="alternate" type="application/atom+xml" title="Feed for question 'CSV export in laravel 5 controller'" href="https://stackoverflow.com/feeds/question/32441327">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/32441327/csv-export-in-laravel-5-controller">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/32441327/csv-export-in-laravel-5-controller">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/32441327/csv-export-in-laravel-5-controller">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({canOpenBounty:true,votesCast:[],totalCommentCount:2,shownCommentCount:2,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:32441327});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '32441327');
+                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+        
+        
+        
+        
+        
+        
+
+
+        <script>
+        StackExchange.ready(function () {
+            StackExchange.realtime.init('wss://qa.sockets.stackexchange.com');
+                StackExchange.realtime.subscribeToReputationNotifications('1');
+        StackExchange.realtime.subscribeToTopBarNotifications('1');
+        });
+    </script>
+    <script>
+        StackExchange.init({"locale":"en","serverTime":1553092100,"routeName":"Questions/Show","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"75b2afc4b481f250d7e18dc9c9fc43ff921f10eff38a2631804dd7348ff1f7e4","tid":"1449d610-346a-97ba-c893-fe38d6e50fd2","rep":302,"isRegistered":true,"userType":3,"userId":7925405,"accountId":8307474,"gravatar":"<div class=\"gravatar-wrapper-32\"><img src=\"https://i.stack.imgur.com/VodKs.png?s=32&amp;g=1\" alt=\"\" width=\"32\" height=\"32\"></div>","profileUrl":"https://stackoverflow.com/users/7925405/melaku-minas-kasaye","canSeeDeletedPosts":false,"ab":{"inline_signup_hero":{"v":"d","g":2}}},"realtime":{"newest":false,"active":false,"tagged":true,"staleDisconnectIntervalInHours":0,"workerIframeDomain":"https://cdn.sstatic.net"},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300},"jobPreferences":{"maxNumDeveloperRoles":2,"maxNumIndustries":4},"svgIconPath":"https://cdn.sstatic.net/Img/svg-icons","svgIconHash":"6e41a6bc8765"}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableImgurHttps":true,"forceHttpsImages":true},"userMessaging":{},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"paths":{},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000},"mentions":{"maxNumUsersInDropdown":50},"slack":{"sidebarAdDismissCookie":"slack-sidebar-ad"}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"1dd767a41339","js/moderator.en.js":"697c581c1928","js/pseudomoderator.en.js":"81279009c185","js/full-anon.en.js":"4d4101002de6","js/full.en.js":"041264bbe5a3","js/wmd.en.js":"a23c759602fc","js/mobile.en.js":"30ceeb5f5bf6","js/help.en.js":"769f1d4dbaab","js/tageditor.en.js":"4231f9baa2c8","js/tageditornew.en.js":"9d7bcc6783b1","js/inline-tag-editing.en.js":"8bea6d7daa14","js/revisions.en.js":"8f22ba768cac","js/review.en.js":"417cc4b30d8d","js/tagsuggestions.en.js":"b278f9a0b23b","js/post-validation.en.js":"e0142911a3c2","js/explore-qlist.en.js":"080eb2e17440","js/events.en.js":"61a8e5695928","js/keyboard-shortcuts.en.js":"f04e652af58f","js/external-editor.en.js":"2a9258f60683","js/adops.en.js":"22a9bd59b1e9","js/begin-edit-event.en.js":"bd162c747cb5","js/stacks-polyfills.en.js":"94db71c7ac70","js/external-editor.en.js":"2a9258f60683","js/snippet-javascript.en.js":"3959ddc8f13f","js/snippet-javascript-codemirror.en.js":"974fd5843a20"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    <noscript id="noscript-css"><style>body,.top-bar{margin-top:1.9em}</style></noscript>
+    <script async="" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/full.js"></script><link rel="preload" href="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/integrator.js" as="script"><script type="text/javascript" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/integrator.js"></script><link rel="preload" href="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/integrator_002.js" as="script"><script type="text/javascript" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/integrator_002.js"></script><script src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/pubads_impl_319.js" async=""></script><link rel="stylesheet" href="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/clc.css" type="text/css"><script async="" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/snippet-javascript.js"></script><script async="" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/post-validation.js"></script><script async="" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/prettify-full.js"></script><script async="" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/external-editor.js"></script><script async="" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/wmd.js"></script><style type="text/css"> .wmd-snippet-button span { background-position: 0 0; } .wmd-snippet-button:hover span { background-position: 0 -40px; }</style></head>
+        <body class="question-page unified-theme">
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<header class="top-bar js-top-bar top-bar__network _fixed">
+    <div class="-container">
+        <div class="-main">
+                <a href="#" class="left-sidebar-toggle p0 ai-center jc-center js-left-sidebar-toggle"><span class="ps-relative"></span></a>
+                                <a href="https://stackoverflow.com/" class="-logo js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+                        <span class="-img _glyph">Stack Overflow</span>
+                    </a>
+
+
+
+        </div>
+
+            <form id="search" action="/search" method="get" class="searchbar js-searchbar " autocomplete="off" role="search">
+                    <div class="ps-relative">
+                        <input name="q" type="text" placeholder="Search…" autocomplete="off" maxlength="240" class="s-input js-search-field ">
+                        <button type="submit" aria-label="Search…" class="s-btn s-btn__primary s-btn__icon btn-topbar-primary js-search-submit"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg></button>
+                    </div>
+            </form>
+
+        
+
+
+
+
+
+<ol class="-secondary js-secondary-topbar-links drop-icons-responsively the-js-is-handling-responsiveness">
+        <li class="-item searchbar-trigger js-searchbar-trigger"><a href="#" class="-link"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg></a></li>
+                <li class="-item">
+                <a href="https://stackoverflow.com/users/7925405/melaku-minas-kasaye" class="my-profile js-gps-track" data-gps-track="profile_summary.click()">
+                <div class="gravatar-wrapper-24" title="Melaku Minas Kasaye"><img src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/VodKs.png" alt="" class="-avatar js-avatar-me" width="24" height="24"></div>
+                    <div class="-rep js-header-rep" title="your reputation: 302">302</div>
+                        <div class="-badges">
+<span title="1 gold badge"><span class="badge1">●</span><span class="badgecount">1</span></span><span title="4 silver badges"><span class="badge2">●</span><span class="badgecount">4</span></span><span title="19 bronze badges"><span class="badge3">●</span><span class="badgecount">19</span></span>                        </div>
+                </a>
+            </li>
+        <li class="-item">
+        <a href="https://stackexchange.com/users/8307474?tab=inbox" class="-link js-inbox-button" title="Recent inbox messages">
+            <svg aria-hidden="true" class="svg-icon iconInbox" width="20" height="18" viewBox="0 0 20 18"><path d="M15.19 1H4.63c-.85 0-1.6.54-1.85 1.35L0 10.79V15c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2v-4.21l-2.87-8.44A2 2 0 0 0 15.19 1zm-.28 10l-2 2h-6l-2-2H1.96L4.4 3.68A1 1 0 0 1 5.35 3h9.12a1 1 0 0 1 .95.68L17.86 11h-2.95z"></path></svg>
+            <span class="indicator-badge js-unread-count _important" style="display: none;"></span>
+        </a>
+    </li>
+    <li class="-item">
+        <a href="https://stackexchange.com/users/8307474?tab=reputation" class="-link js-achievements-button" title="Recent achievements: reputation, badges, and privileges earned" data-unread-class="_highlighted-positive">
+            <svg aria-hidden="true" class="svg-icon iconAchievements" width="18" height="18" viewBox="0 0 18 18"><path d="M15 2V1H3v1H0v4c0 1.6 1.4 3 3 3v1c.4 1.5 3 2.6 5 3v2H5s-1 1.5-1 2h10c0-.4-1-2-1-2h-3v-2c2-.4 4.6-1.5 5-3V9c1.6-.2 3-1.4 3-3V2h-3zM3 7c-.5 0-1-.5-1-1V4h1v3zm8.4 2.5L9 8 6.6 9.4l1-2.7L5 5h3l1-2.7L10 5h2.8l-2.3 1.8 1 2.7h-.1zM16 6c0 .5-.5 1-1 1V4h1v2z"></path></svg>
+            <span class="indicator-badge js-unread-count _positive" style="display: none;"></span>
+        </a>
+    </li>
+
+    <li class="-item help-button-item" data-remove-order="1"><a href="#" class="-link js-help-button" title="Help Center and other resources">
+        <svg aria-hidden="true" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zm.81 12.13c-.02.71-.55 1.15-1.24 1.13-.66-.02-1.17-.49-1.15-1.2.02-.72.56-1.18 1.22-1.16.7.03 1.2.51 1.17 1.23zM11.77 8a5.8 5.8 0 0 1-1.02.91l-.53.37c-.26.2-.42.43-.5.69a4 4 0 0 0-.09.75c0 .05-.03.16-.18.16H7.88c-.16 0-.18-.1-.18-.15.03-.66.12-1.21.4-1.66a5.29 5.29 0 0 1 1.43-1.22c.16-.12.28-.25.38-.39a1.34 1.34 0 0 0 .02-1.71c-.24-.31-.51-.46-1.03-.46-.51 0-.8.26-1.02.6-.21.33-.18.73-.18 1.1H5.75c0-1.38.35-2.25 1.1-2.76.52-.35 1.17-.5 1.93-.5 1 0 1.79.18 2.49.71.64.5.98 1.18.98 2.12 0 .57-.2 1.05-.48 1.44z"></path></svg>
+    </a></li>
+
+    <li class="-item site-switcher-item">
+        <a href="https://stackexchange.com/" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 175 Stack Exchange sites">
+            <svg aria-hidden="true" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13c0 1.1.9 2 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zM15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 6h16v4H1V6z"></path></svg>
+        </a>
+    </li>
+
+
+    <li class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="https://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li class="grid">
+                            <div class="fl1">
+            <a href="https://stackoverflow.com/" class="current-site-link site-link js-gps-track grid gs8 gsx" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="favicon favicon-stackoverflow site-icon grid--cell" title="Stack Overflow"></div>
+        <span class="grid--cell fl1">
+            Stack Overflow
+        </span>
+    </a>
+
+    </div>
+    <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="https://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="https://stackoverflow.com/users/logout" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:8 })">log out</a>
+    </div>
+
+                    </li>
+                    <li class="related-site grid">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                            <a href="https://meta.stackoverflow.com/" class="site-link js-gps-track grid gs8 gsx" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="favicon favicon-stackoverflowmeta site-icon grid--cell" title="Meta Stack Overflow"></div>
+        <span class="grid--cell fl1">
+            Meta Stack Overflow
+        </span>
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+                    <a href="https://stackexchange.com/users/8307474/?tab=accounts">your communities</a>
+            </h3>
+
+                <a href="#" id="edit-pinned-sites">edit</a>
+                <a href="#" id="cancel-pinned-sites" style="display: none;">cancel</a>
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <ul class="my-sites">
+                        <li>
+                                <a href="https://stackoverflow.com/" class="site-link js-gps-track grid gs8 gsx" data-id="1" data-gps-track="site.switch({ target_site:1, item_type:3 }),site_switcher.click({ item_type:1 })">
+        <div class="favicon favicon-stackoverflow site-icon grid--cell" title="Stack Overflow"></div>
+        <span class="grid--cell fl1">
+            Stack Overflow
+        </span>
+            <span class="rep-score grid--cell">302</span>
+    </a>
+
+                        </li>
+                        <li>
+                                <a href="https://academia.stackexchange.com/" class="site-link js-gps-track grid gs8 gsx" data-id="415" data-gps-track="site.switch({ target_site:415, item_type:3 }),site_switcher.click({ item_type:1 })">
+        <div class="favicon favicon-academia site-icon grid--cell" title="Academia"></div>
+        <span class="grid--cell fl1">
+            Academia
+        </span>
+            <span class="rep-score grid--cell">101</span>
+    </a>
+
+                        </li>
+                        <li>
+                                <a href="https://dba.stackexchange.com/" class="site-link js-gps-track grid gs8 gsx" data-id="182" data-gps-track="site.switch({ target_site:182, item_type:3 }),site_switcher.click({ item_type:1 })">
+        <div class="favicon favicon-dba site-icon grid--cell" title="Database Administrators"></div>
+        <span class="grid--cell fl1">
+            Database Administrators
+        </span>
+            <span class="rep-score grid--cell">101</span>
+    </a>
+
+                        </li>
+                        <li>
+                                <a href="https://workplace.stackexchange.com/" class="site-link js-gps-track grid gs8 gsx" data-id="423" data-gps-track="site.switch({ target_site:423, item_type:3 }),site_switcher.click({ item_type:1 })">
+        <div class="favicon favicon-workplace site-icon grid--cell" title="The Workplace"></div>
+        <span class="grid--cell fl1">
+            The Workplace
+        </span>
+            <span class="rep-score grid--cell">101</span>
+    </a>
+
+                        </li>
+                        <li>
+                                <a href="https://worldbuilding.stackexchange.com/" class="site-link js-gps-track grid gs8 gsx" data-id="579" data-gps-track="site.switch({ target_site:579, item_type:3 }),site_switcher.click({ item_type:1 })">
+        <div class="favicon favicon-worldbuilding site-icon grid--cell" title="Worldbuilding"></div>
+        <span class="grid--cell fl1">
+            Worldbuilding
+        </span>
+            <span class="rep-score grid--cell">101</span>
+    </a>
+
+                        </li>
+                </ul>
+                    <div class="pinned-site-editor-container" style="display: none;">
+                        <input type="hidden" name="fkey" value="75b2afc4b481f250d7e18dc9c9fc43ff921f10eff38a2631804dd7348ff1f7e4">
+                        <input id="js-site-search-txt" type="text" class="site-filter-input" placeholder="Add a Stack Exchange community">
+                        <input type="submit" id="pin-site-btn" value="Add" disabled="disabled">
+                        <ul class="js-found-sites found-sites"></ul>
+                        <ul class="pinned-site-list sortable" data-custom-list="False">
+                        </ul>
+                        <input type="submit" value="Save" id="save-pinned-sites-btn" disabled="disabled">
+                        <a href="#" id="reset-pinned-sites">reset to default list</a>
+                    </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+            <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="https://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+                    <div class="topbar-dialog leftnav-dialog js-leftnav-dialog dno">
+                <div class="left-sidebar js-unpinned-left-sidebar" data-can-be="left-sidebar" data-is-here-when="sm"></div>
+            </div>
+    </li>
+</ol>
+
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init({ observeSize: true }); });
+        StackExchange.scrollPadding.setPaddingTop(50, 10);     </script>
+
+
+
+
+
+
+    <div class="container">
+
+
+
+
+
+<div id="left-sidebar" data-is-here-when="md lg" class="left-sidebar js-pinned-left-sidebar">
+    <div class="left-sidebar--sticky-container js-sticky-leftnav">
+            <nav role="navigation">
+                <ol class="nav-links">
+                    <li>    </li><li>
+        <a href="https://stackoverflow.com/" class="pl8 js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+Home        </a>
+    </li>
+
+                    <li>
+                        <ol class="nav-links">
+                                <li class="fs-fine tt-uppercase ml8 mt16 mb4 fc-light">Public</li>
+                                <li class=" youarehere">
+        <a id="nav-questions" href="https://stackoverflow.com/questions" class="pl8 js-gps-track nav-links--link -link__with-icon" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">
+<svg aria-hidden="true" class="svg-icon iconGlobe" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zM8 15.32a6.4 6.4 0 0 1-5.23-7.75L7 11.68v.8c0 .88.12 1.32 1 1.32v1.52zm5.72-2c-.2-.66-1-1.32-1.72-1.32h-1v-2c0-.44-.56-1-1-1H6V7h1c.44 0 1-.56 1-1V5h2c.88 0 1.4-.72 1.4-1.6v-.33a6.4 6.4 0 0 1 2.32 10.24z"></path></svg>                <span class="-link--channel-name">Stack Overflow</span>
+        </a>
+    </li>
+
+    <li>
+        <a id="nav-tags" href="https://stackoverflow.com/tags" class=" js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">
+Tags        </a>
+    </li>
+    <li>
+        <a id="nav-users" href="https://stackoverflow.com/users" class=" js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">
+Users        </a>
+    </li>
+    <li>
+        <a id="nav-jobs" href="https://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class=" js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">
+Jobs        </a>
+    </li>
+                                                    </ol>
+                    </li>
+                        <li>
+                            <ol class="nav-links">
+                                        <li class="p6">
+                                            <div class="ba bc-black-2 bar-sm p16 grid fd-column ps-relative overflow-hidden">
+                                                <strong class="grid--cell">Teams</strong>
+                                                <span class="grid--cell mt2 fs-caption fc-medium">Q&amp;A for work </span>
+                                                <a href="https://stackoverflow.com/teams" class="js-gps-track s-btn s-btn__outlined ta-center grid--cell mt12" data-gps-track="teams.create.left-sidenav.click({ CampaignType: None})" data-ga="[&quot;teams traffic&quot;,&quot;left nav cta&quot;,&quot;stackoverflow.com/teams&quot;,null,{&quot;dimension4&quot;:&quot;teams&quot;}]">
+                                                    Learn More
+                                                </a>
+
+                                                <div class="ps-absolute t4 rn6">
+                                                    <svg width="53" height="49" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M49 11l.2 31H18.9L9 49v-7H4V8h31" fill="#CCEAFF"></path><path d="M44.5 19v-.3l-.2-.1-18-13-.1-.1H.5v33h4V46l.8-.6 9.9-6.9h29.3V19z" stroke="#1060E1" stroke-miterlimit="10"></path><path d="M31 2l6-1.5 7 2V38H14.9L5 45v-7H1V6h25l5-4z" fill="#fff"></path><path d="M7 16.5h13m-13 6h14m-14 6h18" stroke="#1060E1" stroke-miterlimit="10"></path><path d="M39 30a14 14 0 1 0 0-28 14 14 0 0 0 0 28z" fill="#FFB935"></path><path d="M50.5 14a13.5 13.5 0 1 1-27 0 13.5 13.5 0 0 1 27 0z" stroke="#F48024" stroke-miterlimit="10"></path><path d="M32.5 21.5v-8h9v8h-9zm2-9.5V9.3A2.5 2.5 0 0 1 37 6.8a2.5 2.5 0 0 1 2.5 2.5V12h-5zm2 3v2m1-2v2" stroke="#fff" stroke-miterlimit="10"></path></svg>
+                                                </div>
+                                            </div>
+                                        </li>
+                            </ol>
+                        </li>
+                </ol>
+            </nav>
+    </div>
+</div>
+   
+
+        <div id="content" class="snippet-hidden">
+
+
+            
+
+
+<div itemprop="mainEntity" itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+    <div class="inner-content clearfix">
+    
+    
+
+            <div id="question-header" class="grid">
+                    <h1 itemprop="name" class="grid--cell fs-headline1 fl1 ow-break-word"><a href="https://stackoverflow.com/questions/32441327/csv-export-in-laravel-5-controller" class="question-hyperlink">CSV export in laravel 5 controller</a></h1>
+
+            
+<div class="pl8 aside-cta grid--cell" role="navigation" aria-label="ask new question">
+        <a href="https://stackoverflow.com/questions/ask" class="d-inline-flex ai-center ws-nowrap s-btn s-btn__primary">
+            Ask Question
+        </a>
+</div>
+
+        </div>
+            <div id="mainbar" role="main" aria-label="question and answers">
+
+            
+
+<div class="question" data-questionid="32441327" id="question">
+
+    
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="32441327">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This question shows research effort; it is useful and clear" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10z"></path></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="16">16</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This question does not show any research effort; it is unclear or not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26z"></path></svg></button>
+
+        <button class="js-favorite-btn s-btn s-btn__unset c-pointer py8" aria-pressed="false" aria-label="favorite (5)" data-selected-classes="fc-yellow-600" title="Click to mark as favorite question (click again to undo)">
+            <svg aria-hidden="true" class="svg-icon iconStar" width="18" height="18" viewBox="0 0 18 18"><path d="M9 12.65l-5.29 3.63 1.82-6.15L.44 6.22l6.42-.17L9 0l2.14 6.05 6.42.17-5.1 3.9 1.83 6.16z"></path></svg>
+            <div class="js-favorite-count mt8" data-value="5">5</div>
+        </button>
+
+
+</div>
+
+            </div>
+
+            
+<div class="postcell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+
+<p>So I have made a little ajax request to my <code>reviewsController@export</code>.</p>
+
+<p>Now when I <code>console.log()</code> the data in my success method, 
+the ajax response shows the correct data. However my CSV has not 
+downloaded. So I have all the right info and have created the csv 
+essentially.</p>
+
+<p>I think this has possibly to do with setting the headers maybe?</p>
+
+<pre class="lang-php prettyprint prettyprinted" style=""><code><span class="kwd">public</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="kwd">export</span><span class="pun">()</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    header</span><span class="pun">(</span><span class="str">"Content-type: text/csv"</span><span class="pun">);</span><span class="pln">
+    header</span><span class="pun">(</span><span class="str">"Content-Disposition: attachment; filename=file.csv"</span><span class="pun">);</span><span class="pln">
+    header</span><span class="pun">(</span><span class="str">"Pragma: no-cache"</span><span class="pun">);</span><span class="pln">
+    header</span><span class="pun">(</span><span class="str">"Expires: 0"</span><span class="pun">);</span><span class="pln">
+
+    $reviews </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Reviews</span><span class="pun">::</span><span class="pln">getReviewExport</span><span class="pun">(</span><span class="pln">$this</span><span class="pun">-&gt;</span><span class="pln">hw</span><span class="pun">-&gt;</span><span class="pln">healthwatchID</span><span class="pun">)-&gt;</span><span class="kwd">get</span><span class="pun">();</span><span class="pln">
+    $columns </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">(</span><span class="str">'ReviewID'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Provider'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Title'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Review'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Location'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Created'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Anonymous'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Escalate'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Rating'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Name'</span><span class="pun">);</span><span class="pln">
+
+    $file </span><span class="pun">=</span><span class="pln"> fopen</span><span class="pun">(</span><span class="str">'php://output'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'w'</span><span class="pun">);</span><span class="pln">
+    fputcsv</span><span class="pun">(</span><span class="pln">$file</span><span class="pun">,</span><span class="pln"> $columns</span><span class="pun">);</span><span class="pln">
+
+    </span><span class="kwd">foreach</span><span class="pun">(</span><span class="pln">$reviews </span><span class="kwd">as</span><span class="pln"> $review</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        fputcsv</span><span class="pun">(</span><span class="pln">$file</span><span class="pun">,</span><span class="pln"> array</span><span class="pun">(</span><span class="pln">$review</span><span class="pun">-&gt;</span><span class="pln">reviewID</span><span class="pun">,</span><span class="pln">$review</span><span class="pun">-&gt;</span><span class="pln">provider</span><span class="pun">,</span><span class="pln">$review</span><span class="pun">-&gt;</span><span class="pln">title</span><span class="pun">,</span><span class="pln">$review</span><span class="pun">-&gt;</span><span class="pln">review</span><span class="pun">,</span><span class="pln">$review</span><span class="pun">-&gt;</span><span class="pln">location</span><span class="pun">,</span><span class="pln">$review</span><span class="pun">-&gt;</span><span class="pln">review_created</span><span class="pun">,</span><span class="pln">$review</span><span class="pun">-&gt;</span><span class="pln">anon</span><span class="pun">,</span><span class="pln">$review</span><span class="pun">-&gt;</span><span class="pln">escalate</span><span class="pun">,</span><span class="pln">$review</span><span class="pun">-&gt;</span><span class="pln">rating</span><span class="pun">,</span><span class="pln">$review</span><span class="pun">-&gt;</span><span class="pln">name</span><span class="pun">));</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">exit</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>Is there anything I am doing wrong here, or does Laravel have something to cater for this?</p>
+    </div>
+
+        <div class="post-taglist grid gs4 gsy fd-column">
+            <div class="grid ps-relative d-block">
+                <a href="https://stackoverflow.com/questions/tagged/php" class="post-tag js-gps-track" title="show questions tagged 'php'" rel="tag">php</a> <a href="https://stackoverflow.com/questions/tagged/csv" class="post-tag js-gps-track" title="show questions tagged 'csv'" rel="tag">csv</a> <a href="https://stackoverflow.com/questions/tagged/laravel" class="post-tag js-gps-track" title="show questions tagged 'laravel'" rel="tag">laravel</a> <a href="https://stackoverflow.com/questions/tagged/laravel-5" class="post-tag js-gps-track" title="show questions tagged 'laravel-5'" rel="tag">laravel-5</a> 
+            </div>
+        </div>
+
+    <div class="mb0 ">
+        <div class="mt16 pt4 grid gs8 gsy fw-wrap jc-end ai-start">
+            <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://stackoverflow.com/q/32441327/7925405" title="short permalink to this question" class="short-link" itemprop="url" id="link-post-32441327">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/32441327/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="32441327">flag</a></div>
+            </div>
+
+                <div class="post-signature grid--cell">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/32441327/revisions" title="show all edits to this post">edited <span title="2015-09-07 15:01:57Z" class="relativetime">Sep 7 '15 at 15:01</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/3512867/spenibus"><div class="gravatar-wrapper-32"><img src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/GViwV.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/3512867/spenibus">spenibus</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,734</span><span title="11 gold badges"><span class="badge1"></span><span class="badgecount">11</span></span><span title="18 silver badges"><span class="badge2"></span><span class="badgecount">18</span></span><span title="30 bronze badges"><span class="badge3"></span><span class="badgecount">30</span></span>
+        </div>
+    </div>
+</div>                </div>
+            <div class="post-signature owner grid--cell">
+<div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2015-09-07 14:46:46Z" class="relativetime">Sep 7 '15 at 14:46</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/4703461/matthew-smart"><div class="gravatar-wrapper-32"><img src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/9e4d884d19e81616f7f0125a994eaf6d.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://stackoverflow.com/users/4703461/matthew-smart">Matthew Smart</a><span class="d-none" itemprop="name">Matthew Smart</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">466</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="9 silver badges"><span class="badge2"></span><span class="badgecount">9</span></span><span title="30 bronze badges"><span class="badge3"></span><span class="badgecount">30</span></span>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+    
+</div>
+                
+    <div class="post-layout--right">
+	    <div id="comments-32441327" class="comments js-comments-container " data-post-id="32441327">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
+
+
+    <li id="comment-52747020" class="comment js-comment " data-comment-id="52747020">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">AFAIK this is not working 
+because you are calling this feature using Ajax and ajax may not be 
+supporting download headers. Is there any specific requirement to use 
+ajax? I guess you can directly call that script and set appropriate 
+headers so it should be on same page and CSV will get generate.</span>
+                
+                    –&nbsp;<a href="https://stackoverflow.com/users/1109902/yogesh" title="768 reputation" class="comment-user">Yogesh</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment52747020_32441327"><span title="2015-09-07 15:05:04Z" class="relativetime-clean">Sep 7 '15 at 15:05</span></a></span>
+                        <span title="this comment was edited 1 time">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="14" viewBox="0 0 14 14"><path d="M8.37 3.7L2 10.11V12h1.88l6.37-6.43zM12.23 2.83L11.1 1.71a.5.5 0 0 0-.7 0L9.2 2.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z"></path></svg>
+                        </span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-52747424" class="comment js-comment " data-comment-id="52747424">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">I just prefer using ajax as it doesn't make the page reload. Looks better</span>
+                
+                    –&nbsp;<a href="https://stackoverflow.com/users/4703461/matthew-smart" title="466 reputation" class="comment-user owner">Matthew Smart</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment52747424_32441327"><span title="2015-09-07 15:18:13Z" class="relativetime-clean">Sep 7 '15 at 15:18</span></a></span>
+                                                            </div>
+        </div>
+    </li>
+            </ul>
+				<div class="comment-form">
+					<form id="add-comment-32441327" class="" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></form>
+				</div>
+	    </div>
+
+        <div id="comments-link-32441327">
+
+                <a class="js-add-link comments-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments." href="#">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </div>              <div class="bounty-notification post-layout--right">
+          <div style="margin-top:20px">
+            <a class="bounty-link bounty" title="offer some of your reputation for better answers">
+                start a bounty
+            </a>
+          </div>
+          </div>
+    </div>
+</div>
+
+
+
+            <div id="answers">
+
+                <a name="tab-top"></a>
+                <div id="answers-header">
+                    <div class="subheader answers-subheader">
+                        <h2 data-answercount="5">
+                                5 Answers
+                            <span style="display:none;" itemprop="answerCount">5</span>
+                        </h2>
+                        <div>
+                            
+<div id="tabs">
+        <a href="https://stackoverflow.com/questions/32441327/csv-export-in-laravel-5-controller?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="https://stackoverflow.com/questions/32441327/csv-export-in-laravel-5-controller?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere is-selected " href="https://stackoverflow.com/questions/32441327/csv-export-in-laravel-5-controller?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+    </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+  
+<a name="32441846"></a>
+<div id="answer-32441846" class="answer accepted-answer" data-answerid="32441846" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="32441846">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10z"></path></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="28">28</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26z"></path></svg></button>
+
+
+                <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted"><svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8z"></path></svg></div>
+
+</div>
+
+            </div>
+            
+
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<p>Try this version out - this should allow you to get a nice output using <code>Response::stream()</code>.</p>
+
+<pre class="lang-php prettyprint prettyprinted" style=""><code><span class="kwd">public</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="kwd">export</span><span class="pun">()</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    $headers </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">(</span><span class="pln">
+        </span><span class="str">"Content-type"</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"text/csv"</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">"Content-Disposition"</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"attachment; filename=file.csv"</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">"Pragma"</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"no-cache"</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">"Cache-Control"</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"must-revalidate, post-check=0, pre-check=0"</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">"Expires"</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"0"</span><span class="pln">
+    </span><span class="pun">);</span><span class="pln">
+
+    $reviews </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Reviews</span><span class="pun">::</span><span class="pln">getReviewExport</span><span class="pun">(</span><span class="pln">$this</span><span class="pun">-&gt;</span><span class="pln">hw</span><span class="pun">-&gt;</span><span class="pln">healthwatchID</span><span class="pun">)-&gt;</span><span class="kwd">get</span><span class="pun">();</span><span class="pln">
+    $columns </span><span class="pun">=</span><span class="pln"> array</span><span class="pun">(</span><span class="str">'ReviewID'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Provider'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Title'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Review'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Location'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Created'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Anonymous'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Escalate'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Rating'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Name'</span><span class="pun">);</span><span class="pln">
+
+    $callback </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="kwd">use</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$reviews</span><span class="pun">,</span><span class="pln"> $columns</span><span class="pun">)</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+        $file </span><span class="pun">=</span><span class="pln"> fopen</span><span class="pun">(</span><span class="str">'php://output'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'w'</span><span class="pun">);</span><span class="pln">
+        fputcsv</span><span class="pun">(</span><span class="pln">$file</span><span class="pun">,</span><span class="pln"> $columns</span><span class="pun">);</span><span class="pln">
+
+        </span><span class="kwd">foreach</span><span class="pun">(</span><span class="pln">$reviews </span><span class="kwd">as</span><span class="pln"> $review</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            fputcsv</span><span class="pun">(</span><span class="pln">$file</span><span class="pun">,</span><span class="pln"> array</span><span class="pun">(</span><span class="pln">$review</span><span class="pun">-&gt;</span><span class="pln">reviewID</span><span class="pun">,</span><span class="pln"> $review</span><span class="pun">-&gt;</span><span class="pln">provider</span><span class="pun">,</span><span class="pln"> $review</span><span class="pun">-&gt;</span><span class="pln">title</span><span class="pun">,</span><span class="pln"> $review</span><span class="pun">-&gt;</span><span class="pln">review</span><span class="pun">,</span><span class="pln"> $review</span><span class="pun">-&gt;</span><span class="pln">location</span><span class="pun">,</span><span class="pln"> $review</span><span class="pun">-&gt;</span><span class="pln">review_created</span><span class="pun">,</span><span class="pln"> $review</span><span class="pun">-&gt;</span><span class="pln">anon</span><span class="pun">,</span><span class="pln"> $review</span><span class="pun">-&gt;</span><span class="pln">escalate</span><span class="pun">,</span><span class="pln"> $review</span><span class="pun">-&gt;</span><span class="pln">rating</span><span class="pun">,</span><span class="pln"> $review</span><span class="pun">-&gt;</span><span class="pln">name</span><span class="pun">));</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+        fclose</span><span class="pun">(</span><span class="pln">$file</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">};</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="typ">Response</span><span class="pun">::</span><span class="pln">stream</span><span class="pun">(</span><span class="pln">$callback</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> $headers</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>(Adapted from this SO answer: <a href="https://stackoverflow.com/questions/26146719/use-laravel-to-download-table-as-csv/27596496#27596496">Use Laravel to Download table as CSV</a>)</p>
+
+<p>Try using a regular link with <code>target="_blank"</code> rather 
+than using JavaScript/AJAX. Because it's a file download opening in a 
+new tab, the user experience shouldn't be too clunky.</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2015-09-07T15:18:13"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://stackoverflow.com/a/32441846/7925405" title="short permalink to this answer" class="short-link" itemprop="url" id="link-post-32441846">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/32441846/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="32441846">flag</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/32441846/revisions" title="show all edits to this post">edited <span title="2017-07-16 02:50:27Z" class="relativetime">Jul 16 '17 at 2:50</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/1128918/gustavo-straube"><div class="gravatar-wrapper-32"><img src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/a38e69aa3cb0b30d0cde69001302c076.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/1128918/gustavo-straube">Gustavo Straube</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">2,686</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="23 silver badges"><span class="badge2"></span><span class="badgecount">23</span></span><span title="40 bronze badges"><span class="badge3"></span><span class="badgecount">40</span></span>
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2015-09-07 15:18:13Z" class="relativetime">Sep 7 '15 at 15:18</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/1805328/nerdwood"><div class="gravatar-wrapper-32"><img src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/HRiN2.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://stackoverflow.com/users/1805328/nerdwood">Nerdwood</a><span class="d-none" itemprop="name">Nerdwood</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">2,998</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="13 silver badges"><span class="badge2"></span><span class="badgecount">13</span></span><span title="15 bronze badges"><span class="badge3"></span><span class="badgecount">15</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+    
+    <div class="post-layout--right">
+	    <div id="comments-32441846" class="comments js-comments-container " data-post-id="32441846">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="6" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
+
+
+    <li id="comment-52747515" class="comment js-comment " data-comment-id="52747515">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">this gives me the error: FatalErrorException in ReviewsController.php line 90: syntax error, unexpected 'return' (T_RETURN)</span>
+                
+                    –&nbsp;<a href="https://stackoverflow.com/users/4703461/matthew-smart" title="466 reputation" class="comment-user owner">Matthew Smart</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment52747515_32441846"><span title="2015-09-07 15:20:50Z" class="relativetime-clean">Sep 7 '15 at 15:20</span></a></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-52747574" class="comment js-comment " data-comment-id="52747574">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Missing semicolon after the closure definition (right before the <code>return</code>)! Sorry.  :S</span>
+                
+                    –&nbsp;<a href="https://stackoverflow.com/users/1805328/nerdwood" title="2,998 reputation" class="comment-user">Nerdwood</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment52747574_32441846"><span title="2015-09-07 15:22:59Z" class="relativetime-clean">Sep 7 '15 at 15:22</span></a></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-52747658" class="comment js-comment " data-comment-id="52747658">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">ok it doesnt error now, but 
+it just does the same thing my code did. Returns the correct format and 
+logs it in the console. but does not force a download</span>
+                
+                    –&nbsp;<a href="https://stackoverflow.com/users/4703461/matthew-smart" title="466 reputation" class="comment-user owner">Matthew Smart</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment52747658_32441846"><span title="2015-09-07 15:25:46Z" class="relativetime-clean">Sep 7 '15 at 15:25</span></a></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-77179427" class="comment js-comment " data-comment-id="77179427">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of 'useful comment' votes received" class="cool">1</span>
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Hey, @Nerdwood. I've just edited your answer to add the missing file handler when calling <code>fclose</code>. I tried your solution with L5.4 and got an error due to that. After adding that, it worked like a charm. :)</span>
+                
+                    –&nbsp;<a href="https://stackoverflow.com/users/1128918/gustavo-straube" title="2,686 reputation" class="comment-user">Gustavo Straube</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment77179427_32441846"><span title="2017-07-14 13:27:32Z" class="relativetime-clean">Jul 14 '17 at 13:27</span></a></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-85070477" class="comment js-comment " data-comment-id="85070477">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+                    <span title="number of 'useful comment' votes received" class="cool">1</span>
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">Newer versions of Laravel removed the <code>Response::stream()</code> function. Instead, use <code>response()-&gt;stream($callback, 200, $headers);</code></span>
+                
+                    –&nbsp;<a href="https://stackoverflow.com/users/1000626/cjxd" title="2,072 reputation" class="comment-user">CJxD</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment85070477_32441846"><span title="2018-02-28 15:20:52Z" class="relativetime-clean">Feb 28 '18 at 15:20</span></a></span>
+                                                            </div>
+        </div>
+    </li>
+            </ul>
+				<div class="comment-form">
+					<form id="add-comment-32441846" class="" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></form>
+				</div>
+	    </div>
+
+        <div id="comments-link-32441846">
+
+                <a class="js-add-link comments-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." href="#">add a comment</a><span class="js-link-separator ">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="#" onclick="">show <b>6</b> more comments</a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="39671718"></a>
+<div id="answer-39671718" class="answer" data-answerid="39671718" itemprop="suggestedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="39671718">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10z"></path></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="2">2</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26z"></path></svg></button>
+
+
+                <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4 d-none" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted"><svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8z"></path></svg></div>
+
+</div>
+
+            </div>
+            
+
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<p>This may not answer your question directly, but I'm using a package called '<a href="https://github.com/thephpleague/csv" rel="nofollow">thephpleague/csv</a>' for this purpose...</p>
+
+<p>To use this package:</p>
+
+<ol>
+<li>composer require league/csv</li>
+<li><p>Put the following 'use' statements in your controller:</p>
+
+<pre class="lang-php prettyprint prettyprinted" style=""><code><span class="kwd">use</span><span class="pln"> </span><span class="typ">Illuminate</span><span class="pln">\Database\Eloquent\Collection</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">use</span><span class="pln"> </span><span class="typ">League</span><span class="pln">\Csv\Writer</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">use</span><span class="pln"> </span><span class="typ">Schema</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">use</span><span class="pln"> </span><span class="typ">SplTempFileObject</span><span class="pun">;</span></code></pre>
+
+<p>and any model classes you plan on using.</p></li>
+<li><p>Abstract CSV creating code to a function (in your controller), e.g:</p>
+
+<pre class="lang-php prettyprint prettyprinted" style=""><code><span class="com">/**
+ * A function to generate a CSV for a given model collection.
+ *
+ * @param Collection $modelCollection
+ * @param $tableName
+ */</span><span class="pln">
+</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> createCsv</span><span class="pun">(</span><span class="typ">Collection</span><span class="pln"> $modelCollection</span><span class="pun">,</span><span class="pln"> $tableName</span><span class="pun">){</span><span class="pln">
+
+    $csv </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Writer</span><span class="pun">::</span><span class="pln">createFromFileObject</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">SplTempFileObject</span><span class="pun">());</span><span class="pln">
+
+    </span><span class="com">// This creates header columns in the CSV file - probably not needed in some cases.</span><span class="pln">
+    $csv</span><span class="pun">-&gt;</span><span class="pln">insertOne</span><span class="pun">(</span><span class="typ">Schema</span><span class="pun">::</span><span class="pln">getColumnListing</span><span class="pun">(</span><span class="pln">$tableName</span><span class="pun">));</span><span class="pln">
+
+    </span><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$modelCollection </span><span class="kwd">as</span><span class="pln"> $data</span><span class="pun">){</span><span class="pln">
+        $csv</span><span class="pun">-&gt;</span><span class="pln">insertOne</span><span class="pun">(</span><span class="pln">$data</span><span class="pun">-&gt;</span><span class="pln">toArray</span><span class="pun">());</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    $csv</span><span class="pun">-&gt;</span><span class="pln">output</span><span class="pun">(</span><span class="pln">$tableName </span><span class="pun">.</span><span class="pln"> </span><span class="str">'.csv'</span><span class="pun">);</span><span class="pln">
+
+</span><span class="pun">}</span></code></pre></li>
+<li><p>In your controller, create get function to retrieve/download CSV (replace 'MainMeta' with your own model class):</p>
+
+<pre class="lang-php prettyprint prettyprinted" style=""><code><span class="kwd">public</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> getMainMetaData</span><span class="pun">(){</span><span class="pln">
+
+    $mainMeta </span><span class="pun">=</span><span class="pln"> </span><span class="typ">MainMeta</span><span class="pun">::</span><span class="pln">all</span><span class="pun">();</span><span class="pln">
+
+    </span><span class="com">// Note: $mainMeta is a Collection object </span><span class="pln">
+    </span><span class="com">//(returning a 'collection' of data from using 'all()' function), </span><span class="pln">
+    </span><span class="com">//so can be passed in below.</span><span class="pln">
+    $this</span><span class="pun">-&gt;</span><span class="pln">createCsv</span><span class="pun">(</span><span class="pln">$mainMeta</span><span class="pun">,</span><span class="pln"> </span><span class="str">'main_meta'</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>When you create a route to call this function, it will download a CSV
+ file in your browser, of your chosen Model collection/data.</p></li>
+<li><p>Create a route in App\Http\routes.php like the following:</p>
+
+<pre class="lang-php prettyprint prettyprinted" style=""><code><span class="typ">Route</span><span class="pun">::</span><span class="kwd">get</span><span class="pun">(</span><span class="pln">
+    </span><span class="str">'/data/download/main_meta'</span><span class="pun">,</span><span class="pln">
+    </span><span class="pun">[</span><span class="pln">
+        </span><span class="str">'as'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'data/download/main_meta'</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">'uses'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'YourController@getMainMetaData'</span><span class="pln">
+    </span><span class="pun">]</span><span class="pln">
+</span><span class="pun">);</span></code></pre></li>
+<li><p>(Optional) In a blade view file (e.g. data.blade.php), include a link or button so you can easily access the download url/route:</p>
+
+<pre class="lang-php prettyprint prettyprinted" style=""><code><span class="tag">&lt;p&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"{{ URL::route('data/download/main_meta') }}"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btn btn-lg btn-primary pull-left"</span><span class="tag">&gt;</span><span class="pln">Download Main Meta Data</span><span class="tag">&lt;/a&gt;&lt;/p&gt;</span></code></pre>
+
+<p>When you click on the link, the CSV file will be downloaded in your 
+browser. In an application I have coded, you will stay on the page you 
+click this link.</p></li>
+</ol>
+
+<p>Of course, this will differ depending on your own application. There 
+is so much more you can do with this package (full documentation is at <a href="http://csv.thephpleague.com/" rel="nofollow">http://csv.thephpleague.com/</a>). The project I am using this in is at <a href="https://github.com/rattfieldnz/bitcoin-faucet-rotator" rel="nofollow">https://github.com/rattfieldnz/bitcoin-faucet-rotator</a>
+ - I have just started coding on it again after a few months away, so 
+still have a bit of refactoring/testing/tidying up to do :).</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2016-09-24T01:44:09"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://stackoverflow.com/a/39671718/7925405" title="short permalink to this answer" class="short-link" itemprop="url" id="link-post-39671718">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/39671718/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="39671718">flag</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2016-09-24 01:44:09Z" class="relativetime">Sep 24 '16 at 1:44</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/678629/rob"><div class="gravatar-wrapper-32"><img src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/ABaXM.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://stackoverflow.com/users/678629/rob">Rob</a><span class="d-none" itemprop="name">Rob</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">772</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="16 silver badges"><span class="badge2"></span><span class="badgecount">16</span></span><span title="32 bronze badges"><span class="badge3"></span><span class="badgecount">32</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+    
+    <div class="post-layout--right">
+	    <div id="comments-39671718" class="comments js-comments-container  dno" data-post-id="39671718">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
+
+            </ul>
+				<div class="comment-form">
+					<form id="add-comment-39671718" class="" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></form>
+				</div>
+	    </div>
+
+        <div id="comments-link-39671718">
+
+                <a class="js-add-link comments-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." href="#">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="55033492"></a>
+<div id="answer-55033492" class="answer" data-answerid="55033492" itemprop="suggestedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="55033492">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10z"></path></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="1">1</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26z"></path></svg></button>
+
+
+                <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4 d-none" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted"><svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8z"></path></svg></div>
+
+</div>
+
+            </div>
+            
+
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<h2>My approach in Laravel 5.7</h2>
+
+<pre class="lang-php prettyprint prettyprinted" style=""><code><span class="com">/**
+ * @param array $columnNames
+ * @param array $rows
+ * @param string $fileName
+ * @return \Symfony\Component\HttpFoundation\StreamedResponse
+ */</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> getCsv</span><span class="pun">(</span><span class="pln">$columnNames</span><span class="pun">,</span><span class="pln"> $rows</span><span class="pun">,</span><span class="pln"> $fileName </span><span class="pun">=</span><span class="pln"> </span><span class="str">'file.csv'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    $headers </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="str">"Content-type"</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"text/csv"</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">"Content-Disposition"</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"attachment; filename="</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> $fileName</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">"Pragma"</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"no-cache"</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">"Cache-Control"</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"must-revalidate, post-check=0, pre-check=0"</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">"Expires"</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"0"</span><span class="pln">
+    </span><span class="pun">];</span><span class="pln">
+    $callback </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="kwd">use</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$columnNames</span><span class="pun">,</span><span class="pln"> $rows </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        $file </span><span class="pun">=</span><span class="pln"> fopen</span><span class="pun">(</span><span class="str">'php://output'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'w'</span><span class="pun">);</span><span class="pln">
+        fputcsv</span><span class="pun">(</span><span class="pln">$file</span><span class="pun">,</span><span class="pln"> $columnNames</span><span class="pun">);</span><span class="pln">
+        </span><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$rows </span><span class="kwd">as</span><span class="pln"> $row</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            fputcsv</span><span class="pun">(</span><span class="pln">$file</span><span class="pun">,</span><span class="pln"> $row</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+        fclose</span><span class="pun">(</span><span class="pln">$file</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">};</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> response</span><span class="pun">()-&gt;</span><span class="pln">stream</span><span class="pun">(</span><span class="pln">$callback</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> $headers</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> someOtherControllerFunction</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    $rows </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[[</span><span class="str">'a'</span><span class="pun">,</span><span class="str">'b'</span><span class="pun">,</span><span class="str">'c'</span><span class="pun">],[</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">]];</span><span class="com">//replace this with your own array of arrays</span><span class="pln">
+    $columnNames </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'blah'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'yada'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'hmm'</span><span class="pun">];</span><span class="com">//replace this with your own array of string column headers        </span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">self</span><span class="pun">::</span><span class="pln">getCsv</span><span class="pun">(</span><span class="pln">$columnNames</span><span class="pun">,</span><span class="pln"> $rows</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2019-03-06T22:53:11"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://stackoverflow.com/a/55033492/7925405" title="short permalink to this answer" class="short-link" itemprop="url" id="link-post-55033492">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/55033492/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="55033492">flag</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2019-03-06 22:53:11Z" class="relativetime">Mar 6 at 22:53</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/470749/ryan"><div class="gravatar-wrapper-32"><img src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/BxOOa.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://stackoverflow.com/users/470749/ryan">Ryan</a><span class="d-none" itemprop="name">Ryan</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">9,024</span><span title="8 gold badges"><span class="badge1"></span><span class="badgecount">8</span></span><span title="66 silver badges"><span class="badge2"></span><span class="badgecount">66</span></span><span title="163 bronze badges"><span class="badge3"></span><span class="badgecount">163</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+    
+    <div class="post-layout--right">
+	    <div id="comments-55033492" class="comments js-comments-container  dno" data-post-id="55033492">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
+
+            </ul>
+				<div class="comment-form">
+					<form id="add-comment-55033492" class="" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></form>
+				</div>
+	    </div>
+
+        <div id="comments-link-55033492">
+
+                <a class="js-add-link comments-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." href="#">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="43542852"></a>
+<div id="answer-43542852" class="answer" data-answerid="43542852" itemprop="suggestedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="43542852">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10z"></path></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="1">1</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26z"></path></svg></button>
+
+
+                <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4 d-none" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted"><svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8z"></path></svg></div>
+
+</div>
+
+            </div>
+            
+
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<p>Try this:</p>
+
+<pre class="lang-php prettyprint prettyprinted" style=""><code><span class="pun">&lt;?</span><span class="pln">php
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> download</span><span class="pun">()</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    $headers </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+            </span><span class="str">'Cache-Control'</span><span class="pln">       </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'must-revalidate, post-check=0, pre-check=0'</span><span class="pln">
+        </span><span class="pun">,</span><span class="pln">   </span><span class="str">'Content-type'</span><span class="pln">        </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'text/csv'</span><span class="pln">
+        </span><span class="pun">,</span><span class="pln">   </span><span class="str">'Content-Disposition'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'attachment; filename=galleries.csv'</span><span class="pln">
+        </span><span class="pun">,</span><span class="pln">   </span><span class="str">'Expires'</span><span class="pln">             </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'0'</span><span class="pln">
+        </span><span class="pun">,</span><span class="pln">   </span><span class="str">'Pragma'</span><span class="pln">              </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">'public'</span><span class="pln">
+    </span><span class="pun">];</span><span class="pln">
+
+    $list </span><span class="pun">=</span><span class="pln"> </span><span class="typ">User</span><span class="pun">::</span><span class="pln">all</span><span class="pun">()-&gt;</span><span class="pln">toArray</span><span class="pun">();</span><span class="pln">
+
+    </span><span class="com"># add headers for each column in the CSV download</span><span class="pln">
+    array_unshift</span><span class="pun">(</span><span class="pln">$list</span><span class="pun">,</span><span class="pln"> array_keys</span><span class="pun">(</span><span class="pln">$list</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]));</span><span class="pln">
+
+   $callback </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="kwd">use</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$list</span><span class="pun">)</span><span class="pln"> 
+    </span><span class="pun">{</span><span class="pln">
+        $FH </span><span class="pun">=</span><span class="pln"> fopen</span><span class="pun">(</span><span class="str">'php://output'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'w'</span><span class="pun">);</span><span class="pln">
+        </span><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$list </span><span class="kwd">as</span><span class="pln"> $row</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> 
+            fputcsv</span><span class="pun">(</span><span class="pln">$FH</span><span class="pun">,</span><span class="pln"> $row</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+        fclose</span><span class="pun">(</span><span class="pln">$FH</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">};</span><span class="pln">
+
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="typ">Response</span><span class="pun">::</span><span class="pln">stream</span><span class="pun">(</span><span class="pln">$callback</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> $headers</span><span class="pun">);</span><span class="pln"> </span><span class="com">//use Illuminate\Support\Facades\Response;</span><span class="pln">
+
+</span><span class="pun">}</span></code></pre>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2017-04-21T12:33:06"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://stackoverflow.com/a/43542852/7925405" title="short permalink to this answer" class="short-link" itemprop="url" id="link-post-43542852">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/43542852/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="43542852">flag</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/43542852/revisions" title="show all edits to this post">edited <span title="2018-01-16 03:13:29Z" class="relativetime">Jan 16 '18 at 3:13</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/248616/nam-g-vu"><div class="gravatar-wrapper-32"><img src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/c0813ef73a1a468d754775e4cb276abe.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/248616/nam-g-vu">Nam G VU</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 13,691" dir="ltr">13.7k</span><span title="49 gold badges"><span class="badge1"></span><span class="badgecount">49</span></span><span title="162 silver badges"><span class="badge2"></span><span class="badgecount">162</span></span><span title="288 bronze badges"><span class="badge3"></span><span class="badgecount">288</span></span>
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2017-04-21 12:33:06Z" class="relativetime">Apr 21 '17 at 12:33</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/571410/luca-c"><div class="gravatar-wrapper-32"><img src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/Jld5i.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://stackoverflow.com/users/571410/luca-c">Luca C.</a><span class="d-none" itemprop="name">Luca C.</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,790</span><span title="42 silver badges"><span class="badge2"></span><span class="badgecount">42</span></span><span title="41 bronze badges"><span class="badge3"></span><span class="badgecount">41</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+    
+    <div class="post-layout--right">
+	    <div id="comments-43542852" class="comments js-comments-container " data-post-id="43542852">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
+
+
+    <li id="comment-79515217" class="comment js-comment " data-comment-id="79515217">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy"><i>Array to string conversion</i> at <code>fputcsv($FH, $row);</code></span>
+                
+                    –&nbsp;<a href="https://stackoverflow.com/users/5732802/ho%c3%a0ng-%c4%90%c4%83ng" title="329 reputation" class="comment-user">Hoàng Đăng</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment79515217_43542852"><span title="2017-09-18 09:48:32Z" class="relativetime-clean">Sep 18 '17 at 9:48</span></a></span>
+                                                            </div>
+        </div>
+    </li>
+    <li id="comment-79569002" class="comment js-comment " data-comment-id="79569002">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score js-comment-edit-hide">
+            </div>
+                <div class="comment-voting mtn2 js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
+                        </a>
+                </div>
+                            <div class="comment-flagging js-comment-edit-hide">
+                        <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
+                        </a>
+                </div>
+        </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body js-comment-edit-hide">
+                
+                <span class="comment-copy">hello @HoàngĐăng , it worked 
+in my project, maybe was a previous PHP/Laravel version, if you find the
+ issue you could correct the answer thank you</span>
+                
+                    –&nbsp;<a href="https://stackoverflow.com/users/571410/luca-c" title="3,790 reputation" class="comment-user">Luca C.</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment79569002_43542852"><span title="2017-09-19 14:40:39Z" class="relativetime-clean">Sep 19 '17 at 14:40</span></a></span>
+                                                            </div>
+        </div>
+    </li>
+            </ul>
+				<div class="comment-form">
+					<form id="add-comment-43542852" class="" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></form>
+				</div>
+	    </div>
+
+        <div id="comments-link-43542852">
+
+                <a class="js-add-link comments-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." href="#">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="54526119"></a>
+<div id="answer-54526119" class="answer" data-answerid="54526119" itemprop="suggestedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="js-voting-container grid fd-column ai-stretch gs4 fc-black-200" data-post-id="54526119">
+        <button class="js-vote-up-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is useful" aria-pressed="false" aria-label="up vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 26h32L18 10z"></path></svg></button>
+        <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center" itemprop="upvoteCount" data-value="0">0</div>
+        <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer" title="This answer is not useful" aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg aria-hidden="true" class="svg-icon m0 iconArrowDownLg" width="36" height="36" viewBox="0 0 36 36"><path d="M2 10h32L18 26z"></path></svg></button>
+
+
+                <div class="js-accepted-answer-indicator grid--item fc-green-500 ta-center p4 d-none" title="loading when this answer was accepted..." tabindex="0" role="note" aria-label="accepted"><svg aria-hidden="true" class="svg-icon iconCheckmarkLg" width="36" height="36" viewBox="0 0 36 36"><path d="M6 14l8 8L30 6v8L14 30l-8-8z"></path></svg></div>
+
+</div>
+
+            </div>
+            
+
+<div class="answercell post-layout--right">
+    
+    <div class="post-text" itemprop="text">
+<p>I have made a little package <a href="https://github.com/Eugene-Melbourne/laravel-csv-generator" rel="nofollow noreferrer">LaravelCsvGenerator</a></p>
+
+<p>and placed it on <a href="https://packagist.org/packages/eugene-melbourne/laravel-csv-generator" rel="nofollow noreferrer">packagist</a></p>
+
+<p>Installation</p>
+
+<pre class="lang-php prettyprint prettyprinted" style=""><code><span class="pln">$ composer </span><span class="kwd">require</span><span class="pln">  eugene</span><span class="pun">-</span><span class="pln">melbourne</span><span class="pun">/</span><span class="pln">laravel</span><span class="pun">-</span><span class="pln">csv</span><span class="pun">-</span><span class="pln">generator</span></code></pre>
+
+<p>example of use in your controller </p>
+
+<pre class="lang-php prettyprint prettyprinted" style=""><code><span class="kwd">class</span><span class="pln"> </span><span class="typ">MyController</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Controller</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> getCsv</span><span class="pun">():</span><span class="pln"> \Symfony\Component\HttpFoundation\StreamedResponse
+    </span><span class="pun">{</span><span class="pln">
+        $data    </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+                </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2.1</span><span class="pun">],</span><span class="pln">
+                </span><span class="pun">[</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="str">"hi, there"</span><span class="pun">],</span><span class="pln">
+            </span><span class="pun">];</span><span class="pln">
+        $headers </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'one'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'two'</span><span class="pun">];</span><span class="pln">
+        $data </span><span class="pun">=</span><span class="pln"> array_merge</span><span class="pun">([</span><span class="pln">$headers</span><span class="pun">],</span><span class="pln"> $data</span><span class="pun">);</span><span class="pln">
+
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> \LaravelCsvGenerator\LaravelCsvGenerator</span><span class="pun">())</span><span class="pln">
+                </span><span class="pun">-&gt;</span><span class="pln">setData</span><span class="pun">(</span><span class="pln">$data</span><span class="pun">)</span><span class="pln">
+                </span><span class="pun">-&gt;</span><span class="pln">renderStream</span><span class="pun">();</span><span class="pln">
+    </span><span class="pun">}</span></code></pre>
+
+<p>Please, do not hesitate to comment your ideas below this answer.</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+        <time itemprop="dateCreated" datetime="2019-02-05T00:08:03"></time>
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="https://stackoverflow.com/a/54526119/7925405" title="short permalink to this answer" class="short-link" itemprop="url" id="link-post-54526119">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/54526119/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="54526119">flag</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/54526119/revisions" title="show all edits to this post">edited <span title="2019-02-05 04:16:33Z" class="relativetime">Feb 5 at 4:16</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2019-02-05 00:08:03Z" class="relativetime">Feb 5 at 0:08</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/2005680/yevgeniy-afanasyev"><div class="gravatar-wrapper-32"><img src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/picture.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <a href="https://stackoverflow.com/users/2005680/yevgeniy-afanasyev">Yevgeniy Afanasyev</a><span class="d-none" itemprop="name">Yevgeniy Afanasyev</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">9,286</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="58 silver badges"><span class="badge2"></span><span class="badgecount">58</span></span><span title="76 bronze badges"><span class="badge3"></span><span class="badgecount">76</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+    
+</div>
+
+    
+    <div class="post-layout--right">
+	    <div id="comments-54526119" class="comments js-comments-container  dno" data-post-id="54526119">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
+
+            </ul>
+				<div class="comment-form">
+					<form id="add-comment-54526119" class="" data-placeholdertext="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></form>
+				</div>
+	    </div>
+
+        <div id="comments-link-54526119">
+
+                <a class="js-add-link comments-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”." href="#">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+                                    <a name="new-answer"></a>
+                        <form id="post-form" action="/questions/32441327/answer/submit" method="post" class="post-form">
+                            <input type="hidden" id="post-id" value="32441327">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="https://www.google.com/">
+                            <h2 class="space">Your Answer</h2>
+
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        var channelOptions = {
+            tags: "".split(" "),
+            id: "1"
+        };
+        initTagRenderer("".split(" "), "".split(" "), channelOptions);
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                    autoActivateHeartbeat: false,
+                    convertImagesToLinks: false,
+                noModals: true,
+                showLowRepImageUploadWarning: false,
+                reputationToPostImages: null,
+                bindNavPrevention: true,
+                postfix: "",
+                imageUploader: {
+                    brandingHtml: "Powered by \u003ca class=\"icon-imgur-white\" href=\"https://imgur.com/\"\u003e\u003c/a\u003e",
+                    contentPolicyHtml: "User contributions licensed under \u003ca href=\"https://creativecommons.org/licenses/by-sa/3.0/\"\u003ecc by-sa 3.0 with attribution required\u003c/a\u003e \u003ca href=\"https://stackoverflow.com/legal/content-policy\"\u003e(content policy)\u003c/a\u003e",
+                    allowUrls: true
+                },
+                    onDemand: false,
+                    discardSelector: ".discard-answer"
+                    ,userId:7925405
+                    });
+                
+
+        }
+    });
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor js-wz-element" data-wz-state="8,16,32,64,128,256">
+
+    <div class="ps-relative"> 
+        <div class="wmd-container mb8">
+            <div id="wmd-button-bar" class="wmd-button-bar btr-sm"><ul id="wmd-button-row" class="wmd-button-row"><li class="wmd-button" id="wmd-bold-button" title="Strong &lt;strong&gt; Ctrl+B"><span style="background-position: 0px 0px;"></span></li><li class="wmd-button" id="wmd-italic-button" title="Emphasis &lt;em&gt; Ctrl+I"><span style="background-position: -20px 0px;"></span></li><li class="wmd-spacer wmd-spacer1" id="wmd-spacer1"></li><li class="wmd-button" id="wmd-link-button" title="Hyperlink &lt;a&gt; Ctrl+L"><span style="background-position: -40px 0px;"></span></li><li class="wmd-button" id="wmd-quote-button" title="Blockquote &lt;blockquote&gt; Ctrl+Q"><span style="background-position: -60px 0px;"></span></li><li class="wmd-button" id="wmd-code-button" title="Code Sample &lt;pre&gt;&lt;code&gt; Ctrl+K"><span style="background-position: -80px 0px;"></span></li><li class="wmd-button" id="wmd-image-button" title="Image &lt;img&gt; Ctrl+G"><span style="background-position: -100px 0px;"></span></li><li class="wmd-button wmd-snippet-button" id="wmd-snippet-button" title="JavaScript/HTML/CSS snippet Ctrl-M"><span style="background-image: url(&quot;/content/Shared/balsamiq/wmd-mockup-button.png&quot;);"></span></li><li class="wmd-spacer wmd-spacer2" id="wmd-spacer2"></li><li class="wmd-button" id="wmd-olist-button" title="Numbered List &lt;ol&gt; Ctrl+O"><span style="background-position: -120px 0px;"></span></li><li class="wmd-button" id="wmd-ulist-button" title="Bulleted List &lt;ul&gt; Ctrl+U"><span style="background-position: -140px 0px;"></span></li><li class="wmd-button" id="wmd-heading-button" title="Heading &lt;h1&gt;/&lt;h2&gt; Ctrl+H"><span style="background-position: -160px 0px;"></span></li><li class="wmd-button" id="wmd-hr-button" title="Horizontal Rule &lt;hr&gt; Ctrl+R"><span style="background-position: -180px 0px;"></span></li><li class="wmd-spacer wmd-spacer3" id="wmd-spacer3"></li><li class="wmd-button" id="wmd-undo-button" title="Undo - Ctrl+Z"><span style="background-position: -200px -20px;"></span></li><li class="wmd-button" id="wmd-redo-button" title="Redo - Ctrl+Y"><span style="background-position: -220px -20px;"></span></li><li class="wmd-spacer wmd-spacer-max"></li><li class="wmd-button wmd-help-button" id="wmd-help-button" style="right: 0px;" title="Markdown Editing Help"><span style="background-position: -240px 0px;"></span></li></ul></div>
+                        <div class="js-stacks-validation">
+                <div class="ps-relative">
+                    <textarea id="wmd-input" class="wmd-input js-wz-element s-input bar0 processed" name="post-text" cols="92" rows="15" tabindex="101" data-wz-state="256" data-min-length=""></textarea>
+                <div class="grippie bbr-sm" style="margin-right: 0px;"></div></div>
+                <div class="s-input-message mt4 d-none js-stacks-validation-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <aside class="grid ai-start jc-space-between js-answer-help s-notice s-notice__warning pb0 pr4 pt4 mb8 d-none" role="status" aria-hidden="true">
+    <div class="grid--cell pt8">
+        <p>Thanks for contributing an answer to Stack Overflow!</p><ul><li>Please be sure to <em>answer the question</em>. Provide details and share your research!</li></ul><p>But <em>avoid</em> …</p><ul><li>Asking for help, clarification, or responding to other answers.</li><li>Making statements based on opinion; back them up with references or personal experience.</li></ul><p>To learn more, see our <a href="https://stackoverflow.com/help/how-to-answer">tips on writing great answers</a>.</p>
+    </div>
+    <button class="grid--cell js-answer-help-close-btn s-btn s-btn__muted fc-dark">
+        <svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9z"></path></svg>
+    </button>
+</aside>
+
+
+    <div id="draft-saved" class="draft-saved community-option fl" style="height:24px; display:none;">draft saved</div>
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="height:24px; display:none;">draft discarded</div>
+
+    <div class="community-option g-row ai-center f-checkbox">
+        <div class="g-col -input">
+            <input id="communitymode" name="communitymode" type="checkbox">
+        </div>
+        <div class="g-col">
+            <label for="communitymode" class="f-label _small" title="Marking an answer community wiki encourages others to edit it by lowering the reputation barrier required to edit. However, you will not gain any upvote reputation from it. This cannot be undone.">community wiki</label>
+        </div>
+    </div>
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="75b2afc4b481f250d7e18dc9c9fc43ff921f10eff38a2631804dd7348ff1f7e4">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+
+                            <div class="ps-relative">
+                                
+                                
+                            </div>
+
+                                                            <div class="form-submit cbt grid gsx gs4">
+                                    <button id="submit-button" class="grid--cell s-btn s-btn__primary s-btn__icon" type="submit" tabindex="120" autocomplete="off">
+Post Your Answer                                    </button>
+                                    <button class="grid--cell s-btn s-btn__danger discard-answer dno">
+                                        Discard
+                                    </button>
+                                </div>
+                        </form>
+
+
+
+                        <h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?                            Browse other questions tagged <a href="https://stackoverflow.com/questions/tagged/php" class="post-tag" title="show questions tagged 'php'" rel="tag">php</a> <a href="https://stackoverflow.com/questions/tagged/csv" class="post-tag" title="show questions tagged 'csv'" rel="tag">csv</a> <a href="https://stackoverflow.com/questions/tagged/laravel" class="post-tag" title="show questions tagged 'laravel'" rel="tag">laravel</a> <a href="https://stackoverflow.com/questions/tagged/laravel-5" class="post-tag" title="show questions tagged 'laravel-5'" rel="tag">laravel-5</a>  or <a href="https://stackoverflow.com/questions/ask">ask your own question</a>.                        </h2>
+            </div>
+        </div>
+                <div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+                            <div class="module question-stats">
+                    <table id="qinfo">
+                        <tbody><tr>
+                            <td>
+                                <p class="label-key">asked</p>
+                            </td>
+                            <td style="padding-left: 10px">
+                                <p class="label-key" title="2015-09-07 14:46:46Z">
+                                    <b>
+                                        <time itemprop="dateCreated" datetime="2015-09-07T14:46:46">3 years, 6 months ago</time>
+                                    </b>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="label-key">viewed</p>
+                            </td>
+
+                            <td style="padding-left: 10px">
+                                <p class="label-key">
+                                    <b>33,250 times</b>
+                                </p>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td>
+                                    <p class="label-key">active</p>
+                                </td>
+                                <td style="padding-left: 10px">
+                                    <p class="label-key"><b><a href="https://stackoverflow.com/questions/32441327/csv-export-in-laravel-5-controller?lastactivity" class="lastactivity-link" title="2019-03-06 22:53:11Z">13 days ago</a></b></p>
+                                </td>
+                            </tr>
+                    </tbody></table>
+                </div>
+            <div class="module community-bulletin" data-tracker="cb=1">
+    <div class="related">
+                <div class="bulletin-title">
+                    Featured on Meta
+                </div>
+                <hr>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="https://meta.stackexchange.com/questions/325060/updating-the-hot-network-questions-list-now-with-a-bit-more-network-and-a-litt?cb=1" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackexchange.com/questions/325060/updating-the-hot-network-questions-list-now-with-a-bit-more-network-and-a-litt&quot;,null,null]">
+<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
+        </div>
+        <div class="bulletin-item-content">
+            <a href="https://meta.stackexchange.com/questions/325060/updating-the-hot-network-questions-list-now-with-a-bit-more-network-and-a-litt?cb=1" title="Updating the Hot Network Questions List - now with a bit more network and a little less &quot;hotness&quot;!" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackexchange.com/questions/325060/updating-the-hot-network-questions-list-now-with-a-bit-more-network-and-a-litt&quot;,null,null]">Updating the Hot Network Questions List - now with a bit more network and a…</a>
+        </div>
+        <br class="cbt">
+    </div>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="https://meta.stackoverflow.com/questions/381508/ux-research-time-march-2019-and-the-user-profile-and-settings?cb=1" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackoverflow.com/questions/381508/ux-research-time-march-2019-and-the-user-profile-and-settings&quot;,null,null]">
+<div class="favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>                </a>
+        </div>
+        <div class="bulletin-item-content">
+            <a href="https://meta.stackoverflow.com/questions/381508/ux-research-time-march-2019-and-the-user-profile-and-settings?cb=1" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackoverflow.com/questions/381508/ux-research-time-march-2019-and-the-user-profile-and-settings&quot;,null,null]">UX research time! March 2019 and the user profile and settings</a>
+        </div>
+        <br class="cbt">
+    </div>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="https://meta.stackoverflow.com/questions/381524/2019-community-moderator-election-results?cb=1" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackoverflow.com/questions/381524/2019-community-moderator-election-results&quot;,null,null]">
+<div class="favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>                </a>
+        </div>
+        <div class="bulletin-item-content">
+            <a href="https://meta.stackoverflow.com/questions/381524/2019-community-moderator-election-results?cb=1" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackoverflow.com/questions/381524/2019-community-moderator-election-results&quot;,null,null]">2019 Community Moderator Election Results</a>
+        </div>
+        <br class="cbt">
+    </div>
+                <div class="bulletin-title">
+                    Hot Meta Posts
+                </div>
+                <hr>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <span title="Vote score (upvotes - downvotes)">8</span>
+        </div>
+        <div class="bulletin-item-content">
+            <a href="https://meta.stackoverflow.com/questions/381546/why-are-some-job-ads-colored-differently?cb=1" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Hot Meta Posts&quot;,&quot;https://meta.stackoverflow.com/questions/381546/why-are-some-job-ads-colored-differently&quot;,null,null]">Why are some job ads colored differently?</a>
+        </div>
+        <br class="cbt">
+    </div>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <span title="Vote score (upvotes - downvotes)">23</span>
+        </div>
+        <div class="bulletin-item-content">
+            <a href="https://meta.stackoverflow.com/questions/381480/why-cant-i-flag-an-accepted-answer-with-100-up-votes?cb=1" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Hot Meta Posts&quot;,&quot;https://meta.stackoverflow.com/questions/381480/why-cant-i-flag-an-accepted-answer-with-100-up-votes&quot;,null,null]">Why can't I flag an accepted answer with 100 up-votes?</a>
+        </div>
+        <br class="cbt">
+    </div>
+    </div>
+</div>
+<div id="dfp-tsb" class="everyonelovesstackoverflow everyoneloves__top-sidebar" data-clc-stalled="true" style="" data-google-query-id="CJyG5Pz2kOECFcor4AodR2gJog"><div id="google_ads_iframe_/248424177/stackoverflow.com/sb/question-pages_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/248424177/stackoverflow.com/sb/question-pages_0" title="3rd party ad content" name="google_ads_iframe_/248424177/stackoverflow.com/sb/question-pages_0" scrolling="no" marginwidth="0" marginheight="0" style="border: 0px none; vertical-align: bottom;" srcdoc="" data-google-container-id="1" data-load-complete="true" width="300" height="250" frameborder="0"></iframe></div></div>
+            <div id="hireme"></div>
+<script>;try{(function(a){function b(a){return'string'==typeof a?document.getElementById(a):a}function c(a){return a=b(a),!!a&&'none'===getComputedStyle(a).display}function d(a){return!c(a)}function e(a){return!!a}function f(a){return /^\s*$/.test(b(a).innerHTML)}function g(a){var b=a.style;b.height=b.maxHeight=b.minHeight='auto',b.display='none',[].forEach.call(a.children,g)}function h(a,b){var c;return function(){return a&&(c=a.call(b||this,arguments),a=null),c}}function i(a){var b=document.createElement('script');b.src=a,document.body.appendChild(b)}function j(a){return k([],a)}function k(a,b){return a.push=function(a){return b(),delete this.push,this.push(a)},a}function l(){try{return!new Function('return async()=>{};')}catch(a){return!0}}function m(){return'undefined'!=typeof googletag&&!!googletag.apiReady}function n(){m()||(googletag={cmd:j(A)})}function o(){var a=document.createElement('div');a.className='adsbox',a.id='clc-abd',a.style.position='absolute',a.style.pointerEvents='none',a.innerHTML='&nbsp;',document.body.appendChild(a)}function p(a){var b=a.serviceName,c=a.slot,d=a.lineItemId;try{var e=c.getSlotElementId(),f=[];e||f.push('id=0');var h=document.getElementById(e);if(!e||h?h.hasAttribute('data-clc-stalled')&&f.push('st=1'):f.push('el=0'),0!==f.length)return void B(f.join('&'));-1===x.dh.indexOf(d)?h.setAttribute('data-clc-prefilled','true'):g(h),h.setAttribute('data-clc-ready','true')}catch(a){var i=document.querySelector('#dfp-tsb, #dfp-isb, #clc-tsb');i&&i.setAttribute('data-clc-ready','true'),B('e=1')}}function q(){return Object.keys(F.ids)}function r(a){var b=F.ids[a],c=F.slots[b];'function'==typeof c&&(c=c(a));return{path:'/'+C+'/'+E+'/'+b+'/'+D,sizes:c,zone:b}}function s(a){return!(clc.collapse&&void 0!==clc.collapse[a])||!!clc.collapse[a]}function t(a,b){'dfp-isb'===a&&b.setTargeting('Sidebar',['Inline']),'dfp-tsb'===a&&b.setTargeting('Sidebar',['Right']);var c=r(a),d=c.path,e=c.sizes,f=c.zone,g=googletag.defineSlot(d,e,a);s(f)&&g.setCollapseEmptyDiv(!0,!0),g.addService(b),!1}function u(b){var c=a.dfp&&a.dfp.targeting||{};Object.keys(c).forEach(function(a){b.setTargeting(a,c[a])})}function v(a){var g=a.map(b).filter(e);return{eligible:g.filter(f).filter(d).map(function(a){return a.id}),ineligible:g.filter(c)}}function w(b){if(void 0===b&&(b=q()),!m())return n(),void googletag.cmd.push(function(){return w(b)});var c=v(b),d=c.eligible,e=c.ineligible;if(e.forEach(g),0!==d.length){o(),googletag.destroySlots();var f=googletag.pubads();f.enableSingleRequest(),a.sreEvent||(f.addEventListener('slotRenderEnded',p),a.sreEvent=!0),u(f),d.forEach(function(a){return t(a,f)}),googletag.enableServices(),d.forEach(function(a){googletag.display(a)})}}var x=function(a){for(var b=[],c=1;c<arguments.length;c++)b[c-1]=arguments[c];for(var d,e=0,f=b;e<f.length;e++)for(var g in d=f[e],d)a[g]=d[g];return a}({"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=04d772c81312","style":"https://cdn.sstatic.net/clc/styles/clc.min.css?v=768595a6d237","u":"https://clc.stackoverflow.com/markup.js","wa":true,"kt":2000,"tto":true,"h":"clc.stackoverflow.com","allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$","wv":true,"al":false,"dh":[4385506061,4386578282,4386579572]},a.options||{}),y=h(function(){var a=x.lib;l()&&(a=a.replace(/(\.min)?\.js(\?v=[0-9a-fA-F]+)?$/,'.ie$1.js$2')),i(a)}),z=a.cmd||[];Array.isArray(z)&&(0<z.length?y():k(z,y));var A=h(function(){i('https://www.googletagservices.com/tag/js/gpt.js')}),B=function(a){new Image().src='https://'+x.h+'/stalled.gif?'+a},C='248424177',D=/^\/tags\//.test(location.pathname)||/^\/questions\/tagged\//.test(location.pathname)?'tag-pages':'question-pages',E=location.hostname;var F={slots:{lb:[[728,90]],mlb:[[728,90]],smlb:[[728,90]],bmlb:[[728,90]],sb:function(a){return'dfp-tsb'===a?[[300,250],[300,600]]:[[300,250]]},"tag-sponsorship":[[730,135]],"mobile-below-question":[[320,50],[300,250]]},ids:{"dfp-tlb":'lb',"dfp-mlb":'mlb',"dfp-smlb":'smlb',"dfp-bmlb":'bmlb',"dfp-tsb":'sb',"dfp-isb":'sb',"dfp-tag":'tag-sponsorship',"dfp-m-aq":'mobile-below-question',"clc-tlb":'lb',"clc-mlb":'mlb',"clc-tsb":'sb'}};(function(){var b=x.al;b&&z.push(function(){return a.load()})})(),n(),a.dfp={load:w},a.options=x,a.cmd=z})(this.clc=this.clc||{})}catch(a){window.console.error(a)}</script>            <script>
+                var clc = clc || {};
+                clc.collapse = { sb: !0,'tag-sponsorship':!0,lb:!1,mlb:!1,smlb:!1,bmlb:!1,'mobile-below-question':!0};
+                clc.cmd = clc.cmd || [];
+                clc.cmd.push(function () { window.clc_request='AsedVU1ArdYIEsN-AO8D7wECAAAAAgAAAAMbAAAAfHBocHxjc3Z8bGFyYXZlbHxsYXJhdmVsLTV8ADR4pJRLS5nC1lo'; clc.load(); });
+                                clc.dfp = clc.dfp || {};
+                clc.dfp.targeting = {Registered:['true'],Reputation:['200'],'so-tag':['php','csv','laravel','laravel-5'],IsHighRepEarner:['true']};
+                
+                var googletag = googletag || {};
+                googletag.cmd = googletag.cmd || [];
+                googletag.cmd.push(function () { clc.dfp.load(); });
+            </script><div class="s-sidebarwidget mb16 module">
+    <div class="s-sidebarwidget--header grid ai-center">
+        <a href="https://chat.stackoverflow.com/" class="js-chat-ad-link" title="88 users active in 56 rooms the last 60 minutes">88 people chatting</a>
+    </div>
+        <div class="s-sidebarwidget--content s-sidebarwidget__items js-chat-ad-rooms"><div class="s-sidebarwidget--item"><div class="grid fd-column gs2"><a class="grid--cell" href="https://chat.stackoverflow.com/rooms/11">PHP</a><div class="grid--cell fs-fine fc-black-300 mb4" title="2019-03-20 14:27:42Z">40 secs ago - <a href="https://chat.stackoverflow.com/users/1658631">Joe Watkins</a></div><div class="grid gs4 ai-center fw-wrap"><a class="grid--cell" href="https://chat.stackoverflow.com/users/1658631"><img class="bar-sm" title="Joe Watkins: 40 secs ago" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/wP8B0.jpg" width="23" height="23"></a><a class="grid--cell" href="https://chat.stackoverflow.com/users/2153758"><img class="bar-sm" title="bwoebi: 2 mins ago" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/oEgTs.png" width="23" height="23"></a><a class="grid--cell" href="https://chat.stackoverflow.com/users/5764893"><img class="bar-sm" title="Jeeves: 6 mins ago" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/CpV27.jpg" width="23" height="23"></a><a class="grid--cell" href="https://chat.stackoverflow.com/users/2524730"><img class="bar-sm" title="Tiffany: 54 mins ago" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/IMCUk.png" width="23" height="23"></a><a class="grid--cell" href="https://chat.stackoverflow.com/users/4036303"><img class="bar-sm" title="Chrys Ugwu: 1 hour ago" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/CQG8k.png" width="23" height="23"></a><a class="grid--cell" href="https://chat.stackoverflow.com/users/2852427"><img class="bar-sm" title="Ekin: 1 hour ago" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/3C658.jpg" width="23" height="23"></a><a class="grid--cell" href="https://chat.stackoverflow.com/users/338665"><img class="bar-sm" title="ircmaxell: 1 hour ago" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/a32a990c257433d3252980e059341546.jpg" width="23" height="23"></a></div></div></div><div class="s-sidebarwidget--item"><div class="grid fd-column gs2"><a class="grid--cell" href="https://chat.stackoverflow.com/rooms/136545">iOS, Android and PHP Dev</a><div class="grid--cell fs-fine fc-black-300 mb4" title="2019-03-20 13:09:34Z">1 hour ago - <a href="https://chat.stackoverflow.com/users/5069323">Sagar Vasoya</a></div><div class="grid gs4 ai-center fw-wrap"><a class="grid--cell" href="https://chat.stackoverflow.com/users/3110026"><img class="bar-sm" title="Mrugesh Tank: 1 hour ago" src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/3UclQ.jpg" width="23" height="23"></a></div></div></div></div>
+</div>
+
+
+    <script>
+    // <!--
+        StackExchange.ready(function () {
+            var options = {
+                chatUrl: 'https://chat.stackoverflow.com',
+                reloadUrl: '/api/recent-chat',
+                preloadedData: null,
+                tagBased: true,
+            };
+
+            StackExchange.chatAd.init(options);
+        });
+    // -->
+    </script>
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/26146719?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">34</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/26146719/use-laravel-to-download-table-as-csv?noredirect=1&amp;lq=1" class="question-hyperlink">Use Laravel to Download table as CSV</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/36568575?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">3</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/36568575/generate-csv-file-using-laravel?noredirect=1&amp;lq=1" class="question-hyperlink">Generate csv file using laravel</a>
+</div>
+<div class="spacer">
+	<a href="https://stackoverflow.com/q/53099632?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="https://stackoverflow.com/questions/53099632/php-array-with-array-2d-array-to-csv?noredirect=1&amp;lq=1" class="question-hyperlink">PHP array with array (2d array?) to csv</a>
+</div>			</div>
+</div>
+
+                <div class="module sidebar-related">
+                    <h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/356578?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1016</div></a><a href="https://stackoverflow.com/questions/356578/how-to-output-mysql-query-results-in-csv-format?rq=1" class="question-hyperlink">How to output MySQL query results in CSV format?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/769621?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">436</div></a><a href="https://stackoverflow.com/questions/769621/dealing-with-commas-in-a-csv-file?rq=1" class="question-hyperlink">Dealing with commas in a CSV file</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/1517635?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">772</div></a><a href="https://stackoverflow.com/questions/1517635/save-pl-pgsql-output-from-postgresql-to-a-csv-file?rq=1" class="question-hyperlink">Save PL/pgSQL output from PostgreSQL to a CSV file</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/4255921?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="https://stackoverflow.com/questions/4255921/write-a-csv-using-php?rq=1" class="question-hyperlink">Write a CSV using PHP</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/10196546?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="https://stackoverflow.com/questions/10196546/php-csv-file-parsing-using-two-dimensional-array?rq=1" class="question-hyperlink">PHP CSV file parsing using two-dimensional array</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/11580702?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">2</div></a><a href="https://stackoverflow.com/questions/11580702/export-an-array-to-csv-failure-string-given?rq=1" class="question-hyperlink">Export an array to csv failure : string given</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/15269905?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="https://stackoverflow.com/questions/15269905/php-export-to-csv-file-different-behaviour-in-excel-2007-and-2010?rq=1" class="question-hyperlink">PHP Export to CSV file different behaviour in Excel 2007 and 2010</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/16607839?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">4</div></a><a href="https://stackoverflow.com/questions/16607839/converting-csv-files-data-to-an-array-using-php-str-getcsv-function?rq=1" class="question-hyperlink">Converting csv files data to an array using php str_getcsv function</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/20189312?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">-1</div></a><a href="https://stackoverflow.com/questions/20189312/blank-columns-after-each-filled-column-in-csv?rq=1" class="question-hyperlink">Blank columns after each filled column in csv</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/28290332?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">361</div></a><a href="https://stackoverflow.com/questions/28290332/best-practices-for-custom-helpers-in-laravel-5?rq=1" class="question-hyperlink">Best Practices for Custom Helpers in Laravel 5</a></div>
+                    </div>
+                </div>
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track s-link s-link__inherit" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-outdoors" title="The Great Outdoors Stack Exchange"></div><a href="https://outdoors.stackexchange.com/questions/21828/how-to-test-the-sharpness-of-a-knife" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:395 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to test the sharpness of a knife?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-german" title="German Language Stack Exchange"></div><a href="https://german.stackexchange.com/questions/50185/do-people-actually-use-the-word-kaputt-in-conversation" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:253 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Do people actually use the word "kaputt" in conversation?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="https://ell.stackexchange.com/questions/201499/can-i-say-fingers-when-referring-to-toes" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can I say "fingers" when referring to toes?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="https://security.stackexchange.com/questions/205680/hashing-password-to-increase-entropy" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Hashing password to increase entropy
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-boardgames" title="Board &amp; Card Games Stack Exchange"></div><a href="https://boardgames.stackexchange.com/questions/45576/what-happens-if-a-creatures-etb-would-bounce-thalia-heretic-cathar" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:147 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What happens if a creature's ETB would bounce Thalia, Heretic Cathar?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="https://ell.stackexchange.com/questions/201475/what-does-the-word-upstream-mean-in-the-context" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What does the word 'upstream' mean in the context?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-networkengineering" title="Network Engineering Stack Exchange"></div><a href="https://networkengineering.stackexchange.com/questions/57752/what-do-the-positive-and-negative-transmit-and-receive-pins-mean-on-ethern" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:496 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What do the positive and negative (+/-) transmit and receive pins mean on Ethernet cables?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="https://askubuntu.com/questions/1126909/when-is-the-exact-date-for-eol-of-ubuntu-14-04-lts" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    When is the exact date for EOL of Ubuntu 14.04 LTS?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="https://unix.stackexchange.com/questions/507349/consistent-linux-device-enumeration" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Consistent Linux device enumeration
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="https://mathoverflow.net/questions/325842/isometric-embedding-of-a-genus-g-surface" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Isometric embedding of a genus g surface
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="https://aviation.stackexchange.com/questions/61396/when-and-why-was-runway-07-25-at-kai-tak-removed" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    When and why was runway 07/25 at Kai Tak removed?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathematica" title="Mathematica Stack Exchange"></div><a href="https://mathematica.stackexchange.com/questions/193622/adjusting-bounding-box-of-plotlegends-in-timelineplot" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:387 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Adjusting bounding box of PlotLegends in TimelinePlot
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/141854/how-to-preserve-electronics-computers-ipads-and-phones-for-hundreds-of-years" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to preserve electronics (computers, iPads and phones) for hundreds of years
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-sqa" title="Software Quality Assurance &amp; Testing Stack Exchange"></div><a href="https://sqa.stackexchange.com/questions/38327/how-can-i-handle-alert-using-if-else-condition-in-selenium" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:244 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can I handle alert using if else condition in selenium?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-softwareengineering" title="Software Engineering Stack Exchange"></div><a href="https://softwareengineering.stackexchange.com/questions/388802/how-do-you-justify-more-code-being-written-by-following-clean-code-practices" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:131 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do you justify more code being written by following clean code practices?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/141838/how-would-a-solely-written-language-work-mechanically" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How would a solely written language work mechanically
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-writing" title="Writing Stack Exchange"></div><a href="https://writing.stackexchange.com/questions/43752/what-should-be-the-ideal-length-of-sentences-in-a-blog-post-for-ease-of-reading" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:166 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What should be the ideal length of sentences in a blog post for ease of reading?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="https://workplace.stackexchange.com/questions/131851/pre-employment-background-check-with-consent-for-future-checks" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Pre-Employment Background Check With Consent For Future Checks
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-magento" title="Magento Stack Exchange"></div><a href="https://magento.stackexchange.com/questions/266635/magento-2-3-how-to-add-custom-column-to-customer-entity-table" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:479 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Magento 2.3 - How to add custom column to customer_entity table
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-latin" title="Latin Language Stack Exchange"></div><a href="https://latin.stackexchange.com/questions/9303/oh-no-in-latin" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:644 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    "Oh no!" in Latin
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-music" title="Music: Practice &amp; Theory Stack Exchange"></div><a href="https://music.stackexchange.com/questions/81695/slur-or-tie-when-they-are-mixed" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:240 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Slur or Tie when they are mixed?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/207504/why-didnt-voldemort-know-what-grindelwald-looked-like" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why didn't Voldemort know what Grindelwald looked like?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/181843/make-a-bowl-of-alphabet-soup" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Make a Bowl of Alphabet Soup
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/480418/how-to-make-a-small-varhexagon-in-latex" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to make a small $\varhexagon$ in latex?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+
+<div id="feed-link">
+    <a href="https://stackoverflow.com/feeds/question/32441327" title="feed of this question and its answers">
+        <svg aria-hidden="true" class="svg-icon fc-orange-400 iconRss" width="18" height="18" viewBox="0 0 18 18"><path d="M1 3c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3zm14.5 12C15.5 8.1 9.9 2.5 3 2.5V5a10 10 0 0 1 10 10h2.5zm-5 0A7.5 7.5 0 0 0 3 7.5V10a5 5 0 0 1 5 5h2.5zm-5 0A2.5 2.5 0 0 0 3 12.5V15h2.5z"></path></svg>
+        question feed
+    </a>
+</div>
+        </div>
+    </div>
+<script>StackExchange.ready(function(){$.get('/posts/32441327/ivc/1b92');});</script>
+<noscript><div><img src="/posts/32441327/ivc/1b92" class="dno" alt="" width="0" height="0"></div></noscript><div style="display:none" id="prettify-lang">lang-php</div></div>
+
+    <script>
+        $('#wmd-input').one("keypress", function() {
+            $.ajax({
+                url: '/accounts/email-settings-form',
+                cache: false,
+                success: function(data) {
+                    $('#submit-button').parent().prepend(data);
+                }
+            });
+        });
+
+    </script>
+
+        </div>
+    </div><script src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/clc.js"></script><script src="php%20-%20CSV%20export%20in%20laravel%205%20controller%20-%20Stack%20Overflow_files/gpt.js"></script>
+
+    <footer id="footer" class="site-footer js-footer" role="contentinfo">
+        <div class="site-footer--container">
+                <div class="site-footer--logo">
+
+                    
+                    <a href="https://stackoverflow.com/"><svg aria-hidden="true" class="svg-icon native iconLogoGlyphMd" width="32" height="37" viewBox="0 0 32 37"><g><path fill="#BCBBBB" d="M26 33v-9h4v13H0V24h4v9z"></path><path d="M23.1 25.99l.68-2.95-16.1-3.35L7 23l16.1 2.99zM9.1 15.2l15 7 1.4-3-15-7-1.4 3zm4.2-7.4L26 18.4l2.1-2.5L15.4 5.3l-2.1 2.5zM21.5 0l-2.7 2 9.9 13.3 2.7-2L21.5 0zM7 30h16v-3H7v3z" fill="#F48024"></path></g></svg></a>
+                </div>
+            
+            <nav class="site-footer--nav">
+                    <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                        <h5 class="-title"><a href="https://stackoverflow.com/" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 15})">Stack Overflow</a></h5>
+                        <ul class="-list js-primary-footer-links">
+                            <li class="-item"><a href="https://stackoverflow.com/questions" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 16})">Questions</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 17})">Jobs</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs/directory/developer-jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 11})">Developer Jobs Directory</a></li>
+                                     <li class="-item"><a href="https://stackoverflow.com/jobs/salary" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 28})">Salary Calculator</a></li>
+                                                            <li class="-item"><a href="https://stackoverflow.com/help" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })">Help</a></li>
+                                <li class="-item"><a onclick='StackExchange.switchMobile("on")' class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 12 })">Mobile</a></li>
+                        <li class="-item"><a class="-link" role="button">Disable Responsiveness</a></li></ul>
+                    </div>
+                    <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                        <h5 class="-title"><a href="https://www.stackoverflowbusiness.com/" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 19 })">Products</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://stackoverflow.com/teams" class="js-gps-track -link" data-ga="[&quot;teams traffic&quot;,&quot;footer - site nav&quot;,&quot;stackoverflow.com/teams&quot;,null,{&quot;dimension4&quot;:&quot;teams&quot;}]" data-gps-track="footer.click({ location: 2, link: 29 })">Teams</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/talent" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 20 })">Talent</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/advertising" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 21 })">Advertising</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/enterprise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 22 })">Enterprise</a></li>
+                        </ul>
+                    </div>
+                <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                    <h5 class="-title"><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">Company</a></h5>
+                    <ul class="-list">
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">About</a></li>
+                                                <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 27 })" href="https://stackoverflow.com/company/press">Press</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 9 })" href="https://stackoverflow.com/company/work-here">Work Here</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 7 })" href="https://stackoverflow.com/legal">Legal</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 8 })" href="https://stackoverflow.com/legal/privacy-policy">Privacy Policy</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 13 })" href="https://stackoverflow.com/company/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="site-footer--col site-footer--categories-nav site-footer--col__visible">
+                    <a href="#" class="site-footer--back js-footer-back"><svg aria-hidden="true" class="svg-icon iconArrowLeftAlt" width="18" height="18" viewBox="0 0 18 18"><path d="M10.58 16L12 14.59 6.4 9 12 3.41 10.57 2l-7 7z"></path></svg></a>
+                    <div>
+                        <h5 class="-title"><a href="https://stackexchange.com/">Stack Exchange<br> Network</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Technology">Technology</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Life / Arts">Life / Arts</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Culture / Recreation">Culture / Recreation</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Science">Science</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Other">Other</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="site-footer--categories">
+                    <div class="site-footer--col site-footer--category js-footer-col" data-name="Technology">
+        <ul class="-list">
+                <li class="-item"><a href="https://stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                <li class="-item"><a href="https://serverfault.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="system and network administrators">Server Fault</a></li>
+                <li class="-item"><a href="https://superuser.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="computer enthusiasts and power users">Super User</a></li>
+                <li class="-item"><a href="https://webapps.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="power users of web applications">Web Applications</a></li>
+                <li class="-item"><a href="https://askubuntu.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                <li class="-item"><a href="https://webmasters.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="pro webmasters">Webmasters</a></li>
+                <li class="-item"><a href="https://gamedev.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and independent game developers">Game Development</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://tex.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                <li class="-item"><a href="https://softwareengineering.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professionals, academics, and students working within the systems development life cycle">Software Engineering</a></li>
+                <li class="-item"><a href="https://unix.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                <li class="-item"><a href="https://apple.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                <li class="-item"><a href="https://wordpress.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="WordPress developers and administrators">WordPress Development</a></li>
+                <li class="-item"><a href="https://gis.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                <li class="-item"><a href="https://electronics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://android.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                <li class="-item"><a href="https://security.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="information security professionals">Information Security</a></li>
+                <li class="-item"><a href="https://dba.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                <li class="-item"><a href="https://drupal.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Drupal developers and administrators">Drupal Answers</a></li>
+                <li class="-item"><a href="https://sharepoint.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="SharePoint enthusiasts">SharePoint</a></li>
+                <li class="-item"><a href="https://ux.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="user experience researchers and experts">User Experience</a></li>
+                <li class="-item"><a href="https://mathematica.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Wolfram Mathematica">Mathematica</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://salesforce.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                <li class="-item"><a href="https://expressionengine.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                <li class="-item"><a href="https://pt.stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programadores profissionais e entusiastas">Stack Overflow em Português</a></li>
+                <li class="-item"><a href="https://blender.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who use Blender to create 3D graphics, animations, or games">Blender</a></li>
+                <li class="-item"><a href="https://networkengineering.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="network engineers">Network Engineering</a></li>
+                <li class="-item"><a href="https://crypto.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                <li class="-item"><a href="https://codereview.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="peer programmer code reviews">Code Review</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://magento.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of the Magento e-Commerce platform">Magento</a></li>
+                <li class="-item"><a href="https://softwarerecs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people seeking specific software recommendations">Software Recommendations</a></li>
+                <li class="-item"><a href="https://dsp.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                <li class="-item"><a href="https://emacs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those using, extending or developing Emacs">Emacs</a></li>
+                <li class="-item"><a href="https://raspberrypi.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                <li class="-item"><a href="https://ru.stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="программистов">Stack Overflow на русском</a></li>
+                <li class="-item"><a href="https://codegolf.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://es.stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programadores y profesionales de la informática">Stack Overflow en español</a></li>
+                <li class="-item"><a href="https://ethereum.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Ethereum, the decentralized application platform and smart contract enabled blockchain">Ethereum</a></li>
+                <li class="-item"><a href="https://datascience.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Data science professionals, Machine Learning specialists, and those interested in learning more about the field">Data Science</a></li>
+                <li class="-item"><a href="https://arduino.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="developers of open-source hardware and software that is compatible with Arduino">Arduino</a></li>
+                <li class="-item"><a href="https://bitcoin.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Bitcoin crypto-currency enthusiasts">Bitcoin</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#technology" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (31)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts">
+        <ul class="-list">
+                <li class="-item"><a href="https://photo.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                <li class="-item"><a href="https://scifi.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                <li class="-item"><a href="https://graphicdesign.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                <li class="-item"><a href="https://movies.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                <li class="-item"><a href="https://music.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                <li class="-item"><a href="https://worldbuilding.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="writers/artists using science, geography and culture to construct imaginary worlds and settings">Worldbuilding</a></li>
+                <li class="-item"><a href="https://cooking.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts"><ul class="-list">
+                <li class="-item"><a href="https://diy.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="contractors and serious DIYers">Home Improvement</a></li>
+                <li class="-item"><a href="https://money.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                <li class="-item"><a href="https://academia.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="academics and those enrolled in higher education">Academia</a></li>
+                <li class="-item"><a href="https://law.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="legal professionals, students, and others with experience or interest in law">Law</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#lifearts" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (15)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation">
+        <ul class="-list">
+                <li class="-item"><a href="https://english.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                <li class="-item"><a href="https://skeptics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="scientific skepticism">Skeptics</a></li>
+                <li class="-item"><a href="https://judaism.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                <li class="-item"><a href="https://travel.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="road warriors and seasoned travelers">Travel</a></li>
+                <li class="-item"><a href="https://christianity.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                <li class="-item"><a href="https://ell.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="speakers of other languages learning English">English Language Learners</a></li>
+                <li class="-item"><a href="https://japanese.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation"><ul class="-list">
+                <li class="-item"><a href="https://gaming.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                <li class="-item"><a href="https://bicycles.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                <li class="-item"><a href="https://rpg.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                <li class="-item"><a href="https://anime.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="anime and manga fans">Anime &amp; Manga</a></li>
+                <li class="-item"><a href="https://puzzling.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those who create, solve, and study puzzles">Puzzling</a></li>
+                <li class="-item"><a href="https://mechanics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#culturerecreation" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (33)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Science">
+        <ul class="-list">
+                <li class="-item"><a href="https://mathoverflow.net/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional mathematicians">MathOverflow</a></li>
+                <li class="-item"><a href="https://math.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                <li class="-item"><a href="https://stats.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                <li class="-item"><a href="https://cstheory.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                <li class="-item"><a href="https://physics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="active researchers, academics and students of physics">Physics</a></li>
+                <li class="-item"><a href="https://chemistry.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="scientists, academics, teachers, and students in the field of chemistry">Chemistry</a></li>
+                <li class="-item"><a href="https://biology.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="biology researchers, academics, and students">Biology</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Science"><ul class="-list">
+                <li class="-item"><a href="https://cs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                <li class="-item"><a href="https://philosophy.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#science" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (10)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Other">
+        <ul class="-list">
+                <li class="-item"><a href="https://meta.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                <li class="-item"><a href="https://stackapps.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                <li class="-item"><a href="https://api.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programmatic interaction with Stack Exchange sites">API</a></li>
+                <li class="-item"><a href="https://data.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="querying Stack Exchange data using SQL">Data</a></li>
+                    </ul>
+    </div>
+                </div>
+            </nav>
+            <div class="site-footer--copyright fs-fine">
+                <ul class="-list">
+                    <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link:4 })" href="https://stackoverflow.blog/?blb=1">Blog</a></li>
+                    <li class="-item"><a href="https://www.facebook.com/officialstackoverflow/" class="-link">Facebook</a></li>
+                    <li class="-item"><a href="https://twitter.com/stackoverflow" class="-link">Twitter</a></li>
+                    <li class="-item"><a href="https://linkedin.com/company/stack-overflow" class="-link">LinkedIn</a></li>
+                </ul>
+
+                <p class="mt-auto mb24">
+site design / logo © 2019 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a>
+                            with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license">attribution required</a>.
+                    <span id="svnrev">rev&nbsp;2019.3.19.33088</span>
+                </p>
+            </div>
+        </div>
+
+            </footer>
+            <script>StackExchange.ready(function () { StackExchange.responsiveness.addSwitcher(); })</script>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled
+        </div>
+    </noscript>
+
+<script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            StackExchange.ready(function () {
+
+                StackExchange.ga.init({
+                    sendTitles: true,
+                    tracker: window.ga,
+                    trackingCodes: [
+                        'UA-108242619-1'
+                    ]
+                });
+
+                    StackExchange.ga.setDimension('dimension1', '8307474');
+
+                    StackExchange.ga.setDimension('dimension10', 'PassivelyLooking');
+
+                    StackExchange.ga.setDimension('dimension2', '|php|csv|laravel|laravel-5|');
+
+                    StackExchange.ga.setDimension('dimension3', 'Questions/Show');
+
+
+                StackExchange.ga.trackPageView();
+            });
+            
+/**/
+            
+            var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+            (function() {
+                var ssl = 'https:' == document.location.protocol,
+                    s = document.getElementsByTagName('script')[0],
+                    qc = document.createElement('script');
+                 qc.async = true;
+                    qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                    s.parentNode.insertBefore(qc, s);
+                    _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+/**/
+                 var sc = document.createElement('script');
+                    sc.async = true;
+                    sc.src = (ssl ? 'https://sb' : 'http://b') + '.scorecardresearch.com/beacon.js';
+                    s.parentNode.insertBefore(sc, s);
+                    _comscore.push({ c1: "2", c2: "17440561" });
+            })();
+            
+
+</script>
+            
+    
+    
+<div class="adsbox" id="clc-abd" style="position: absolute; pointer-events: none;">&nbsp;</div><iframe id="google_osd_static_frame_2131081713977" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe></body></html>
