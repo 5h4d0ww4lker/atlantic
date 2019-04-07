@@ -263,7 +263,7 @@ else
 
 		//return $days;
 
-		$result = LeaveApplication::create($leave_application +['last_leave_date' =>request('last_leave_date')] +['last_leave_period' =>request('last_leave_period')] +['last_leave_category_id' =>request('last_leave_category_id')] +['leave_address' =>request('leave_address')] +['during_leave' =>request('during_leave')] +['reason' =>request('reason')] + ['created_by' => auth()->user()->id]);
+		$result = LeaveApplication::create($leave_application +['during_leave' =>request('during_leave')] +['reason' =>request('reason')] + ['created_by' => auth()->user()->id]);
 		$inserted_id = $result->id;
 
 		if (!empty($inserted_id)) {

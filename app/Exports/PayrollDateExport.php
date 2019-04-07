@@ -44,7 +44,7 @@ class PayrollDateExport implements FromQuery, WithHeadings,WithMapping,ShouldAut
          public function map($payroll): array
     {
         return [
-            $payroll->user_id = User::find($payroll->user_id)->name(),
+            $payroll->user_id = User::find($payroll->user_id)->full_name(),
             $payroll->basic_salary = $payroll->basic_salary,
             $payroll->house_rent_allowance = $payroll->house_rent_allowance,
             $payroll->medical_allowance = $payroll->medical_allowance,

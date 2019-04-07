@@ -86,7 +86,7 @@
                         @foreach($bonuses as $bonus)
                         <tr>
                             <td>{{ $sl++ }}</td>
-                            <td>{{ $bonus['name'] }}</td>
+                            <td>{{ $bonus['name'] }}&nbsp;{{ $bonus['father_name'] }}&nbsp;{{ $bonus['grand_father_name'] }}</td>
                             <td>{{ $bonus['designation'] }}</td>
                             <td>{{ $bonus['bonus_name'] }}</td>
                             <td>{{ date("F Y", strtotime($bonus['bonus_month'])) }}</td>

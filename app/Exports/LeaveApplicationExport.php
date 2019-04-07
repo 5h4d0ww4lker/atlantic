@@ -27,10 +27,6 @@ class LeaveApplicationExport implements FromCollection,WithHeadings,WithMapping,
             'Start Date',
             'End Date',
             'Reason',
-            'Last Leave Date',
-            'Last Leave Period',
-            'Last Leave Category',
-            'Leave Address',
             'During Leave',
         ];
     }
@@ -41,15 +37,11 @@ class LeaveApplicationExport implements FromCollection,WithHeadings,WithMapping,
         return [
 
         
-            $leaveApplication->created_by = User::find($leaveApplication->created_by)->name(),
+            $leaveApplication->created_by = User::find($leaveApplication->created_by)->full_name(),
             $leaveApplication->leave_category_id = LeaveCategory::find($leaveApplication->leave_category_id)->name(),
             $leaveApplication->start_date = $leaveApplication->start_date,
             $leaveApplication->end_date = $leaveApplication->end_date,
             $leaveApplication->reason  = $leaveApplication->reason,
-            $leaveApplication->last_leave_date = $leaveApplication->last_leave_date,
-            $leaveApplication->last_leave_period = $leaveApplication->last_leave_period,
-            $leaveApplication->last_leave_category_id = LeaveCategory::find($leaveApplication->last_leave_category_id)->name(),
-            $leaveApplication->leave_address = $leaveApplication->leave_address,
             $leaveApplication->during_leave  = $leaveApplication->during_leave,
    
         ];

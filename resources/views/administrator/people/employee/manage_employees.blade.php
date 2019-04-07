@@ -2,6 +2,18 @@
 @section('title', 'Team')
 
 @section('main_content')
+<style type="text/css">
+.pro {
+    position: relative;
+    float: left;
+    width:  120px;
+    height: 100px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+
+</style>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -98,8 +110,8 @@ $department = \App\Department::find($employee['department_id']);
                             <?php
 
                             $img = "1553452165.png"; ?>
-                             <td><img src="{{ url('public/profile_picture/' . $employee['profile_picture']) }}" class="img-responsive  img-thumbnail" width="75px"></td>
-                            <td>{{ $employee['name'] }} &nbsp; {{ $employee['father_name'] }}</td>
+                             <td><img src="{{ url('public/profile_picture/' . $employee['profile_picture']) }}" class="img-responsive pro  img-thumbnail"></td>
+                            <td>{{ $employee['name'] }} &nbsp; {{ $employee['father_name'] }}&nbsp;{{ $employee['grand_father_name'] }}</td>
                             <td>{{ $department->department }}</td>
                             <td>{{ $employee['designation'] }}</td>
                             <td>{{ $employee['contact_no_one'] }}</td>

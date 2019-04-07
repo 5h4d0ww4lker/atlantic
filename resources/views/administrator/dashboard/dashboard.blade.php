@@ -51,14 +51,14 @@
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
-         <h3>{{ count($references) }}</h3>
+         <h3>{{ count($designations) }}</h3>
 
-          <p>References</p>
+          <p>Designations</p>
         </div>
         <div class="icon">
           <i class="fa fa-envelope"></i>
         </div>
-        <a href="{{ url('/people/references') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="{{ url('/setting/designations') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -73,7 +73,7 @@
         <div class="icon">
           <i class="fa fa-file"></i>
         </div>
-        <a href="{{ url('/notice') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="{{ url('/hrm/notice') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
@@ -98,21 +98,26 @@
   <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-list-outline"></i></span>
+            <span class="info-box-icon bg-aqua">
+              <i class="ion ion-ios-list-outline"><a href="{{ url('/setting/departments') }}" ><h6 style="color:#FFFFFF">More info<i class="fa fa-arrow-circle-right"></i></h6> </a></i></span>
 
             <div class="info-box-content">
 
               <span class="info-box-text">Departments</span>
+
               <span class="info-box-number">{{ count($departments) }}</span>
             </div>
+            
+
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
+
         </div>
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="ion ion-ios-grid-view"></i></span>
+            <span class="info-box-icon bg-red"><i class="ion ion-ios-grid-view"><a href="{{ url('/setting/branchs') }}" ><h6 style="color:#FFFFFF">More info<i class="fa fa-arrow-circle-right"></i></h6> </a></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Branches</span>
@@ -129,7 +134,7 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="ion ion-ios-person"></i></span>
+            <span class="info-box-icon bg-green"><i class="ion ion-ios-person"><a href="{{ url('/hrm/application_lists') }}" ><h6 style="color:#FFFFFF">More info<i class="fa fa-arrow-circle-right"></i></h6> </a></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Leave Requests</span>
@@ -142,7 +147,7 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-box"></i></span>
+            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-box"><a href="{{ url('/setting/properties') }}" ><h6 style="color:#FFFFFF">More info<i class="fa fa-arrow-circle-right"></i></h6> </a></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Properties</span>
@@ -178,9 +183,10 @@
                 <img src="{{ asset('public/index.png') }}" alt="user image" class="online">
 
                 <p class="message">
-                  <a href="#" class="name">
+                  <a href="{{ url('/hrm/notice') }}" class="name">
                     <small class="text-muted pull-right"><i class="fa fa-clock-o"></i>  {{$notice->created_at}}</small>
                     {{$notice->notice_title}}
+                    
                   </a>
                   {{$notice->description}}
                 </p>
@@ -287,7 +293,7 @@ if ($nbDays == 0){
               <div class="col-md-4">
           <!-- Info Boxes Style 2 -->
           <div class="info-box bg-yellow">
-            <span class="info-box-icon"><i class="ion ion-ios-briefcase"></i></span>
+            <span class="info-box-icon"><i class="ion ion-ios-briefcase"><a href="{{ url('/hrm/employee-awards') }}" ><h6 style="color:#FFFFFF">More info<i class="fa fa-arrow-circle-right"></i></h6> </a></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Award</span>
@@ -296,18 +302,10 @@ if ($nbDays == 0){
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
-          <div class="info-box bg-green">
-            <span class="info-box-icon"><i class="ion ion-ios-paper-outline"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Loans</span>
-              <span class="info-box-number">{{ count($loans) }}</span>
-           </div>
-            <!-- /.info-box-content -->
-          </div>
+          
           <!-- /.info-box -->
           <div class="info-box bg-red">
-            <span class="info-box-icon"><i class="ion ion-ios-flag"></i></span>
+            <span class="info-box-icon"><i class="ion ion-ios-flag"><a href="{{ url('/setting/holidays') }}" ><h6 style="color:#FFFFFF">More info<i class="fa fa-arrow-circle-right"></i></h6> </a></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Holidays</span>
@@ -316,15 +314,7 @@ if ($nbDays == 0){
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
-          <div class="info-box bg-aqua">
-            <span class="info-box-icon"><i class="ion-ios-information"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Designations</span>
-              <span class="info-box-number">{{ count($designations) }}</span>
-           </div>
-            <!-- /.info-box-content -->
-          </div>
+         
           <!-- /.info-box -->
         <!-- /.Left col -->
         <!-- right col (We are only adding the ID to make the widgets sortable)-->

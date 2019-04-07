@@ -39,7 +39,7 @@ class LoanDateExport implements FromQuery,WithHeadings,WithMapping,ShouldAutoSiz
           public function map($loan): array
     {
         return [
-            $loan->user_id  = User::find($loan->user_id )->name(),
+            $loan->user_id  = User::find($loan->user_id )->full_name(),
             $loan->loan_name = $loan->loan_name,
             $loan->loan_amount  = $loan->loan_amount,
             $loan->number_of_installments = $loan->number_of_installments,

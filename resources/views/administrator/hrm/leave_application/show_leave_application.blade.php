@@ -79,22 +79,10 @@ use Carbon\Carbon;
             <td width="25%">Reason for Leave</td>
             <td width="75%">{!! $leave_application['reason'] !!}</td>
           </tr>
-           <tr>
-            <td width="25%">Date of return from Last Leave</td>
-            <td width="75%">{{ date("d F Y", strtotime($leave_application['last_leave_date'])) }}</td>
-          </tr>
-          <tr>
-            <td width="25%">Period of Last Leave</td>
-            <td width="75%">{{ $leave_application['last_leave_period'] }} Days</td>
-          </tr>
-          <tr>
-            <td width="25%">Category of Last Leave</td>
-            <td width="75%">{{ $leave_application['leave_category'] }}</td>
-          </tr>
-          <tr>
-            <td width="25%">Leave Address</td>
-            <td width="75%">{!! $leave_application['leave_address'] !!}</td>
-          </tr>
+         
+        
+         
+         
           <tr>
             <td width="25%">Performing person during leave</td>
             <td width="75%">{{ $leave_application['during_leave'] }} Days</td>

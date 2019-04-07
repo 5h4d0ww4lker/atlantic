@@ -147,6 +147,8 @@ class DepartmentController extends Controller {
     public function destroy($id) {
         $affected_row = Department::where('id', $id)
                 ->update(['deletion_status' => 1]);
+                $affected_row = Department::find($id);
+                $affected_row->delete();
 
         if (!empty($affected_row)) {
             return redirect('/setting/departments')->with('message', 'Delete successfully.');

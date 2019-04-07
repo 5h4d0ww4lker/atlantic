@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            FOLDERS
+            FILE UPLOAD / DOWNLOAAD
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             <li><a>Folder</a></li>
-            <li class="active">Manage Folders</li>
+            <li class="active">Manage File Upload/Download</li>
         </ol>
     </section>
 
@@ -20,7 +20,7 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Manage Folders</h3>
+                <h3 class="box-title">File Upload / Download</h3>
 
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>

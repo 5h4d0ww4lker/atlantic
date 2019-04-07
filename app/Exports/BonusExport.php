@@ -37,7 +37,7 @@ class BonusExport implements FromCollection, WithHeadings,WithMapping,ShouldAuto
        public function map($bonus): array
     {
         return [
-            $bonus->user_id = User::find($bonus->user_id)->name(),
+            $bonus->user_id = User::find($bonus->user_id)->full_name(),
             $bonus->bonus_name = $bonus->bonus_name,
             $bonus->bonus_month = $bonus->bonus_month,
             $bonus->bonus_amount = $bonus->bonus_amount,

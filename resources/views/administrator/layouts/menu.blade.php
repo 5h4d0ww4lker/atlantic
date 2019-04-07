@@ -237,6 +237,9 @@
                 @permission('salary-list')
                 <li><a href="{{ url('/hrm/payroll/salary-list2') }}"><i class="fa fa-circle-o"></i> Salary List</a></li>
                 @endpermission
+                 @permission('generate-payslip')
+                <li><a href="{{ url('/hrm/generate-payslips/') }}"><i class="fa fa-circle-o"></i> Generate Payslip</a></li>
+                @endpermission
 
                  @permission('loan-management')
                 <li><a href="{{ url('/hrm/loans2') }}"><i class="fa fa-circle-o"></i> Loan Management</a></li>

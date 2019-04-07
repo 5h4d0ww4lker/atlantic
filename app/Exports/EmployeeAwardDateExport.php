@@ -43,7 +43,7 @@ class EmployeeAwardDateExport implements FromQuery,WithHeadings,WithMapping,Shou
        public function map($award): array
     {
         return [
-            $award->employee_id = User::find($award->employee_id)->name(),
+            $award->employee_id = User::find($award->employee_id)->full_name(),
             $award->award_category_id = AwardCategory::find($award->award_category_id)->name(),
             $award->gift_item = $award->gift_item,
             $award->select_month = $award->select_month,

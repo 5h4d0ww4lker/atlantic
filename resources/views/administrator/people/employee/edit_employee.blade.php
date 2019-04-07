@@ -2,6 +2,18 @@
 @section('title', 'Edit team member')
 
 @section('main_content')
+<style type="text/css">
+.pro {
+    position: relative;
+    float: left;
+    width:  170px;
+    height: 150px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+
+</style>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -74,6 +86,17 @@
                                 </span>
                                 @endif
                             </div>
+
+
+                            <label for="grand_father_name">Grand Father's Name</label>
+                            <div class="form-group{{ $errors->has('father_name') ? ' has-error' : '' }} has-feedback">
+                                <input type="text" name="grand_father_name" id="grand_father_name" class="form-control" value="{{ $employee['grand_father_name'] }}" placeholder="Enter grand father's name..">
+                                @if ($errors->has('grand_father_name'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('gradn_father_name') }}</strong>
+                                </span>
+                                @endif
+                            </div>
                           
                              <label for="gender">Gender <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }} has-feedback">
@@ -103,9 +126,9 @@
                             </div>
                             <!-- /.form-group -->
 
-                            <label for="contact_no_one">Contact No<span class="text-danger">*</span>(Format: (123) 456-7890)</label>
+                            <label for="contact_no_one">Contact No<span class="text-danger">*</span>(Format: +251-911-123456)</label>
                             <div class="form-group{{ $errors->has('contact_no_one') ? ' has-error' : '' }} has-feedback">
-                                <input type="text" name="contact_no_one" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$" id="contact_no_one" class="form-control" value="{{ $employee['contact_no_one'] }}" placeholder="Enter contact no..">
+                                <input type="text" name="contact_no_one" pattern="(\+[0-9]{3}-[0-9]{3}-[0-9]{6})" id="contact_no_one" class="form-control" value="{{ $employee['contact_no_one'] }}" placeholder="Enter contact no..">
                                 @if ($errors->has('contact_no_one'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('contact_no_one') }}</strong>
@@ -115,9 +138,9 @@
                             <!-- /.form-group -->
 
                           
-                                <label for="emergency_contact">Emergency Contact</label>(Format: (123) 456-7890)
+                                <label for="emergency_contact">Emergency Contact</label>(Format: +251-911-123456)
                             <div class="form-group{{ $errors->has('emergency_contact') ? ' has-error' : '' }} has-feedback">
-                                <input type="text" name="emergency_contact" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$" id="emergency_contact" class="form-control" value="{{ $employee['emergency_contact'] }}" placeholder="Enter emergency contact no..">
+                                <input type="text" name="emergency_contact" pattern="(\+[0-9]{3}-[0-9]{3}-[0-9]{6})" id="emergency_contact" class="form-control" value="{{ $employee['emergency_contact'] }}" placeholder="Enter emergency contact no..">
                                 @if ($errors->has('emergency_contact'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('emergency_contact') }}</strong>
@@ -166,7 +189,7 @@
                           
 
                             @else
-                            <img src="{{ url('/public/profile_picture/pdf.png') }}" alt="blank_profile_picture" class="img-responsive img-thumbnail" width="250px">
+                            <img src="{{ url('/public/profile_picture/pdf.png') }}" alt="blank_profile_picture" class="img-responsive pro img-thumbnail">
                             @endif
                             </div>
 
@@ -182,29 +205,28 @@
                            
                             <!-- /.form-group -->
 
-                       
-                           
-                            <label for="designation_id">Designation <span class="text-danger">*</span></label>
-                            <div class="form-group{{ $errors->has('designation_id') ? ' has-error' : '' }} has-feedback">
-                                <select name="designation_id" id="designation_id" class="form-control">
+                              <label for="branch_id">Branch <span class="text-danger">*</span></label>
+                            <div class="form-group{{ $errors->has('branch_id') ? ' has-error' : '' }} has-feedback">
+                                <select name="branch_id" id="branch_id" class="form-control">
 
                                     <?php 
 
-                                    $prev_designation = \App\Designation::find($employee['designation_id']);
+                                    $prev_branch = \App\Branch::find($employee['branch_id']);
 
                                      ?>
-                                    <option value="{{$prev_designation->id}}" selected>{{$prev_designation->designation}}</option>
-                                    @foreach($designations as $designation)
-                                    <option value="{{ $designation['id'] }}">{{ $designation['designation'] }}</option>
+                                    <option value="{{$prev_branch->id}}" selected>{{$prev_branch->branch}}</option>
+                                    @foreach($branches as $branch)
+                                    <option value="{{ $branch['id'] }}">{{ $branch['branch'] }}</option>
                                     @endforeach
                                 </select>
-                                @if ($errors->has('designation_id'))
+                                @if ($errors->has('branch_id'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('designation_id') }}</strong>
+                                    <strong>{{ $errors->first('branch_id') }}</strong>
                                 </span>
                                 @endif
                             </div>
-
+                           
+                            
                                <label for="department_id">Department <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('department_id') ? ' has-error' : '' }} has-feedback">
                                 <select name="department_id" id="department_id" class="form-control">
@@ -226,26 +248,25 @@
                                 @endif
                             </div>
 
-                                <label for="branch_id">Branch <span class="text-danger">*</span></label>
-                            <div class="form-group{{ $errors->has('branch_id') ? ' has-error' : '' }} has-feedback">
-                                <select name="branch_id" id="branch_id" class="form-control">
+                         <label for="designation_id">Designation <span class="text-danger">*</span></label>
+                            <div class="form-group{{ $errors->has('designation_id') ? ' has-error' : '' }} has-feedback">
+                                <select name="designation_id" id="designation_id" class="form-control">
 
                                     <?php 
 
-                                    $prev_branch = \App\Branch::find($employee['branch_id']);
+                                    $prev_designation = \App\Designation::find($employee['designation_id']);
 
                                      ?>
-                                    <option value="{{$prev_branch->id}}" selected>{{$prev_branch->branch}}</option>
-                                    @foreach($branches as $branch)
-                                    <option value="{{ $branch['id'] }}">{{ $branch['branch'] }}</option>
-                                    @endforeach
+                                    <option value="{{$prev_designation->id}}">{{$prev_designation->designation}}</option>
+                                   
                                 </select>
-                                @if ($errors->has('branch_id'))
+                                @if ($errors->has('designation_id'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('branch_id') }}</strong>
+                                    <strong>{{ $errors->first('designation_id') }}</strong>
                                 </span>
                                 @endif
                             </div>
+
                             <!-- /.form-group -->
 
                             <label for="joining_position">Joining Position <span class="text-danger">*</span></label>
@@ -443,11 +464,29 @@
         <!-- /.content -->
     </div>
     <script type="text/javascript">
+
+    $('#department_id').on('change', function(e){
+        console.log(e);
+        var department_id = e.target.value;
+ 
+        $.get('{{ url('information') }}/create/ajax-state?department_id=' + department_id, function(data) {
+            console.log(data);
+            $('#designation_id').empty();
+            $.each(data, function(index,subCatObj){
+              
+                $('#designation_id').append('<option value="'+subCatObj.id+'" selected>'+subCatObj.designation+'</option>');
+                console.log("Found");
+                console.log(subCatObj.designation);
+            });
+        });
+    });
+</script>
+
+    <script type="text/javascript">
         document.forms['employee_edit_form'].elements['gender'].value = "{{ $employee['gender'] }}";
       
         document.forms['employee_edit_form'].elements['marital_status'].value = "{{ $employee['marital_status'] }}";
-        document.forms['employee_edit_form'].elements['designation_id'].value = "{{ $employee['designation_id'] }}";
-        document.forms['employee_edit_form'].elements['role'].value = "{{ $employee['role'] }}";
+             document.forms['employee_edit_form'].elements['role'].value = "{{ $employee['role'] }}";
         document.forms['employee_edit_form'].elements['joining_position'].value = "{{ $employee['joining_position'] }}";
     </script>
     @endsection

@@ -11,7 +11,22 @@
 |
  */
 
+use App\Designation;
+use Illuminate\Http\Request;
+ 
+Route::get('/information/create/ajax-state',function(Request $request)
+{
 
+    $department_id = $request->department_id;
+    $department_id = ltrim($department_id, "'");
+
+    //die(print_r($department_id));
+    $subcategories = Designation::where('department_id',$department_id)->get();
+
+  
+    return $subcategories;
+ 
+});
 Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
 
 // Route::get('/', ['middleware' => ['ipcheck'], function () {

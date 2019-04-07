@@ -55,7 +55,7 @@
                 <select name="user_id" id="user_id" class="form-control">
                   <option selected disabled>Select One</option>
                   @foreach($employees as $employee)
-                  <option value="{{ $employee['id'] }}"><strong>{{ $employee['name'] }}</option>
+                  <option value="{{ $employee['id'] }}"><strong>{{ $employee['name'] }}&nbsp;{{ $employee['father_name'] }}&nbsp;{{ $employee['grand_father_name'] }}</option>
                     @endforeach
                   </select>
                   @if ($errors->has('user_id'))

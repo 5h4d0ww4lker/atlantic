@@ -55,7 +55,7 @@
                         <div class="col-md-6">
                             <label for="department">Department <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('department') ? ' has-error' : '' }} has-feedback">
-                                <input type="text" name="department" id="department" class="form-control" value="{{ old('department') }}" placeholder="Enter department name..">
+                                <input type="text" name="department" id="department" class="form-control" value="{{ old('department') }}" placeholder="Enter Department Name..">
                                 @if ($errors->has('department'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('department') }}</strong>
@@ -82,7 +82,7 @@
                         <div class="col-md-12">
                             <label for="department_description">Department Description <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('department_description') ? ' has-error' : '' }} has-feedback">
-                                <textarea class="textarea" name="department_description" id="department_description" placeholder="Enter department description.." style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('department_description') }}</textarea>
+                                <textarea class="textarea" name="department_description" id="department_description" placeholder="Enter Department Description.." style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('department_description') }}</textarea>
                                 @if ($errors->has('department'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('department_description') }}</strong>

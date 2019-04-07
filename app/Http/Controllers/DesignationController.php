@@ -50,7 +50,7 @@ class DesignationController extends Controller {
      */
     public function store(Request $request) {
         $designation = $this->validate(request(), [
-            'designation' => 'required|unique:designations|max:100',
+            'designation' => 'required',
             'department_id' => 'required',
             'publication_status' => 'required',
             'designation_description' => 'required',

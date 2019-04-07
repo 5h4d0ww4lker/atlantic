@@ -38,7 +38,7 @@ class EmployeeController extends Controller {
 			->whereBetween('users.access_label', [2, 3])
 			->whereBetween('users.created_at', [$start_date, $end_date])
 			->where('users.deletion_status', 0)
-			->select('employee_id', 'users.id', 'users.name','users.father_name','users.profile_picture', 'users.contact_no_one', 'users.created_at', 'users.activation_status','users.department_id', 'designations.designation')
+			->select('employee_id', 'users.id', 'users.name','users.father_name','users.grand_father_name','users.profile_picture', 'users.contact_no_one', 'users.created_at', 'users.activation_status','users.department_id', 'designations.designation')
 			->orderBy('users.employee_id', 'ASC')
 			->get()
 			->toArray();
@@ -49,7 +49,7 @@ class EmployeeController extends Controller {
 			->join('designations', 'users.designation_id', '=', 'designations.id')
 			->whereBetween('users.access_label', [2, 3])
 			->where('users.deletion_status', 0)
-			->select('employee_id', 'users.id', 'users.name', 'users.father_name','users.profile_picture', 'users.contact_no_one', 'users.created_at', 'users.activation_status','users.department_id', 'designations.designation')
+			->select('employee_id', 'users.id', 'users.name', 'users.father_name','users.grand_father_name','users.profile_picture', 'users.contact_no_one', 'users.created_at', 'users.activation_status','users.department_id', 'designations.designation')
 			->orderBy('users.employee_id', 'ASC')
 			->get()
 			->toArray();
@@ -100,6 +100,7 @@ class EmployeeController extends Controller {
 		$employee = request()->validate([
 			'name' => 'required|max:100',
 			'father_name' => 'nullable|max:100',
+			'grand_father_name' => 'nullable|max:100',
 			'contact_no_one' => 'required|max:20',
 			'emergency_contact' => 'nullable|max:20',
 			'gender' => 'required',
@@ -127,6 +128,8 @@ class EmployeeController extends Controller {
 			'name.regex' => 'No number is allowed.',
 			'access_label' => 'The position field is required.',
 		]);
+
+//die(print_r($employee));
 		
 		$format_string = "AIS/HR/";
 		$id = User::all()->last()->id;
@@ -295,6 +298,7 @@ class EmployeeController extends Controller {
 			
 			'name' => 'required|max:100',
 			'father_name' => 'nullable|max:100',
+			'grand_father_name' => 'nullable|max:100',
 			'contact_no_one' => 'required|max:20',
 			'emergency_contact' => 'nullable|max:20',
 			'gender' => 'required',
@@ -325,6 +329,8 @@ class EmployeeController extends Controller {
 			'access_label' => 'The position field is required.',
 		]);
 
+
+
 		if (!empty($request->email)) {
 
 			$email = $request->email;
@@ -343,6 +349,7 @@ class EmployeeController extends Controller {
 		
 		$employee->name = $request->get('name');
 		$employee->father_name = $request->get('father_name');
+		$employee->grand_father_name = $request->get('grand_father_name');
 		$employee->email = $email;
 		$employee->contact_no_one = $request->get('contact_no_one');
 		$employee->emergency_contact = $request->get('emergency_contact');
@@ -362,6 +369,8 @@ class EmployeeController extends Controller {
 		$employee->role = $request->get('role');
 		$employee->tin = $request->tin;
 		$employee->branch_id = $request->branch_id;
+
+
 
 		if (!empty(request()->profile_picture)) {
 			
@@ -402,6 +411,9 @@ class EmployeeController extends Controller {
 	public function destroy($id) {
 		$affected_row = User::where('id', $id)
 			->update(['deletion_status' => 1]);
+
+		$deleted_row = User::find($id);	
+		$deleted_row->delete();	
 
 		if (!empty($affected_row)) {
 			return redirect('/people/employees')->with('message', 'Delete successfully.');

@@ -39,7 +39,7 @@ class AttendanceExport implements FromCollection,WithHeadings,WithMapping,Should
         public function map($attendance): array
     {
         return [
-            $attendance->user_id = User::find($attendance->user_id)->name(),
+            $attendance->user_id = User::find($attendance->user_id)->full_name(),
             $attendance->attendance_date  = $attendance->attendance_date,
             $attendance->first_check_in  = $attendance->first_check_in ,
             $attendance->first_check_in_status = $attendance->first_check_in_status,

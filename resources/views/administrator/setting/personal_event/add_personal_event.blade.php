@@ -55,7 +55,7 @@
                         <div class="col-md-6">
                             <label for="personal_event">Personal Event <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('personal_event') ? ' has-error' : '' }} has-feedback">
-                                <input type="text" name="personal_event" id="personal_event" class="form-control" value="{{ old('personal_event') }}" placeholder="Enter client name..">
+                                <input type="text" name="personal_event" id="personal_event" class="form-control" value="{{ old('personal_event') }}" placeholder="Enter Event name..">
                                 @if ($errors->has('personal_event'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('personal_event') }}</strong>
@@ -102,7 +102,7 @@
                         <div class="col-md-12">
                             <label for="personal_event_description">Personal Event Description <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('personal_event_description') ? ' has-error' : '' }} has-feedback">
-                                <textarea class="textarea" name="personal_event_description" id="personal_event_description" placeholder="Enter client description.." style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('personal_event_description') }}</textarea>
+                                <textarea class="textarea" name="personal_event_description" id="personal_event_description" placeholder="Enter Event description.." style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('personal_event_description') }}</textarea>
                                 @if ($errors->has('personal_event'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('personal_event_description') }}</strong>

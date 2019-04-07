@@ -87,7 +87,7 @@
                         @foreach($salaries as $salary)
                         <tr>
                              <td><img src="{{ url('public/profile_picture/' . $salary['profile_picture']) }}" class="img-responsive  img-thumbnail" width="140px"></td>
-                            <td>{{ $salary['name'] }}</td>
+                            <td>{{ $salary['name'] }}&nbsp;{{ $salary['father_name'] }}&nbsp;{{ $salary['grand_father_name'] }}</td>
                             <td>{{ $salary['designation'] }}</td>
                             <td>
                                 @if($salary['employee_type'] == 1)

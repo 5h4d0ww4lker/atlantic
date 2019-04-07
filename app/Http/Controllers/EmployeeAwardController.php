@@ -35,13 +35,15 @@ class EmployeeAwardController extends Controller {
 		->get([
 			'employee_awards.*',
 			'users.name',
+			'users.father_name',
+			'users.grand_father_name',
 			'award_categories.award_title'
 
 		])
 		->toArray();
 		$employees = User::query()
 		->where('deletion_status', 0)
-		->get(['name', 'id'])
+		->get(['name', 'id','father_name', 'grand_father_name'])
 		->toArray();
 	}
 	else{
@@ -53,13 +55,15 @@ class EmployeeAwardController extends Controller {
 		->get([
 			'employee_awards.*',
 			'users.name',
+			'users.father_name',
+			'users.grand_father_name',
 			'award_categories.award_title'
 
 		])
 		->toArray();
 		$employees = User::query()
 		->where('deletion_status', 0)
-		->get(['name', 'id'])
+		->get(['name', 'id', 'father_name', 'grand_father_name'])
 		->toArray();
 	}
 
@@ -74,7 +78,8 @@ class EmployeeAwardController extends Controller {
 	public function create() {
 		$employees = User::where('deletion_status', 0)
 		->get([
-			'name', 'id'
+			'name', 'id','father_name',
+			'grand_father_name'
 		])
 		->toArray();
 
@@ -160,12 +165,14 @@ class EmployeeAwardController extends Controller {
 		->first([
 			'employee_awards.*',
 			'users.name',
+			'users.father_name',
+			'users.grand_father_name',
 			'award_categories.award_title'
 
 		])
 		->toArray();
 		$employees = User::where('deletion_status', 0)
-		->get(['name', 'id'])
+		->get(['name', 'id', 'father_name', 'grand_father_name'])
 		->toArray();
 
 		return view('administrator.hrm.employee_awards.show_employee_award', compact('employee_aword', 'employees'));
@@ -181,7 +188,7 @@ class EmployeeAwardController extends Controller {
 		$employee_award = EmployeeAward::find($id)->toArray();
 		$employees = User::where('deletion_status', 0)
 		->get([
-			'name', 'id'
+			'name', 'id', 'father_name','grand_father_name'
 		])
 		->toArray();
 

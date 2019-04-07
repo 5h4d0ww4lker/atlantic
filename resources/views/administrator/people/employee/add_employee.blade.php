@@ -74,6 +74,16 @@
                                 </span>
                                 @endif
                             </div>
+
+                             <label for="grand_father_name">Grand Father's Name</label>
+                            <div class="form-group{{ $errors->has('father_name') ? ' has-error' : '' }} has-feedback">
+                                <input type="text" name="grand_father_name" id="grand_father_name" class="form-control" value="{{ old('grand_father_name') }}" placeholder="Enter grand father's name..">
+                                @if ($errors->has('grand_father_name'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('grand_father_name') }}</strong>
+                                </span>
+                                @endif
+                            </div>
                             <!-- /.form-group -->
 
                              <label for="gender">Gender <span class="text-danger">*</span></label>
@@ -101,9 +111,9 @@
                             </div>
                             <!-- /.form-group -->
 
-                            <label for="contact_no_one">Contact No <span class="text-info">(Format: (123) 456-7890)</span><span class="text-danger">*</span></label>
+                            <label for="contact_no_one">Contact No <span class="text-info">(Format: +251-911-123456)</span><span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('contact_no_one') ? ' has-error' : '' }} has-feedback">
-                                <input type="tel" name="contact_no_one" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$" id="contact_no_one" class="form-control" value="{{ old('contact_no_one') }}" placeholder="Enter contact no..">
+                                <input type="tel" name="contact_no_one" pattern="(\+[0-9]{3}-[0-9]{3}-[0-9]{6})" id="contact_no_one" class="form-control" value="{{ old('contact_no_one') }}" placeholder="Enter contact no..">
                                 @if ($errors->has('contact_no_one'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('contact_no_one') }}</strong>
@@ -112,16 +122,16 @@
                             </div>
                             <!-- /.form-group -->
 
-                                <label for="emergency_contact">Emergency Contact <span class="text-info">(Format: (123) 456-7890)</span><span class="text-danger">*</span></label>
+                                <label for="emergency_contact">Emergency Contact <span class="text-info">(Format: +251-911-123456)</span><span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('emergency_contact') ? ' has-error' : '' }} has-feedback">
-                                <input type="tel" name="emergency_contact" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$" id="emergency_contact" class="form-control" value="{{ old('emergency_contact') }}" placeholder="Enter emergency contact no..">
+                                <input type="tel" name="emergency_contact" pattern="(\+[0-9]{3}-[0-9]{3}-[0-9]{6})" id="emergency_contact" class="form-control" value="{{ old('emergency_contact') }}" placeholder="Enter emergency contact no..">
                                 @if ($errors->has('emergency_contact'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('emergency_contact') }}</strong>
                                 </span>
                                 @endif
                             </div>
-                            <label for="tin">TIN No<span class="text-danger">*</span></label>
+                            <label for="tin">TIN No</label>
                             <div class="form-group{{ $errors->has('tin') ? ' has-error' : '' }} has-feedback">
                                 <input type="text" name="tin" id="tin" class="form-control" value="{{ old('tin') }}" placeholder="Enter tin no..">
                                 @if ($errors->has('tin'))
@@ -241,17 +251,17 @@
                             </div> -->
                             <!-- /.form-group -->
 
-                            <label for="designation_id">Designation <span class="text-danger">*</span></label>
-                            <div class="form-group{{ $errors->has('designation_id') ? ' has-error' : '' }} has-feedback">
-                                <select name="designation_id" id="designation_id" class="form-control">
+                              <label for="branch_id">Branch <span class="text-danger">*</span></label>
+                            <div class="form-group{{ $errors->has('branch_id') ? ' has-error' : '' }} has-feedback">
+                                <select name="branch_id" id="branch_id" class="form-control">
                                     <option value="" selected disabled>Select one</option>
-                                    @foreach($designations as $designation)
-                                    <option value="{{ $designation['id'] }}">{{ $designation['designation'] }}</option>
+                                    @foreach($branches as $branch)
+                                    <option value="{{ $branch->id }}">{{ $branch->branch }}</option>
                                     @endforeach
                                 </select>
-                                @if ($errors->has('designation_id'))
+                                @if ($errors->has('branch_id'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('designation_id') }}</strong>
+                                    <strong>{{ $errors->first('branch_id') }}</strong>
                                 </span>
                                 @endif
                             </div>
@@ -271,20 +281,28 @@
                                 @endif
                             </div>
 
-                              <label for="branch_id">Branch <span class="text-danger">*</span></label>
-                            <div class="form-group{{ $errors->has('branch_id') ? ' has-error' : '' }} has-feedback">
-                                <select name="branch_id" id="branch_id" class="form-control">
-                                    <option value="" selected disabled>Select one</option>
-                                    @foreach($branches as $branch)
-                                    <option value="{{ $branch->id }}">{{ $branch->branch }}</option>
-                                    @endforeach
+
+                             <label for="designation_id">Designation <span class="text-danger">*</span></label>
+                            <div class="form-group{{ $errors->has('designation_id') ? ' has-error' : '' }} has-feedback">
+                                <select name="designation_id" id="designation_id" class="form-control">
+                                    <option></option>
+                                   
                                 </select>
-                                @if ($errors->has('branch_id'))
+                                @if ($errors->has('designation_id'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('branch_id') }}</strong>
+                                    <strong>{{ $errors->first('designation_id') }}</strong>
                                 </span>
                                 @endif
                             </div>
+
+<!-- <div class="form-group">
+    <label>City
+        <select id="designation_id" class="form-control input-sm" name="designation_id">
+            <option value=""></option>
+       </select>
+    </label>
+</div> -->
+                           
                             <!-- /.form-group -->
 
                             <label for="joining_position">Joining Position <span class="text-danger">*</span></label>
@@ -464,9 +482,29 @@
     <!-- /.content -->
 </div>
 <script type="text/javascript">
+
+    $('#department_id').on('change', function(e){
+        console.log(e);
+        var department_id = e.target.value;
+ 
+        $.get('{{ url('information') }}/create/ajax-state?department_id=' + department_id, function(data) {
+            console.log(data);
+            $('#designation_id').empty();
+            $.each(data, function(index,subCatObj){
+              
+                $('#designation_id').append('<option value="'+subCatObj.id+'">'+subCatObj.designation+'</option>');
+                console.log("Found");
+                console.log(subCatObj.designation);
+            });
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
     document.forms['employee_add_form'].elements['gender'].value = "{{ old('gender') }}";
-        document.forms['employee_add_form'].elements['id_name'].value = "{{ old('id_name') }}";
-    document.forms['employee_add_form'].elements['designation_id'].value = "{{ old('designation_id') }}";
+
+   
     document.forms['employee_add_form'].elements['role'].value = "{{ old('role') }}";
     document.forms['employee_add_form'].elements['joining_position'].value = "{{ old('joining_position') }}";
     document.forms['employee_add_form'].elements['marital_status'].value = "{{ old('marital_status') }}";

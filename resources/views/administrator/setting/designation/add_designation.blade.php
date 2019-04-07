@@ -55,7 +55,7 @@
                         <div class="col-md-6">
                             <label for="designation">Designation <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('designation') ? ' has-error' : '' }} has-feedback">
-                                <input type="text" name="designation" id="designation" class="form-control" value="{{ old('designation') }}" placeholder="Enter client name..">
+                                <input type="text" name="designation" id="designation" class="form-control" value="{{ old('designation') }}" placeholder="Enter Designation Name..">
                                 @if ($errors->has('designation'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('designation') }}</strong>
@@ -97,7 +97,7 @@
                         <div class="col-md-12">
                             <label for="designation_description">Designation Description <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('designation_description') ? ' has-error' : '' }} has-feedback">
-                                <textarea class="textarea" name="designation_description" id="designation_description" placeholder="Enter client description.." style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('designation_description') }}</textarea>
+                                <textarea class="textarea" name="designation_description" id="designation_description" placeholder="Enter Designation Description.." style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('designation_description') }}</textarea>
                                 @if ($errors->has('designation'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('designation_description') }}</strong>

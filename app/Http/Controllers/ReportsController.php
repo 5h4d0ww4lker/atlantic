@@ -78,12 +78,15 @@ class ReportsController extends Controller
         {
         $start_date = Session::get('start_date'); 
         $end_date = Session::get('end_date'); 
-        $employees = User::whereBetween('created_at', [$start_date, $end_date])->get();
+        $employees = User::where('deletion_status', 0)
+        ->whereBetween('created_at', [$start_date, $end_date])
+        ->get();
 
         }
         else
         {
-         $employees = User::all();
+         $employees = User::where('deletion_status', 0)
+        ->get();
         }  
 
           $pdf = PDF::loadView('administrator.report.employee_pdf',['employees' => $employees] );
@@ -99,12 +102,15 @@ class ReportsController extends Controller
         {
         $start_date = Session::get('start_date'); 
         $end_date = Session::get('end_date'); 
-        $employees = User::whereBetween('created_at', [$start_date, $end_date])->get();
+        $employees = User::where('deletion_status', 0)
+        ->whereBetween('created_at', [$start_date, $end_date])
+        ->get();
 
         }
         else
         {
-         $employees = User::all();
+         $employees = User::where('deletion_status', 0)
+        ->get();
         }  
 
         foreach ($employees as $employee) {
@@ -226,12 +232,14 @@ class ReportsController extends Controller
         {
         $start_date = Session::get('start_date'); 
         $end_date = Session::get('end_date'); 
-        $bonuses = Bonus::whereBetween('created_at', [$start_date, $end_date])->get();
+        $bonuses = Bonus::where('deletion_status', 0)
+        ->whereBetween('created_at', [$start_date, $end_date])->get();
 
         }
         else
         {
-         $bonuses = Bonus::all();
+         $bonuses = Bonus::where('deletion_status', 0)
+        ->get();
         }  
 
        
@@ -250,12 +258,14 @@ class ReportsController extends Controller
         {
         $start_date = Session::get('start_date'); 
         $end_date = Session::get('end_date'); 
-        $bonuses = Bonus::whereBetween('created_at', [$start_date, $end_date])->get();
+        $bonuses = Bonus::where('deletion_status', 0)
+        ->whereBetween('created_at', [$start_date, $end_date])->get();
 
         }
         else
         {
-         $bonuses = Bonus::all();
+         $bonuses = Bonus::where('deletion_status', 0)
+        ->get();
         }  
 
        
@@ -294,12 +304,14 @@ class ReportsController extends Controller
         {
         $start_date = Session::get('start_date'); 
         $end_date = Session::get('end_date'); 
-        $loans = Loan::whereBetween('created_at', [$start_date, $end_date])->get();
+        $loans = Loan::where('deletion_status', 0)
+        ->whereBetween('created_at', [$start_date, $end_date])->get();
 
         }
         else
         {
-         $loans = Loan::all();
+         $loans = Loan::where('deletion_status', 0)
+        ->get();
         }  
 
       
@@ -319,12 +331,14 @@ class ReportsController extends Controller
         {
         $start_date = Session::get('start_date'); 
         $end_date = Session::get('end_date'); 
-        $loans = Loan::whereBetween('created_at', [$start_date, $end_date])->get();
+        $loans = Loan::where('deletion_status', 0)
+        ->whereBetween('created_at', [$start_date, $end_date])->get();
 
         }
         else
         {
-         $loans = Loan::all();
+         $loans = Loan::where('deletion_status', 0)
+        ->get();
         }  
 
       
@@ -362,12 +376,14 @@ class ReportsController extends Controller
         {
         $start_date = Session::get('start_date'); 
         $end_date = Session::get('end_date'); 
-        $salaries = SalaryPayement::whereBetween('created_at', [$start_date, $end_date])->get();
+        $salaries = SalaryPayement::where('deletion_status', 0)
+        ->whereBetween('created_at', [$start_date, $end_date])->get();
 
         }
         else
         {
-         $salaries = SalaryPayement::all();
+         $salaries = SalaryPayement::where('deletion_status', 0)
+        ->get();
         }  
 
         foreach ($employees as $employee) {
@@ -415,12 +431,14 @@ class ReportsController extends Controller
         {
         $start_date = Session::get('start_date'); 
         $end_date = Session::get('end_date'); 
-        $employee_awords = EmployeeAward::whereBetween('created_at', [$start_date, $end_date])->get();
+        $employee_awords = EmployeeAward::where('deletion_status', 0)
+        ->whereBetween('created_at', [$start_date, $end_date])->get();
 
         }
         else
         {
-         $employee_awords = EmployeeAward::all();
+         $employee_awords = EmployeeAward::where('deletion_status', 0)
+        ->get();
         }  
 
     
@@ -439,12 +457,14 @@ class ReportsController extends Controller
         {
         $start_date = Session::get('start_date'); 
         $end_date = Session::get('end_date'); 
-        $employee_awords = EmployeeAward::whereBetween('created_at', [$start_date, $end_date])->get();
+        $employee_awords = EmployeeAward::where('deletion_status', 0)
+        ->whereBetween('created_at', [$start_date, $end_date])->get();
 
         }
         else
         {
-         $employee_awords = EmployeeAward::all();
+         $employee_awords = EmployeeAward::where('deletion_status', 0)
+        ->get();
         }  
 
     
@@ -482,12 +502,14 @@ class ReportsController extends Controller
         {
         $start_date = Session::get('start_date'); 
         $end_date = Session::get('end_date'); 
-        $leave_applications = LeaveApplication::whereBetween('created_at', [$start_date, $end_date])->get();
+        $leave_applications = LeaveApplication::where('deletion_status', 0)
+        ->whereBetween('created_at', [$start_date, $end_date])->get();
 
         }
         else
         {
-         $leave_applications = LeaveApplication::all();
+         $leave_applications = LeaveApplication::where('deletion_status', 0)
+        ->get();
         }  
 
 
@@ -504,12 +526,14 @@ class ReportsController extends Controller
         {
         $start_date = Session::get('start_date'); 
         $end_date = Session::get('end_date'); 
-        $leave_applications = LeaveApplication::whereBetween('created_at', [$start_date, $end_date])->get();
+        $leave_applications = LeaveApplication::where('deletion_status', 0)
+        ->whereBetween('created_at', [$start_date, $end_date])->get();
 
         }
         else
         {
-         $leave_applications = LeaveApplication::all();
+         $leave_applications = LeaveApplication::where('deletion_status', 0)
+        ->get();
         }  
 
 
@@ -525,12 +549,14 @@ class ReportsController extends Controller
         {
         $start_date = Session::get('start_date'); 
         $end_date = Session::get('end_date'); 
-        $attendances = Attendance::whereBetween('created_at', [$start_date, $end_date])->get();
+        $attendances = Attendance::where('deletion_status', 0)
+        ->whereBetween('created_at', [$start_date, $end_date])->get();
 
         }
         else
         {
-         $attendances = Attendance::all();
+         $attendances = Attendance::where('deletion_status', 0)
+        ->get();
         }  
 
        
@@ -586,12 +612,14 @@ class ReportsController extends Controller
         {
         $start_date = Session::get('start_date'); 
         $end_date = Session::get('end_date'); 
-        $notices = Notice::whereBetween('created_at', [$start_date, $end_date])->get();
+        $notices = Notice::where('deletion_status', 0)
+        ->whereBetween('created_at', [$start_date, $end_date])->get();
 
         }
         else
         {
-         $notices = Notice::all();
+         $notices = Notice::where('deletion_status', 0)
+        ->get();
         }  
 
           $pdf = PDF::loadView('administrator.report.notice_pdf',['notices' => $notices] );
@@ -610,12 +638,14 @@ class ReportsController extends Controller
         {
         $start_date = Session::get('start_date'); 
         $end_date = Session::get('end_date'); 
-        $notices = Notice::whereBetween('created_at', [$start_date, $end_date])->get();
+        $notices = Notice::where('deletion_status', 0)
+        ->whereBetween('created_at', [$start_date, $end_date])->get();
 
         }
         else
         {
-         $notices = Notice::all();
+         $notices = Notice::where('deletion_status', 0)
+        ->get();
         }  
 
           return  view('administrator.report.notice_print', compact('notices'));;

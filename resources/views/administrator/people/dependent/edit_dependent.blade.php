@@ -51,16 +51,16 @@
                         </div>
                         <!-- /.Notification Box -->
                       <?php
-$employees = \App\User::all();
+$employees = \App\User::where('deletion_status', 0)->get();
 $employee1 = \App\User::find($dependent->user_id);
 ?>
                         <div class="col-md-6">
                               <label for="user_id">Employee <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('user_id') ? ' has-error' : '' }} has-feedback">
                                 <select name="user_id" id="user_id" class="form-control">
-                                    <option value="{{$employee1->id}}" selected>{{$employee1->name}}</option>
+                                    <option value="{{$employee1->id}}" selected>{{$employee1->name}}&nbsp;{{$employee1->father_name}}&nbsp;{{$employee1->grand_father_name}}</option>
                                     @foreach($employees as $employee)
-                                    <option value="{{$employee->id}}">{{$employee->name}}</option>
+                                    <option value="{{$employee->id}}">{{$employee->name}}&nbsp;{{$employee->father_name}}&nbsp;{{$employee->grand_father_name}}</option>
                                     @endforeach
                                    
                                 </select>
@@ -84,9 +84,9 @@ $employee1 = \App\User::find($dependent->user_id);
                                 @endif
                             </div>
 
-                             <label for="phone_number">Phone Number <span class="text-danger">*</span></label>
+                             <label for="phone_number">Phone Number <span class="text-danger">*(Format: +251-911-123456)</span></label>
                             <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }} has-feedback">
-                                <input type="text" name="phone_number" id="phone_number" class="form-control" value="{{$dependent->phone_number}}" placeholder="Enter phone..">
+                                <input type="text" name="phone_number" pattern="(\+[0-9]{3}-[0-9]{3}-[0-9]{6})" id="phone_number" class="form-control" value="{{$dependent->phone_number}}" placeholder="Enter phone..">
                                 @if ($errors->has('name'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('phone_number') }}</strong>

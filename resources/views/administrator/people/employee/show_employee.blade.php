@@ -37,7 +37,7 @@
                     <tr>
                         <td>
                             <p style="padding-top: 40px; font-weight: small;">
-                                <b>Full Name: </b>{{ $employee->name }} &nbsp; {{$employee->father_name}}
+                                <b>Full Name: </b>{{ $employee->name }} &nbsp; {{$employee->father_name}}&nbsp;{{$employee->grand_father_name}}
                                 <br>
                                 <b>Employee ID:</b> {{ $employee->employee_id }}
                                 <br>
@@ -61,17 +61,29 @@
                             @else
                             <img src="{{ url('public/profile_picture/blank_profile_picture.png') }}" alt="blank_profile_picture" class="img-responsive img-thumbnail" width="160px">
                             @endif
+
+                            
                         </td>
+
+                        <td width="160px">
+                                </td>
                     </tr>
                 </table>
                 <hr>
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
+                            <td>First Name</td>
+                            <td>{{ $employee->name }}</td>
+                        </tr>
+                        <tr>
                             <td>Father's Name</td>
                             <td>{{ $employee->father_name }}</td>
                         </tr>
-                      
+                      <tr>
+                            <td>Grand Father's Name</td>
+                            <td>{{ $employee->grand_father_name }}</td>
+                        </tr>
                         <tr>
                             <td>Present Address</td>
                             <td>{{ $employee->present_address }}</td>
@@ -147,12 +159,19 @@
                         </tr>
                         <tr>
                             <td>Experience</td>
-                            <td>{!! $employee->experience !!}</td>
+                            <td>{!! $employee->experience !!}
+
+                                  @if(!empty($employee->cv))
+                                   <object data="{{ url('/public/cv/1554672075.pdf') }}"></object>
+                          
+
+                            @else
+                            <img src="{{ url('/public/profile_picture/pdf.png') }}" alt="blank_profile_picture" class="img-responsive img-thumbnail" width="250px">
+                            @endif
+                           
+                            </td>
                         </tr>
-                        <tr>
-                            <td>Reference</td>
-                            <td>{!! $employee->reference !!}</td>
-                        </tr>
+                        
                         <tr>
                             <td>Created By</td>
                             <td>{{ $created_by->name }}</td>

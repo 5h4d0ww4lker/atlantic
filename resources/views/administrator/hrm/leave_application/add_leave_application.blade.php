@@ -97,59 +97,7 @@
               </div>
               </div>
 
-              
 
-             
-
-              <div class="form-group">
-                <label>Date of return from Last Leave:</label>
-
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input type="text" name="last_leave_date" class="form-control pull-right" id="datepicker3">
-                </div>
-                <!-- /.input group -->
-              </div>
-
-              <label for="last_leave_period">Period of Last Leave <span class="text-danger"></span></label>
-              <div class="form-group{{ $errors->has('last_leave_period') ? ' has-error' : '' }} has-feedback">
-                <input type="text" name="last_leave_period" id="last_leave_period" class="form-control" value="{{ old('last_leave_period') }}" placeholder="Enter Period of Last Leave..">
-                @if ($errors->has('last_leave_period'))
-                <span class="help-block">
-                  <strong>{{ $errors->first('last_leave_period') }}</strong>
-                </span>
-                @endif
-              </div>
-              <!-- /.form-group -->
-
-               <label for="leave_category">Category of Last Leave <span class="text-danger"></span></label>
-              <div class="form-group{{ $errors->has('leave_category') ? ' has-error' : '' }} has-feedback">
-                <select name="last_leave_category_id"  class="form-control">
-                  <option value="" selected disabled>Select one</option>
-                  @foreach( $leave_categorys as $leave_category)
-                  <option value="{{ $leave_category->id }}"> {{ $leave_category->leave_category }} </option>
-                  @endforeach
-                </select>
-                @if ($errors->has('leave_category'))
-                <span class="help-block">
-                  <strong>{{ $errors->first('leave_category') }}</strong>
-                </span>
-                @endif
-              </div>
-              <!-- /.form-group -->
-
-              <label for="leave_address">Leave Address <span class="text-danger"></span></label>
-              <div class="form-group{{ $errors->has('leave_address') ? ' has-error' : '' }} has-feedback">
-                <textarea class="textarea" name="leave_address"  placeholder="Enter leave_address.." style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('leave_address') }}</textarea>
-                @if ($errors->has('leave_address'))
-                <span class="help-block">
-                  <strong>{{ $errors->first('leave_address') }}</strong>
-                </span>
-                @endif
-              </div>
-              <!-- /.form-group -->
 
                 <label for="during_leave">Performing person during leave <span class="text-danger"></span></label>
               <div class="form-group{{ $errors->has('during_leave') ? ' has-error' : '' }} has-feedback">

@@ -20,6 +20,7 @@ use Illuminate\Http\Response;
 use Cookie;
 use Charts;
 use Calendar;
+use DB;
 
 class HomeController extends Controller {
 
@@ -116,8 +117,8 @@ public  function index(Request $request)
 		$notices = Notice::where('deletion_status', 0)
 			->get();	
 
-		$male = User::where('gender', 'm')->count();
-		$female = User::where('gender', 'f')->count();
+		$male = User::where('deletion_status',0)->where('gender', 'm')->count();
+		$female = User::where('deletion_status',0)->where('gender', 'f')->count();
 			
 			$charts  =	 Charts::create('pie', 'highcharts')
 				    ->title('Male / Female Ratio')
@@ -125,7 +126,11 @@ public  function index(Request $request)
 				    ->values([$male, $female])
 				    ->dimensions(1000,500)
 				    ->responsive(true);	
-		     $users = User::all();
+		     $users = User::where(DB::raw('deletion_status', 0))->get();
+		     $users = DB::table('users')->where('deletion_status', '0')->get();
+
+		     //die(print_r(count($users)));
+
 			 $charts2 = Charts::database($users, 'bar', 'highcharts')
 			      ->title("New Employees by Month")
 			      ->elementLabel("Month")
@@ -134,7 +139,7 @@ public  function index(Request $request)
 			      ->groupByMonth(date('Y'), true);
 
 
-			      $departments = Department::all();
+			      $departments = Department::where('deletion_status', 0)->get();
 
 			   	  foreach ($departments as $department)
 			       {

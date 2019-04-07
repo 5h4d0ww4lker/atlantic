@@ -51,7 +51,7 @@
                         </div>
                         <!-- /.Notification Box -->
                       <?php
-$employees = \App\User::all();
+$employees = \App\User::where('deletion_status', 0)->get();
 ?>
                         <div class="col-md-6">
                               <label for="user_id">Employee <span class="text-danger">*</span></label>
@@ -59,7 +59,7 @@ $employees = \App\User::all();
                                 <select name="user_id" id="user_id" class="form-control">
                                     <option value="" selected disabled>Select one</option>
                                     @foreach($employees as $employee)
-                                    <option value="{{$employee->id}}">{{$employee->name}}</option>
+                                    <option value="{{$employee->id}}">{{$employee->name}}&nbsp;{{$employee->father_name}}&nbsp;{{$employee->grand_father_name}}</option>
                                     @endforeach
                                    
                                 </select>
@@ -83,9 +83,9 @@ $employees = \App\User::all();
                                 @endif
                             </div>
 
-                             <label for="phone_number">Phone Number <span class="text-danger">*</span></label>
+                             <label for="phone_number">Phone Number <span class="text-danger">* (Format: +251-911-123456)</span></label>
                             <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }} has-feedback">
-                                <input type="text" name="phone_number" id="phone_number" class="form-control" value="{{ old('phone_number') }}" placeholder="Enter phone..">
+                                <input type="text" name="phone_number" id="phone_number" pattern="(\+[0-9]{3}-[0-9]{3}-[0-9]{6})" class="form-control" value="{{ old('phone_number') }}" placeholder="Enter phone..">
                                 @if ($errors->has('name'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('phone_number') }}</strong>

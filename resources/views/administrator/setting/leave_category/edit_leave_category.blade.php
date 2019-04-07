@@ -53,7 +53,7 @@
                         <div class="col-md-6">
                             <label for="leave_category">Category Name <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('leave_category') ? ' has-error' : '' }} has-feedback">
-                                <input type="text" name="leave_category" id="leave_category" class="form-control" value="{{ $leave_category['leave_category'] }}" placeholder="Enter client name..">
+                                <input type="text" name="leave_category" id="leave_category" class="form-control" value="{{ $leave_category['leave_category'] }}" placeholder="Enter Leave name..">
                                 @if ($errors->has('leave_category'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('leave_category') }}</strong>
@@ -80,7 +80,7 @@
                         <div class="col-md-12">
                             <label for="leave_category_description">Category Description <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('leave_category_description') ? ' has-error' : '' }} has-feedback">
-                                <textarea class="textarea" name="leave_category_description" id="leave_category_description" placeholder="Enter client description.." style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $leave_category['leave_category_description'] }}</textarea>
+                                <textarea class="textarea" name="leave_category_description" id="leave_category_description" placeholder="Enter Leave description.." style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $leave_category['leave_category_description'] }}</textarea>
                                 @if ($errors->has('leave_category'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('leave_category_description') }}</strong>

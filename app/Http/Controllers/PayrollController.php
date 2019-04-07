@@ -18,8 +18,9 @@ class PayrollController extends Controller {
 			->leftjoin('designations as designations', 'users.designation_id', '=', 'designations.id')
 			->orderBy('users.name', 'ASC')
 			->where('users.access_label', '>=', 2)
+			->where('users.deletion_status', 0)
 			->where('users.access_label', '<=', 3)
-			->get(['designations.designation', 'users.name', 'users.id'])
+			->get(['designations.designation', 'users.name','users.father_name','users.grand_father_name', 'users.id'])
 			->toArray();
 
 		return view('administrator.hrm.payroll.manage_salary', compact('employees'));
@@ -120,6 +121,8 @@ class PayrollController extends Controller {
 			->get([
 				'payrolls.*',
 				'users.name',
+				'users.father_name',
+				'users.grand_father_name',
 				'users.profile_picture',
 				'designations.designation',
 			])
@@ -136,6 +139,8 @@ class PayrollController extends Controller {
 			->get([
 				'payrolls.*',
 				'users.name',
+				'users.father_name',
+				'users.grand_father_name',
 				'users.profile_picture',
 				'designations.designation',
 			])
@@ -161,6 +166,8 @@ class PayrollController extends Controller {
 			->first([
 				'payrolls.*',
 				'users.name',
+				'users.father_name',
+				'users.grand_father_name',
 				'users.profile_picture',
 				'designations.designation',
 				'departments.department',

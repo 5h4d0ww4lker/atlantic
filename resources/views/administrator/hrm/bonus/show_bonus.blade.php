@@ -35,7 +35,7 @@
                 <tbody>
                     <tr>
                         <td width="25%">Employee Name</td>
-                        <td width="75%">{{ $bonus['name'] }}</td>
+                        <td width="75%">{{ $bonus['name'] }}&nbsp;{{ $bonus['father_name'] }}&nbsp;{{ $bonus['grand_father_name'] }}</td>
                     </tr>
                     <tr>
                         <td>Designation</td>

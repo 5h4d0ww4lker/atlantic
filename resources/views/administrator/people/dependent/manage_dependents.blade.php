@@ -2,6 +2,18 @@
 @section('title', 'Team')
 
 @section('main_content')
+<style type="text/css">
+.pro {
+    position: relative;
+    float: left;
+    width:  120px;
+    height: 100px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+
+</style>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -53,7 +65,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                          <th width="">Picture</th>
+                          <th width="">Employee Picture</th>
                             
                             <th width="">Employee Name</th>
                             <th width="">Dependent Name</th>
@@ -71,7 +83,7 @@
 $employee = \App\User::find($dependent->user_id);
 ?>
                         <tr>
-                            <td><img src="{{ url('public/profile_picture/' . $employee['profile_picture']) }}" class="img-responsive  img-thumbnail" width="75px"></td>
+                            <td><img src="{{ url('public/profile_picture/' . $employee['profile_picture']) }}" class="img-responsive pro  img-thumbnail"></td>
                             <td>{{ $employee->name }} &nbsp; {{ $employee->father_name }}</td>
                             <td>{{  $dependent->dependent_name }}</td>
                             <td>{{ $dependent->relationship }}</td>

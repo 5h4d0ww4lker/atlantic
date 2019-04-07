@@ -35,6 +35,8 @@ class BonusController extends Controller
         ->get([
             'bonuses.*',
             'users.name',
+            'users.father_name',
+            'users.grand_father_name',
             'designations.designation'
         ])
         ->toArray();
@@ -50,6 +52,8 @@ class BonusController extends Controller
         ->get([
             'bonuses.*',
             'users.name',
+            'users.father_name',
+            'users.grand_father_name',
             'designations.designation'
         ])
         ->toArray();
@@ -124,6 +128,8 @@ class BonusController extends Controller
         ->first([
             'bonuses.*',
             'users.name',
+            'users.father_name',
+            'users.grand_father_name',
             'designations.designation'
         ])
         ->toArray();

@@ -89,7 +89,7 @@
                             <td>
                             @foreach($employees as $employee)
                               @if($employee['id'] == $employee_aword['employee_id'])
-                            {{ $employee['name'] }}
+                            {{ $employee['name'] }}&nbsp; {{ $employee['father_name'] }}&nbsp; {{ $employee['grand_father_name'] }}
                           @endif
                           @endforeach
                           </td>
