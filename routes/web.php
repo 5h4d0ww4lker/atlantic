@@ -138,6 +138,18 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/setting/leave_categories/update/{id}', 'LeaveCategoryController@update');
 	Route::get('/setting/leave_categories/delete/{id}', 'LeaveCategoryController@destroy');
 
+
+	// Bonus Category Section //
+	Route::get('/setting/bonus_categories', 'BonusCategoryController@index');
+	Route::get('/setting/bonus_categories/create', 'BonusCategoryController@create');
+	Route::post('/setting/bonus_categories/store', 'BonusCategoryController@store');
+	Route::get('/setting/bonus_categories/published/{id}', 'BonusCategoryController@published');
+	Route::get('/setting/bonus_categories/unpublished/{id}', 'BonusCategoryController@unpublished');
+	Route::get('/setting/bonus_categories/details/{id}', 'BonusCategoryController@show');
+	Route::get('/setting/bonus_categories/edit/{id}', 'BonusCategoryController@edit');
+	Route::post('/setting/bonus_categories/update/{id}', 'BonusCategoryController@update');
+	Route::get('/setting/bonus_categories/delete/{id}', 'BonusCategoryController@destroy');
+
 	// Designations Section //
 	Route::get('/setting/designations', 'DesignationController@index');
 	Route::get('/setting/designations/create', 'DesignationController@create');
@@ -354,6 +366,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/hrm/notice/published/{id}', 'NoticeController@published');
 	Route::get('/hrm/notice/unpublished/{id}', 'NoticeController@unpublished');
 	Route::get('/hrm/notice/delete/{id}', 'NoticeController@destroy');
+	Route::get('/hrm/notice/detail/{id}', 'NoticeController@detail');
 
 	Route::get('/hrm/notice/show', 'NoticeController@show');
 

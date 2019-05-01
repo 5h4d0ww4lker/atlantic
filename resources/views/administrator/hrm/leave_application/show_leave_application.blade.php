@@ -46,7 +46,7 @@ use Carbon\Carbon;
 
           <tr>
             <td width="25%">Name of Applicant</td>
-            <td width="75%">{{ $leave_application['name'] }}</td>
+            <td width="75%">{{ $leave_application['name'] }} &nbsp;{{ $leave_application['father_name'] }}&nbsp;{{ $leave_application['grand_father_name'] }}</td>
           </tr>
           <tr>
             <td width="25%">ID No.</td>

@@ -57,7 +57,7 @@
                                 <select name="user_id" id="user_id" class="form-control">
                                     <option value="" selected disabled>Select one</option>
                                     @foreach($users as $user)
-                                    <option value="{{ $user['id'] }}">{{ $user['name'] }}&nbsp;{{ $user['father_name'] }}&&nbsp;{{ $user['grand_father_name'] }}</option>
+                                    <option value="{{ $user['id'] }}">{{ $user['name'] }}&nbsp;{{ $user['father_name'] }}&nbsp;{{ $user['grand_father_name'] }}</option>
                                     @endforeach
                                 </select>
                                 @if ($errors->has('user_id'))
@@ -66,18 +66,22 @@
                                 </span>
                                 @endif
                             </div>
-                            <!-- /.form-group -->
-
-                            <label for="bonus_name">Bonus Name <span class="text-danger">*</span></label>
+                       
+                            <label for="bonus_name">Bonus Category <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('bonus_name') ? ' has-error' : '' }} has-feedback">
-                                <input type="text" name="bonus_name" id="bonus_name" class="form-control" value="{{ old('bonus_name') }}" placeholder="Enter bonus name..">
+                                <select name="bonus_name" id="bonus_name" class="form-control">
+                                    <option value="" selected disabled>Select one</option>
+                                    @foreach($bonus_categories as $bonus_category)
+                                    <option value="{{ $bonus_category['bonus_category'] }}">{{ $bonus_category['bonus_category'] }}</option>
+                                    @endforeach
+                                </select>
                                 @if ($errors->has('bonus_name'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('bonus_name') }}</strong>
                                 </span>
                                 @endif
                             </div>
-                            <!-- /.form-group -->
+                      
 
                             <label for="bonus_month">Bonus Month <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('bonus_month') ? ' has-error' : '' }} has-feedback">

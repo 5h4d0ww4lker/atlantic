@@ -108,7 +108,7 @@
               @foreach($employees as $employee)
               <tr>
                 <td>{{ $sl++ }}</td>
-                <td>{{ $employee['name'] }}</td>
+                <td>{{ $employee['name'] }} &nbsp;{{ $employee['father_name'] }}&nbsp;{{ $employee['grand_father_name'] }}</td>
                 <td>{{ $employee['designation'] }}</td>
                 <td>{{ date("F Y", strtotime($salary_month)) }}</td>
                 @php($debits = 0)

@@ -175,7 +175,7 @@ $tmp = \App\Designation::find($employee['designation_id']);
                         <tr>
                             <td>{{ $sl++ }}</td>
                             <td>{{ $employee['employee_id'] }}</td>
-                            <td>{{ $employee['name'] }}</td>
+                            <td>{{ $employee['name'] }}&nbsp;{{ $employee['father_name'] }}&nbsp;{{ $employee['grand_father_name'] }}</td>
                             <td>{{ $tmp->designation }}</td>
                             <td>{{ $employee['contact_no_one'] }}</td>
                            <td>{{ $employee['employement_status'] }}</td>

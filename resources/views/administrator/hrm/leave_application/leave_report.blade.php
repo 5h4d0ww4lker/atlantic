@@ -56,7 +56,7 @@
                             @foreach($users as $user)
                             <tr>
                                 <td>{{ $sl++ }}</td>
-                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->name }} &nbsp;{{ $user->father_name }}&nbsp;{{ $user->grand_father_name }}</td>
                                 <td>{{ $user->employee_id }}</td>
                                 <td>{{ $user->designation }}</td>
                                 <td>

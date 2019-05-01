@@ -6,11 +6,11 @@
 .pro {
     position: relative;
     float: left;
-    width:  120px;
+    width:  200px;
     height: 100px;
-    background-position: 50% 50%;
+    background-position: center;
     background-repeat:   no-repeat;
-    background-size:     cover;
+    background-size:     center;
 }
 
 </style>
@@ -110,7 +110,7 @@ $department = \App\Department::find($employee['department_id']);
                             <?php
 
                             $img = "1553452165.png"; ?>
-                             <td><img src="{{ url('public/profile_picture/' . $employee['profile_picture']) }}" class="img-responsive pro  img-thumbnail"></td>
+                             <td width="15%"><img src="{{ url('public/profile_picture/' . $employee['profile_picture']) }}" class="" width="100%" height="100px"></td>
                             <td>{{ $employee['name'] }} &nbsp; {{ $employee['father_name'] }}&nbsp;{{ $employee['grand_father_name'] }}</td>
                             <td>{{ $department->department }}</td>
                             <td>{{ $employee['designation'] }}</td>

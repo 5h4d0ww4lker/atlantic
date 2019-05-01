@@ -23,6 +23,8 @@ class DeductionController extends Controller
         ->get([
             'deductions.*',
             'users.name',
+             'users.father_name',
+              'users.grand_father_name',
             'designations.designation'
         ])
         ->toArray();
@@ -92,6 +94,8 @@ class DeductionController extends Controller
         ->first([
             'deductions.*',
             'users.name',
+            'users.father_name',
+            'users.grand_father_name',
             'designations.designation'
         ])
         ->toArray();

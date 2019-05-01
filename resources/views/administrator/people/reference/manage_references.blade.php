@@ -87,8 +87,7 @@ $employee = \App\User::find($reference->employee_id);
                                         Action <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="{{ url('/people/references/details/' . $reference->id) }}"><i class="icon fa fa-file-text"></i> Details</a></li>
-                                        <li><a href="{{ url('/people/references/edit/' . $reference->id) }}"><i class="icon fa fa-edit"></i> Edit</a></li>
+                                               <li><a href="{{ url('/people/references/edit/' . $reference->id) }}"><i class="icon fa fa-edit"></i> Edit</a></li>
                                         <li><a href="{{ url('/people/references/delete/' . $reference->id) }}" onclick="return confirm('Are you sure to delete this ?');"><i class="icon fa fa-trash"></i> Delete</a></li>
                                     </ul>
                                 </div>

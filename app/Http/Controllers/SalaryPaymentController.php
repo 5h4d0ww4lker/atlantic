@@ -270,7 +270,7 @@ class SalaryPaymentController extends Controller {
 		->orderBy('users.name', 'ASC')
 		->where('users.access_label', '>=', 2)
 		->where('users.access_label', '<=', 3)
-		->get(['payrolls.*', 'designations.designation', 'users.name', 'users.id as user_id'])
+		->get(['payrolls.*', 'designations.designation', 'users.name','users.father_name','users.grand_father_name', 'users.id as user_id'])
 		->toArray();
 
 		$bonuses = Bonus::whereYear('bonus_month', '=', $year)

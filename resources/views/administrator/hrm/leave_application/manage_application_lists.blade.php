@@ -102,7 +102,7 @@ use Carbon\Carbon;
                         ?>
                       <tr>
                         <td>{{  $sl++ }}</td>
-                        <td>{{ $leave_application['name'] }}</td>
+                        <td>{{ $leave_application['name'] }} &nbsp; {{ $leave_application['father_name'] }} &nbsp;{{ $leave_application['grand_father_name'] }}</td>
                         <td>{!! str_limit($leave_application['reason'], 65) !!}</td>
                         <td>{{ date('d/m/Y', strtotime($leave_application['start_date'])) }}</td>
                         <td>{{ date('d/m/Y', strtotime($leave_application['end_date'])) }}</td>

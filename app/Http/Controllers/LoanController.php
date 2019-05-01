@@ -35,6 +35,8 @@ class LoanController extends Controller
         ->get([
             'loans.*',
             'users.name',
+            'users.father_name',
+            'users.grand_father_name',
             'designations.designation'
         ])
         ->toArray();
@@ -50,6 +52,8 @@ class LoanController extends Controller
         ->get([
             'loans.*',
             'users.name',
+            'users.father_name',
+            'users.grand_father_name',
             'designations.designation'
         ])
         ->toArray();
@@ -121,6 +125,8 @@ class LoanController extends Controller
         ->first([
             'loans.*',
             'users.name',
+            'users.father_name',
+            'users.grand_father_name',
             'designations.designation'
         ])
         ->toArray();

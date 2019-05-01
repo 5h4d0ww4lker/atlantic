@@ -6,7 +6,7 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Holiday Lists
+     Notice
     </h1>
     <ol class="breadcrumb">
       <li><a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
@@ -63,7 +63,31 @@
                 @endif
               </div>
               <!-- /.form-group -->
+<label for="datepicker">From Date<span class="text-danger">*</span></label>
+                            <div class="form-group{{ $errors->has('from_date') ? ' has-error' : '' }} has-feedback">
+                                <div class="input-group date">
+                                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                    <input type="text" required name="from_date" class="form-control pull-right" id="datepicker" placeholder="yyyy-mm-dd">
+                                </div>
+                                @if ($errors->has('from_date'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('from_date') }}</strong>
+                                </span>
+                                @endif
+                            </div>
 
+                            <label for="datepicker4">To Date<span class="text-danger">*</span></label>
+                            <div class="form-group{{ $errors->has('to_date') ? ' has-error' : '' }} has-feedback">
+                                <div class="input-group date">
+                                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                    <input type="text" name="to_date" required class="form-control pull-right" id="datepicker4" placeholder="yyyy-mm-dd">
+                                </div>
+                                @if ($errors->has('to_date'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('to_date') }}</strong>
+                                </span>
+                                @endif
+                            </div>
 
               <label for="publication_status">Publication Status <span class="text-danger">*</span></label>
               <div class="form-group{{ $errors->has('publication_status') ? ' has-error' : '' }} has-feedback">

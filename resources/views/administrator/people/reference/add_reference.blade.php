@@ -54,7 +54,7 @@
                         <div class="col-md-6">
 
                                <?php
-                                $employees = \App\User::all();
+                                $employees = \App\User::where('deletion_status', 0)->get();
                                 ?>
                      
                               <label for="employee_id">Employee <span class="text-danger">*</span></label>
@@ -62,7 +62,7 @@
                                 <select name="employee_id" id="employee_id" class="form-control">
                                     <option value="" selected disabled>Select one</option>
                                     @foreach($employees as $employee)
-                                    <option value="{{$employee->id}}">{{$employee->name}}</option>
+                                    <option value="{{$employee->id}}">{{$employee->name}}&nbsp;{{$employee->father_name}}&nbsp;{{$employee->grand_father_name}}</option>
                                     @endforeach
                                    
                                 </select>

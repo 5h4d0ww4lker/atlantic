@@ -68,9 +68,15 @@
                             </div>
                             <!-- /.form-group -->
 
-                            <label for="bonus_name">Bonus Name <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                            <label for="bonus_name">Bonus Category <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('bonus_name') ? ' has-error' : '' }} has-feedback">
-                                <input type="text" name="bonus_name" id="bonus_name" class="form-control" value="{{ $bonus['bonus_name'] }}" placeholder="Enter bonus name..">
+                                <select name="bonus_name" id="bonus_name" class="form-control">
+                                    <option value="" selected disabled>Select one</option>
+                                    @foreach($bonus_categories as $bonus_category)
+                                    <option value="{{ $bonus_category['bonus_category'] }}">{{ $bonus_category['bonus_category'] }}</option>
+                                    @endforeach
+                                </select>
                                 @if ($errors->has('bonus_name'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('bonus_name') }}</strong>

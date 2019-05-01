@@ -145,13 +145,16 @@
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-box"><a href="{{ url('/setting/properties') }}" ><h6 style="color:#FFFFFF">More info<i class="fa fa-arrow-circle-right"></i></h6> </a></i></span>
+       
 
+         <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-briefcase"><a href="{{ url('/hrm/employee-awards') }}" ><h6 style="color:#FFFFFF">More info<i class="fa fa-arrow-circle-right"></i></h6> </a></i></span>
+
+       
             <div class="info-box-content">
-              <span class="info-box-text">Properties</span>
-              <span class="info-box-number">{{ count($properties) }}</span>
+              <span class="info-box-text">Awards</span>
+              <span class="info-box-number">{{ count($awards) }}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -185,12 +188,11 @@
                 <p class="message">
                   <a href="{{ url('/hrm/notice') }}" class="name">
                     <small class="text-muted pull-right"><i class="fa fa-clock-o"></i>  {{$notice->created_at}}</small>
-                    {{$notice->notice_title}}
-                    
-                  </a>
-                  {{$notice->description}}
+                    {!! $notice->notice_title !!}
+                                     
                 </p>
-               
+                 <span class="pull-left" style="padding-left: 5px;">&nbsp;{!! $notice->description !!}</span>     </a>
+            
               </div>
 
                @endforeach
@@ -206,7 +208,34 @@
           </div>
           <!-- /.box (chat box) -->
 
-           <div class="box box-success">
+    
+
+     
+
+
+        </section>
+
+              <div class="col-md-4">
+          <!-- Info Boxes Style 2 -->
+         
+          <!-- /.info-box -->
+          
+          <!-- /.info-box -->
+       
+       <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="ion ion-ios-calendar"><a href="{{ url('/setting/holidays') }}" ><h6 style="color:#FFFFFF">More info<i class="fa fa-arrow-circle-right"></i></h6> </a></i></span>
+
+       
+            <div class="info-box-content">
+              <span class="info-box-text">Holidays</span>
+              <span class="info-box-number">{{ count($holidays) }}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+
+
+
+                <div class="box box-success">
             <div class="box-header">
               <i class="fa fa-comments-o"></i>
 
@@ -283,35 +312,6 @@ if ($nbDays == 0){
             </div>
             <!-- /.chat -->
           
-          </div>
-
-     
-
-
-        </section>
-
-              <div class="col-md-4">
-          <!-- Info Boxes Style 2 -->
-          <div class="info-box bg-yellow">
-            <span class="info-box-icon"><i class="ion ion-ios-briefcase"><a href="{{ url('/hrm/employee-awards') }}" ><h6 style="color:#FFFFFF">More info<i class="fa fa-arrow-circle-right"></i></h6> </a></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Award</span>
-              <span class="info-box-number">{{ count($awards) }}</span>
-           </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-          
-          <!-- /.info-box -->
-          <div class="info-box bg-red">
-            <span class="info-box-icon"><i class="ion ion-ios-flag"><a href="{{ url('/setting/holidays') }}" ><h6 style="color:#FFFFFF">More info<i class="fa fa-arrow-circle-right"></i></h6> </a></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Holidays</span>
-              <span class="info-box-number">{{ count($holidays) }}</span>
-           </div>
-            <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
          

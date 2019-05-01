@@ -71,6 +71,8 @@
 						<tr>
 							<th>SL#</th>
 							<th>Title</th>
+							<th>From Date</th>
+							<th>To Date Date</th>
 							<th>Details</th>
 							<th class="text-center">Create By</th>
 							<th class="text-center">Create At</th>
@@ -84,6 +86,8 @@
 						<tr>
 							<td>{{ $sl++ }}</td>
 							<td>{{ $notice['notice_title'] }}</td>
+							<td>{{ date("D d F Y h:ia", strtotime($notice['from_date'])) }}</td>
+							<td>{{ date("D d F Y h:ia", strtotime($notice['to_date'])) }}</td>
 							<td>{!! str_limit($notice['description'], 65) !!}</td>
 							<td>{{ $notice['name'] }}</td>
 							<td>{{ date("D d F Y h:ia", strtotime($notice['created_at'])) }}</td>
@@ -101,7 +105,7 @@
 										Action <span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu" role="menu">
-										<li><a href=""><i class="icon fa fa-file-text"></i> Details</a></li>
+										<li><a href="{{ url('/hrm/notice/detail/' . $notice['id']) }}"><i class="icon fa fa-file-text"></i> Details</a></li>
 										<li><a href="{{ url('/hrm/notice/delete/' . $notice['id']) }}" onclick="return confirm('Are you sure to delete this ?');"><i class="icon fa fa-trash"></i> Delete</a></li>
 									</ul>
 								</div>

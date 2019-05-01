@@ -57,7 +57,7 @@ class ReferenceController extends Controller {
 			->select('id', 'designation')
 			->get()
 			->toArray();
-		return view('administrator.people.reference.add_reference', compact('reference_types', 'designations'));
+		return view('administrator.people.reference.add_reference', compact('designations'));
 	}
 
 	/**

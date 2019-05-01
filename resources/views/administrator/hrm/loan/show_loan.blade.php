@@ -35,7 +35,7 @@
                 <tbody>
                     <tr>
                         <td width="25%">Employee Name</td>
-                        <td width="75%">{{ $loan['name'] }}</td>
+                        <td width="75%">{{ $loan['name'] }}&nbsp;{{ $loan['father_name'] }} &nbsp;{{ $loan['grand_father_name'] }}</td>
                     </tr>
                     <tr>
                         <td>Designation</td>

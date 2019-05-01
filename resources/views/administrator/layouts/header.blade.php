@@ -15,8 +15,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </a>
-
-        <div class="navbar-custom-menu">
+       <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
@@ -55,6 +54,20 @@
                             </div>
                         </li>
                     </ul>
+                </li>
+                <!-- Control Sidebar Toggle Button -->
+            </ul>
+        </div>
+        <div class="pull-left">
+            <ul class="nav navbar-nav">
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown" style="width:1000px;">
+                    <a href="#" data-toggle="dropdown">
+                      
+
+                        <span class="logo-lg" style="font-weight:700;font-size:20px; padding-left:30%;"><b>SRS Water Resource Development Bureau</b></span>
+                    </a>
+                   
                 </li>
                 <!-- Control Sidebar Toggle Button -->
             </ul>

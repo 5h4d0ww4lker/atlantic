@@ -30,6 +30,7 @@
                 <li><a href="{{ url('/setting/holidays') }}"><i class="fa fa-circle-o"></i> Holiday List</a></li>
                 <li><a href="{{ url('/setting/personal-events') }}"><i class="fa fa-circle-o"></i> Personal Event</a></li>
                 <li><a href="{{ url('/setting/award_categories') }}"><i class="fa fa-circle-o"></i> Manage Award Categories</a></li>
+                 <li><a href="{{ url('/setting/bonus_categories') }}"><i class="fa fa-circle-o"></i> Manage Bonus Categories</a></li>
                   <li><a href="{{ url('/setting/properties') }}"><i class="fa fa-circle-o"></i> Manage Properties</a></li>
                   <li><a href="{{ url('/setting/property_requests') }}"><i class="fa fa-circle-o"></i> Manage Propety Requests</a></li>
                     <li><a href="{{ url('/setting/trainings') }}"><i class="fa fa-circle-o"></i> Manage Trainings</a></li>

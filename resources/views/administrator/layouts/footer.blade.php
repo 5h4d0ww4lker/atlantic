@@ -1,6 +1,6 @@
 <footer class="main-footer">
    
-     <p align="center"> <strong>Somali Regional State Construction Office</p><br/>
+     <p align="center"> <strong>Somali Regional State Water Resource Development Bureau</p><br/>
       <div class="pull-right hidden-xs">
         <b>Version</b> 3.5
     </div>

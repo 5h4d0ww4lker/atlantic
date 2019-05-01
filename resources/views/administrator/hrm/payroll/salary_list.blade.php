@@ -2,6 +2,18 @@
 @section('title', 'Salary List')
 
 @section('main_content')
+<style type="text/css">
+.pro {
+    position: relative;
+    float: left;
+    width:  120px;
+    height: 100px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+
+</style>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -86,7 +98,7 @@
                         @php ($sl = 1)
                         @foreach($salaries as $salary)
                         <tr>
-                             <td><img src="{{ url('public/profile_picture/' . $salary['profile_picture']) }}" class="img-responsive  img-thumbnail" width="140px"></td>
+                             <td width="15%"><img src="{{ url('public/profile_picture/' . $salary['profile_picture']) }}" width="100%" max-height="100px"></td>
                             <td>{{ $salary['name'] }}&nbsp;{{ $salary['father_name'] }}&nbsp;{{ $salary['grand_father_name'] }}</td>
                             <td>{{ $salary['designation'] }}</td>
                             <td>

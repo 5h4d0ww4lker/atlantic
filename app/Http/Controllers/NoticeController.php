@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Notice;
+use App\User;
 use Illuminate\Http\Request;
 use Session;
 
@@ -32,6 +33,8 @@ class NoticeController extends Controller {
 			->get([
 				'notices.*',
 				'users.name',
+				'users.father_name',
+				'users.grand_father_name',
 			])
 			->toArray();
 
@@ -46,6 +49,8 @@ class NoticeController extends Controller {
 			->get([
 				'notices.*',
 				'users.name',
+				'users.father_name',
+				'users.grand_father_name',
 			])
 			->toArray();
 
@@ -73,6 +78,8 @@ class NoticeController extends Controller {
 		//return($request->all());
 		$notice = $this->validate($request, [
 			'notice_title' => 'required',
+			'from_date' => 'required',
+			'to_date' => 'required',
 			'description' => 'required',
 			'publication_status' => 'required',
 		]);
@@ -133,6 +140,14 @@ class NoticeController extends Controller {
 		->orderBy('notices.id', 'DESC')
 		->paginate(5);
 		return view('administrator.hrm.notice.show_notice', compact('notices'));
+	}
+
+	public function detail($id) {
+		$notice = Notice::find($id);
+		
+		$users = User::where('id', $notice->created_by)->get();
+		
+		return view('administrator.hrm.notice.detail_notice', compact('notice','users'));
 	}
 
 	/**

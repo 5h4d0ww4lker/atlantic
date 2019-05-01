@@ -88,7 +88,7 @@
                         @foreach($loans as $loan)
                         <tr>
                             <td>{{ $sl++ }}</td>
-                            <td>{{ $loan['name'] }}</td>
+                            <td>{{ $loan['name'] }} &nbsp;{{ $loan['father_name'] }}&nbsp;{{ $loan['grand_father_name'] }}</td>
                             <td>{{ $loan['designation'] }}</td>
                             <td>{{ $loan['loan_name'] }}</td>
                             <td>{{ $loan['loan_amount'] }}</td>

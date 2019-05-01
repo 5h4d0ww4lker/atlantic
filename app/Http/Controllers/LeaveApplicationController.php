@@ -25,7 +25,7 @@ class LeaveApplicationController extends Controller {
 		->whereBetween('users.access_label',array(2, 3))
 		->where('users.deletion_status', 0)
 		->orderBy('users.employee_id', 'asc')
-		->get(['users.id', 'users.name', 'users.employee_id', 'designations.designation' ]);
+		->get(['users.id', 'users.name','users.father_name','users.grand_father_name', 'users.employee_id', 'designations.designation' ]);
 
 		$attendances = DB::table('attendances')
 		->select(DB::raw('count(attendances.attendance_status) AS total_attendances'), 'attendances.user_id')
@@ -206,6 +206,8 @@ else
 		->get([
 			'leave_applications.*',
 			'users.name',
+			'users.father_name',
+			'users.grand_father_name',
 			'leave_categories.leave_category',
 		])
 		->toArray();
@@ -222,6 +224,8 @@ else
 		->get([
 			'leave_applications.*',
 			'users.name',
+			'users.father_name',
+			'users.grand_father_name',
 			'leave_categories.leave_category',
 		])
 		->toArray();
@@ -289,6 +293,8 @@ else
 		->first([
 			'leave_applications.*',
 			'users.name',
+			'users.father_name',
+			'users.grand_father_name',
 			'users.employee_id',
 			'designations.designation',
 			'leave_categories.leave_category',

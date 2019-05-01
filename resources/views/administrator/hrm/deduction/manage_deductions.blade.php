@@ -63,7 +63,7 @@
                         @foreach($deductions as $deduction)
                         <tr>
                             <td>{{ $sl++ }}</td>
-                            <td>{{ $deduction['name'] }}</td>
+                            <td>{{ $deduction['name'] }}&nbsp;{{ $deduction['father_name'] }}&nbsp;{{ $deduction['grand_father_name'] }}</td>
                             <td>{{ $deduction['designation'] }}</td>
                             <td>{{ $deduction['deduction_name'] }}</td>
                             <td>{{ date("F Y", strtotime($deduction['deduction_month'])) }}</td>

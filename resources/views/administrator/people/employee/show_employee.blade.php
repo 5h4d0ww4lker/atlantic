@@ -52,12 +52,12 @@
                                  ?>
                                 <b>Branch:</b> {{ $branch->branch }}
                                 <br>
-                                <b>Derpartment:</b> {{$department->department}}
+                                <b>Department:</b> {{$department->department}}
                             </p>
                         </td>
-                        <td width="160px">
+                        <td width="17%">
                             @if(!empty($employee->profile_picture))
-                            <img src="{{ url('public/profile_picture/' . $employee->profile_picture) }}" class="img-responsive img-thumbnail" width="250px">
+                            <img src="{{ url('public/profile_picture/' . $employee->profile_picture) }}"  width="100%">
                             @else
                             <img src="{{ url('public/profile_picture/blank_profile_picture.png') }}" alt="blank_profile_picture" class="img-responsive img-thumbnail" width="160px">
                             @endif
@@ -65,8 +65,7 @@
                             
                         </td>
 
-                        <td width="160px">
-                                </td>
+                       
                     </tr>
                 </table>
                 <hr>
@@ -86,11 +85,11 @@
                         </tr>
                         <tr>
                             <td>Present Address</td>
-                            <td>{{ $employee->present_address }}</td>
+                            <td>{!! $employee->present_address !!}</td>
                         </tr>
                         <tr>
                             <td>Permanent Address</td>
-                            <td>{{ $employee->permanent_address }}</td>
+                            <td>{!! $employee->permanent_address !!}</td>
                         </tr>
                       
                         <tr>
@@ -161,12 +160,21 @@
                             <td>Experience</td>
                             <td>{!! $employee->experience !!}
 
-                                  @if(!empty($employee->cv))
-                                   <object data="{{ url('/public/cv/1554672075.pdf') }}"></object>
-                          
+                            </td>
+                        </tr>
 
+                         <tr>
+                            <td>CV</td>
+                            <td>
+
+                                  @if(!empty($employee->cv))
+
+                                   <object data="{{ url('public/cv/' . $employee->cv) }}"></object>
+                          
+<a href="{{ url('public/cv/' . $employee->cv) }}" target="_blank">Fullscreen / Download</a>
                             @else
                             <img src="{{ url('/public/profile_picture/pdf.png') }}" alt="blank_profile_picture" class="img-responsive img-thumbnail" width="250px">
+                          <a href="#" target="_blank">No CV available.</a>
                             @endif
                            
                             </td>

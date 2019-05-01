@@ -61,10 +61,7 @@
                     <td>Contact No</td>
                     <td>{{ $reference->contact_no_one }}</td>
                 </tr>
-                <tr>
-                    <td>Web</td>
-                    <td>{{ $reference->web }}</td>
-                </tr>
+                
                 <tr>
                     <td>Gender</td>
                     <td>

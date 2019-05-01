@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Bonus;
 use App\User;
+use App\BonusCategory;
 use Session;
 
 class BonusController extends Controller
@@ -77,7 +78,11 @@ class BonusController extends Controller
         ->orderBy('name')
         ->get()
         ->toArray();
-        return view('administrator.hrm.bonus.add_bonus', compact('users'));
+        $bonus_categories = BonusCategory::where('deletion_status', 0)
+        ->orderBy('bonus_category')
+        ->get()
+        ->toArray();
+        return view('administrator.hrm.bonus.add_bonus', compact('users', 'bonus_categories'));
     }
 
     /**
@@ -138,8 +143,12 @@ class BonusController extends Controller
         ->orderBy('name')
         ->get()
         ->toArray();
+        $bonus_category = BonusCategory::where('id', $id)
+        ->orderBy('bonus_category')
+        ->get()
+        ->toArray();
 
-        return view('administrator.hrm.bonus.show_bonus', compact('bonus', 'users'));
+        return view('administrator.hrm.bonus.show_bonus', compact('bonus', 'users', $bonus_category));
     }
 
     /**
@@ -153,6 +162,11 @@ class BonusController extends Controller
 
         $users = User::where('deletion_status', 0)
         ->orderBy('name')
+        ->get()
+        ->toArray();
+
+         $bonus_categories = User::where('deletion_status', 0)
+        ->orderBy('bonus_category')
         ->get()
         ->toArray();
 

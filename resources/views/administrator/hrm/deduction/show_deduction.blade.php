@@ -35,7 +35,7 @@
                 <tbody>
                     <tr>
                         <td width="25%">Employee Name</td>
-                        <td width="75%">{{ $deduction['name'] }}</td>
+                        <td width="75%">{{ $deduction['name'] }}&nbsp;{{ $deduction['father_name'] }}&nbsp;{{ $deduction['grand_father_name'] }}</td>
                     </tr>
                     <tr>
                         <td>Designation</td>
