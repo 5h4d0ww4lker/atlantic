@@ -35,6 +35,7 @@
                   <li><a href="{{ url('/setting/property_requests') }}"><i class="fa fa-circle-o"></i> Manage Propety Requests</a></li>
                     <li><a href="{{ url('/setting/trainings') }}"><i class="fa fa-circle-o"></i> Manage Trainings</a></li>
                      <li><a href="{{ url('/setting/recruitments') }}"><i class="fa fa-circle-o"></i> Manage Recruitments</a></li>
+                     <li><a href="{{ url('/setting/super_admins') }}"><i class="fa fa-circle-o"></i> Manage Super Admins</a></li>
                 @permission('role')
                 <li><a href="{{ route('setting.role.index') }}"><i class="fa fa-circle-o"></i>Role</a></li>
                 @endpermission

@@ -1,17 +1,17 @@
 @extends('administrator.master')
-@section('title', 'Edit Holidays')
+@section('title', 'Edit Holydays')
 
 @section('main_content')
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			PERSONAL EVENT
+			HOLYDAY
 		</h1>
 		<ol class="breadcrumb">
 			<li><a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
 			<li><a>Setting</a></li>
-			<li><a href="{{ url('/setting/holidays') }}">Holiays</a></li>
+			<li><a href="{{ url('/setting/holidays') }}">Holydays</a></li>
 			<li class="active">Edit</li>
 		</ol>
 	</section>

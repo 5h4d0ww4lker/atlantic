@@ -161,6 +161,17 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/setting/designations/update/{id}', 'DesignationController@update');
 	Route::get('/setting/designations/delete/{id}', 'DesignationController@destroy');
 
+	// Super Admins Section //
+	Route::get('/setting/super_admins', 'SuperAdminController@index');
+	Route::get('/setting/super_admins/create', 'SuperAdminController@create');
+	Route::post('/setting/super_admins/store', 'SuperAdminController@store');
+	Route::get('/setting/super_admins/published/{id}', 'SuperAdminController@published');
+	Route::get('/setting/super_admins/unpublished/{id}', 'SuperAdminController@unpublished');
+	Route::get('/setting/super_admins/details/{id}', 'SuperAdminController@show');
+	Route::get('/setting/super_admins/edit/{id}', 'SuperAdminController@edit');
+	Route::post('/setting/super_admins/update/{id}', 'SuperAdminController@update');
+	Route::get('/setting/super_admins/delete/{id}', 'SuperAdminController@destroy');
+
 	// Clients Section //
 	Route::get('/people/clients', 'ClientController@index');
 	Route::get('/people/clients/print', 'ClientController@print');
