@@ -54,7 +54,7 @@ class PayrollController extends Controller {
 			->orderBy('users.name', 'ASC')
 			->where('users.access_label', '>=', 2)
 			->where('users.access_label', '<=', 3)
-			->get(['designations.designation', 'users.name', 'users.id'])
+			->get(['designations.designation', 'users.name','users.father_name','users.grand_father_name', 'users.id'])
 			->toArray();
 
 		$salary = Payroll::where('user_id', $employee_id)

@@ -248,10 +248,12 @@ class SalaryPaymentController extends Controller {
 		request()->validate([
 			'salary_month' => 'required',
 		], [
-			'salary_month.required' => 'The salary month field is required',
+			'salary_month.required' => 'The salary month from field is required',
+			'salary_month_to.required' => 'The salary month to field is required',
 		]);
 		$salary_month = $request->salary_month;
-		return redirect('/hrm/generate-payslips/salary-list/' . $salary_month);
+		$salary_month_to = $request->salary_month_to;
+		return redirect('/hrm/generate-payslips/salary-list/' . $salary_month.'/'.$salary_month_to);
 	}
 
 	/**
@@ -259,10 +261,14 @@ class SalaryPaymentController extends Controller {
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function list($salary_month) {
+	public function list($salary_month, $salary_month_to) {
 		$date = $salary_month;
 		$month = date("m", strtotime($date));
 		$year = date("Y", strtotime($date));
+
+		$date2 = $salary_month;
+		$month2 = date("m", strtotime($date2));
+		$year2 = date("Y", strtotime($date2));
 
 		$employees = Payroll::query()
 		->leftjoin('users', 'payrolls.user_id', '=', 'users.id')
@@ -274,13 +280,13 @@ class SalaryPaymentController extends Controller {
 		->toArray();
 
 		$bonuses = Bonus::whereYear('bonus_month', '=', $year)
-		->whereMonth('bonus_month', '=', $month)
+		->whereBetween('bonus_month', [$month, $month2])
 		->where('deletion_status', '=', 0)
 		->get(['bonus_name', 'bonus_amount', 'user_id'])
 		->toArray();
 
 		$deductions = Deduction::whereYear('deduction_month', '=', $year)
-		->whereMonth('deduction_month', '=', $month)
+		->whereBetween('deduction_month', [$month, $month2])
 		->where('deletion_status', '=', 0)
 		->get(['deduction_name', 'deduction_amount', 'user_id'])
 		->toArray();
@@ -290,7 +296,7 @@ class SalaryPaymentController extends Controller {
 		->toArray();
 
 		$salary_payments = SalaryPayment::whereYear('payment_month', '=', $year)
-		->whereMonth('payment_month', '=', $month)
+		->whereBetween('payment_month',  [$month, $month2])
 		->get(['user_id'])
 		->toarray();
 

@@ -79,7 +79,7 @@
                             <th>Loan Amount</th>
                             <th>Number of Inst.</th>
                             <th>Remaining Inst.</th>
-                            <th>Date Added</th>
+                            <th>From - To</th>
                             <th class="text-center">Actions</th>
                         </tr>
                     </thead>
@@ -94,7 +94,7 @@
                             <td>{{ $loan['loan_amount'] }}</td>
                             <td>{{ $loan['number_of_installments'] }}</td>
                             <td>{{ $loan['remaining_installments'] }}</td>
-                            <td>{{ date("d F Y", strtotime($loan['created_at'])) }}</td>
+                            <td>{{ date("d F Y", strtotime($loan['taking_date'])) }} - {{ date("d F Y", strtotime($loan['due_date'])) }}</td>
                             <td class="text-center">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-primary btn-xs btn-flat dropdown-toggle" data-toggle="dropdown" aria-expanded="false">

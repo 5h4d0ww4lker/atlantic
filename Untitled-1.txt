@@ -1,0 +1,27 @@
+
+    if (basic_salary < 600) {
+  document.getElementById("tax_deduction").val(0) ;
+} 
+
+if ($("#basic_salary").val() > 600 && $("#basic_salary").val() < 1650) {
+  document.getElementById("tax_deduction").val =($("#basic_salary").val() * 10)/100;
+} 
+
+if ($("#basic_salary").val() > 1650 && $("#basic_salary").val() < 3200) {
+  document.getElementById("tax_deduction").val =($("#basic_salary").val() * 15)/100;
+} 
+if ($("#basic_salary").val() > 3200 && $("#basic_salary").val() < 5250) {
+  document.getElementById("tax_deduction").val($("#basic_salary").val() * 20)/100;
+} 
+
+if ($("#basic_salary").val() > 5250 && $("#basic_salary").val() < 7800) {
+  document.getElementById("tax_deduction").val($("#basic_salary").val() * 25)/100;
+} 
+
+if ($("#basic_salary").val() > 7800 && $("#basic_salary").val() < 10900) {
+  document.getElementById("tax_deduction").val($("#basic_salary").val() * 30)/100;
+} 
+
+if ($("#basic_salary").val() > 10900) {
+  document.getElementById("tax_deduction").val($("#basic_salary").val() * 35)/100;
+} 

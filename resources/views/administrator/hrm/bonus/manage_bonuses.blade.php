@@ -89,7 +89,7 @@
                             <td>{{ $bonus['name'] }}&nbsp;{{ $bonus['father_name'] }}&nbsp;{{ $bonus['grand_father_name'] }}</td>
                             <td>{{ $bonus['designation'] }}</td>
                             <td>{{ $bonus['bonus_name'] }}</td>
-                            <td>{{ date("F Y", strtotime($bonus['bonus_month'])) }}</td>
+                            <td>{{ date("F Y", strtotime($bonus['bonus_month'])) }} - {{ date("F Y", strtotime($bonus['bonus_month_to'])) }}</td>
                             <td>{{ $bonus['bonus_amount'] }}</td>
                             <td>{{ date("d F Y", strtotime($bonus['created_at'])) }}</td>
                             <td class="text-center">
@@ -101,15 +101,14 @@
                                         <li>
                                             <a href="{{ url('/hrm/bonuses/details/' . $bonus['id']) }}"><i class="icon fa fa-file-text"></i> Details</a>
                                         </li>
-                                        @php($today = date("Y-m-d", strtotime(today())))
-                                        @if($bonus['bonus_month'] >= $today)
+                                      
                                         <li>
                                             <a href="{{ url('/hrm/bonuses/edit/' . $bonus['id']) }}"><i class="icon fa fa-edit"></i> Edit</a>
                                         </li>
                                         <li>
                                             <a href="{{ url('/hrm/bonuses/delete/' . $bonus['id']) }}" onclick="return confirm('Are you sure to delete this ?');"><i class="icon fa fa-trash"></i> Delete</a>
                                         </li>
-                                        @endif
+                                       
                                     </ul>
                                 </div>
                             </td>

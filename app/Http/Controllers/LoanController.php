@@ -89,6 +89,8 @@ class LoanController extends Controller
             'number_of_installments' => 'required',
             'loan_amount' => 'required|numeric',
             'loan_description' => 'required',
+            'taking_date' => 'required',
+            'due_date' => 'required',
         ],[
             'user_id.required' => 'The employee name field is required.',
         ]);
@@ -101,6 +103,8 @@ class LoanController extends Controller
             'number_of_installments' => $request->number_of_installments,
             'remaining_installments' => $request->number_of_installments,
             'loan_description' => $request->loan_description,
+            'taking_date' => $request->taking_date,
+            'due_date' => $request->taking_date,
         ]);
         $inserted_id = $result->id;
 
@@ -172,6 +176,8 @@ class LoanController extends Controller
             'number_of_installments' => 'required',
             'remaining_installments' => 'required',
             'loan_description' => 'required',
+             'taking_date' => 'required',
+            'due_date' => 'required',
         ],[
             'user_id.required' => 'The employee name field is required.',
         ]);
@@ -182,6 +188,8 @@ class LoanController extends Controller
         $loan->number_of_installments = $request->get('number_of_installments');
         $loan->remaining_installments = $request->get('remaining_installments');
         $loan->loan_description = $request->get('loan_description');
+         $loan->taking_date = $request->get('taking_date');
+          $loan->due_date = $request->get('due_date');
         $affected_row = $loan->save();
 
         if (!empty($affected_row)) {

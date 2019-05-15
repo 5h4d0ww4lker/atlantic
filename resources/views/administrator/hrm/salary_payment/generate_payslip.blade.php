@@ -51,8 +51,9 @@
 
               <!-- /.end group -->
               <div class="form-group{{ $errors->has('salary_month') ? ' has-error' : '' }}">
-                <label for="salary_month" class="col-sm-3 control-label">Select Month</label>
-                <div class="col-sm-6">
+                <label for="salary_month" class="col-sm-3 control-label">Select Month From</label>
+                 <div class="col-sm-6">
+                <div class="col-sm-3">
                   <div class="input-group date">
                     <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                     <input type="text" name="salary_month" id="monthpicker" class="form-control pull-right" value="{{ old('salary_month')}}" id="datepicker">
@@ -63,6 +64,20 @@
                     @endif
                   </div>
                 </div>
+
+                <label for="salary_month" class="col-sm-3 control-label">Select Month TO</label>
+                <div class="col-sm-3">
+                  <div class="input-group date">
+                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                    <input type="text" name="salary_month_to" id="monthpicker3" class="form-control pull-right" value="{{ old('salary_month')}}" id="datepicker3">
+                    @if ($errors->has('salary_month'))
+                    <span class="help-block">
+                      <strong>{{ $errors->first('salary_month') }}</strong>
+                    </span>
+                    @endif
+                  </div>
+                </div>
+              </div>
               </div>
               <!-- /.end group -->
               <div class="form-group">

@@ -79,7 +79,7 @@
                             </div>
                             <!-- /.form-group -->
 
-                            <label for="deduction_month">Deduction Month <span class="text-danger">*</span></label>
+                            <label for="deduction_month">Deduction Month From<span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('deduction_month') ? ' has-error' : '' }} has-feedback">
                                 <div class="input-group date">
                                     <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
@@ -88,6 +88,19 @@
                                 @if ($errors->has('deduction_month'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('deduction_month') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+
+                             <label for="deduction_month_to">Deduction Month To<span class="text-danger">*</span></label>
+                            <div class="form-group{{ $errors->has('deduction_month_to') ? ' has-error' : '' }} has-feedback">
+                                <div class="input-group date">
+                                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                    <input type="text" name="deduction_month_to" class="form-control pull-right" value="{{ $deduction['deduction_month_to'] }}" id="monthpicker3">
+                                </div>
+                                @if ($errors->has('deduction_month_to'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('deduction_month_to') }}</strong>
                                 </span>
                                 @endif
                             </div>

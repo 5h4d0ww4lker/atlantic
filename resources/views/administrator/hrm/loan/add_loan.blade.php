@@ -100,6 +100,30 @@
                                 @endif
                             </div>
                             <!-- /.form-group -->
+                            <label>Taking Date:</label>
+                             <div class="form-group">
+              
+
+                               <div class="input-group date">
+                               <div class="input-group-addon">
+                               <i class="fa fa-calendar"></i>
+                                </div>
+                               <input type="text" name="taking_date" class="form-control pull-right" id="datepicker">
+                               </div>
+                <!-- /.input group -->
+                             </div>
+                              <label>Due Date:</label>
+                             <div class="form-group">
+              
+
+                               <div class="input-group date">
+                               <div class="input-group-addon">
+                               <i class="fa fa-calendar"></i>
+                                </div>
+                               <input type="text" name="due_date" class="form-control pull-right" id="datepicker2">
+                               </div>
+                <!-- /.input group -->
+                             </div>
                             
                         </div>
                         <!-- /.col -->

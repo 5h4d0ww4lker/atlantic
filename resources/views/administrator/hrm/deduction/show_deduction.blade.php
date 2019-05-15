@@ -47,7 +47,7 @@
                     </tr>
                     <tr>
                         <td>Deduction Month</td>
-                        <td>{{ date("F Y", strtotime($deduction['deduction_month'])) }}</td>
+                        <td>{{ date("F Y", strtotime($deduction['deduction_month'])) }} - {{ date("F Y", strtotime($deduction['deduction_month_to'])) }}</td>
                     </tr>
                     <tr>
                         <td>Deduction Amount</td>

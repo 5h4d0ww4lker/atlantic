@@ -83,11 +83,25 @@
                             </div>
                       
 
-                            <label for="bonus_month">Bonus Month <span class="text-danger">*</span></label>
+                            <label for="bonus_month">Bonus Month From <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('bonus_month') ? ' has-error' : '' }} has-feedback">
                                 <div class="input-group date">
                                     <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                                     <input type="text" name="bonus_month" class="form-control pull-right" value="{{ old('bonus_month')}}" id="monthpicker" placeholder="yyy-mm-dd">
+                                </div>
+                                @if ($errors->has('bonus_month'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('bonus_month') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                            <!-- /.form-group -->
+
+                             <label for="bonus_month">Bonus Month To<span class="text-danger">*</span></label>
+                            <div class="form-group{{ $errors->has('bonus_month') ? ' has-error' : '' }} has-feedback">
+                                <div class="input-group date">
+                                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                    <input type="text" name="bonus_month_to" class="form-control pull-right" value="{{ old('bonus_month_to')}}" id="monthpicker3" placeholder="yyy-mm-dd">
                                 </div>
                                 @if ($errors->has('bonus_month'))
                                 <span class="help-block">

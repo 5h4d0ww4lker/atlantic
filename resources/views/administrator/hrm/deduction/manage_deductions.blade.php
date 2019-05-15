@@ -66,7 +66,7 @@
                             <td>{{ $deduction['name'] }}&nbsp;{{ $deduction['father_name'] }}&nbsp;{{ $deduction['grand_father_name'] }}</td>
                             <td>{{ $deduction['designation'] }}</td>
                             <td>{{ $deduction['deduction_name'] }}</td>
-                            <td>{{ date("F Y", strtotime($deduction['deduction_month'])) }}</td>
+                            <td>{{ date("F Y", strtotime($deduction['deduction_month'])) }} - {{ date("F Y", strtotime($deduction['deduction_month_to'])) }}</td>
                             <td>{{ $deduction['deduction_amount'] }}</td>
                             <td>{{ date("d F Y", strtotime($deduction['created_at'])) }}</td>
                             <td class="text-center">
@@ -78,15 +78,14 @@
                                         <li>
                                             <a href="{{ url('/hrm/deductions/details/' . $deduction['id']) }}"><i class="icon fa fa-file-text"></i> Details</a>
                                         </li>
-                                        @php($today = date("Y-m-d", strtotime(today())))
-                                        @if($deduction['deduction_month'] >= $today)
+                                    
                                         <li>
                                             <a href="{{ url('/hrm/deductions/edit/' . $deduction['id']) }}"><i class="icon fa fa-edit"></i> Edit</a>
                                         </li>
                                         <li>
                                             <a href="{{ url('/hrm/deductions/delete/' . $deduction['id']) }}" onclick="return confirm('Are you sure to delete this ?');"><i class="icon fa fa-trash"></i> Delete</a>
                                         </li>
-                                        @endif
+                                       
                                     </ul>
                                 </div>
                             </td>

@@ -96,6 +96,7 @@ class BonusController extends Controller
             'user_id' => 'required',
             'bonus_name' => 'required|max:100',
             'bonus_month' => 'required',
+            'bonus_month_to' => 'required',
             'bonus_amount' => 'required|numeric',
             'bonus_description' => 'required',
         ],[
@@ -107,6 +108,7 @@ class BonusController extends Controller
             'user_id' => $request->user_id,
             'bonus_name' => $request->bonus_name,
             'bonus_month' => $request->bonus_month .'-01',
+            'bonus_month_to' => $request->bonus_month .'-01',
             'bonus_amount' => $request->bonus_amount,
             'bonus_description' => $request->bonus_description,
         ]);
@@ -165,12 +167,12 @@ class BonusController extends Controller
         ->get()
         ->toArray();
 
-         $bonus_categories = User::where('deletion_status', 0)
+         $bonus_categories = BonusCategory::where('deletion_status', 0)
         ->orderBy('bonus_category')
         ->get()
         ->toArray();
 
-        return view('administrator.hrm.bonus.edit_bonus', compact('bonus', 'users'));
+        return view('administrator.hrm.bonus.edit_bonus', compact('bonus', 'users', 'bonus_categories'));
     }
 
     /**
@@ -186,6 +188,7 @@ class BonusController extends Controller
             'user_id' => 'required',
             'bonus_name' => 'required|max:100',
             'bonus_month' => 'required',
+            'bonus_month_to' => 'required',
             'bonus_amount' => 'required|numeric',
             'bonus_description' => 'required',
         ],[
@@ -195,6 +198,7 @@ class BonusController extends Controller
         $bonus->user_id = $request->get('user_id');
         $bonus->bonus_name = $request->get('bonus_name');
         $bonus->bonus_month = $request->get('bonus_month') . '-01';
+         $bonus->bonus_month_to = $request->get('bonus_month_to') . '-01';
         $bonus->bonus_amount = $request->get('bonus_amount');
         $bonus->bonus_description = $request->get('bonus_description');
         $affected_row = $bonus->save();

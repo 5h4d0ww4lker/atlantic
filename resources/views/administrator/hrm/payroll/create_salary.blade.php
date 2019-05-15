@@ -55,7 +55,7 @@
                     <select name="user_id" class="form-control" id="user_id">
                       <option selected disabled>Select One</option>
                       @foreach($employees as $employee)
-                      <option value="{{ $employee['id'] }}">{{ $employee['name'] }}</option>
+                      <option value="{{ $employee['id'] }}">{{ $employee['name'] }} &nbsp;{{ $employee['father_name'] }}&nbsp;{{ $employee['grand_father_name'] }}</option>
                       @endforeach
                     </select>
                     @if ($errors->has('user_id'))
@@ -194,7 +194,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <div class="form-group{{ $errors->has('tax_deduction') ? ' has-error' : '' }}">
+              <!-- <div class="form-group{{ $errors->has('tax_deduction') ? ' has-error' : '' }}">
                 <label for="tax_deduction">Tax Deduction</label>
                 <input type="number" name="tax_deduction" value="{{ old('tax_deduction') }}" class="form-control" id="tax_deduction" placeholder="Enter tax deduction..">
                 @if ($errors->has('tax_deduction'))
@@ -202,7 +202,7 @@
                   <strong>{{ $errors->first('tax_deduction') }}</strong>
                 </span>
                 @endif
-              </div>
+              </div> -->
               <div class="form-group{{ $errors->has('provident_fund_deduction') ? ' has-error' : '' }}">
                 <label for="provident_fund_deduction">Provident Fund Deduction</label>
                 <input type="number" name="provident_fund_deduction" value="{{ old('provident_fund_deduction') }}" class="form-control" id="provident_fund_deduction" placeholder="Enter provident fund deduction..">
@@ -305,12 +305,37 @@
     var special_allowance = $("#special_allowance").val();
     var provident_fund_contribution = $("#provident_fund_contribution").val();
     var other_allowance = $("#other_allowance").val();
-    var tax_deduction = $("#tax_deduction").val();
+   // var tax_deduction = $("#tax_deduction").val();
     var provident_fund_deduction = $("#provident_fund_deduction").val();
     var other_deduction = $("#other_deduction").val();
-
+var tax_deduction = 0;
     var gross_salary = (+basic_salary + +house_rent_allowance + +medical_allowance + +special_allowance + +other_allowance);
+    if ($("#basic_salary").val() < 600) {
+      tax_deduction = 0;
+} 
 
+if ($("#basic_salary").val() > 600 && $("#basic_salary").val() < 1650) {
+  tax_deduction=(basic_salary * 10)/100;
+} 
+
+if ($("#basic_salary").val() > 1650 && $("#basic_salary").val() < 3200) {
+  tax_deduction=(basic_salary * 15)/100;
+} 
+if ($("#basic_salary").val() > 3200 && $("#basic_salary").val() < 5250) {
+  tax_deduction=(basic_salary * 20)/100;
+} 
+
+if ($("#basic_salary").val() > 5250 && $("#basic_salary").val() < 7800) {
+  tax_deduction=(basic_salary * 25)/100;
+} 
+
+if ($("#basic_salary").val() > 7800 && $("#basic_salary").val() < 10900) {
+  tax_deduction=(basic_salary * 30)/100;
+} 
+
+if ($("#basic_salary").val() > 10900) {
+  tax_deduction=(basic_salary * 35)/100;
+} 
     var total_deduction = (+tax_deduction + +provident_fund_deduction + +other_deduction);
 
     $("#total_provident_fund").val(+provident_fund_contribution + +provident_fund_deduction);

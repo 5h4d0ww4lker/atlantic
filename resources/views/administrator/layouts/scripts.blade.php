@@ -146,6 +146,14 @@ $(function () {
             minViewMode: "months"
         });
 
+        //Month picker
+        $('#monthpicker3').datepicker({
+            autoclose: true,
+            format: "yyyy-mm",
+            viewMode: "months",
+            minViewMode: "months"
+        });
+
 
         //iCheck for checkbox and radio inputs
         $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({

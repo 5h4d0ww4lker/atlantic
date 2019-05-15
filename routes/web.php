@@ -338,7 +338,7 @@ Route::group(['middleware' => 'auth'], function () {
 	// Generate Payslip
 	Route::get('/hrm/generate-payslips/', 'SalaryPaymentController@show');
 	Route::post('/hrm/generate-payslips/', 'SalaryPaymentController@generate');
-	Route::get('/hrm/generate-payslips/salary-list/{salary_month}', 'SalaryPaymentController@list');
+	Route::get('/hrm/generate-payslips/salary-list/{salary_month}/{salary_month_to}', 'SalaryPaymentController@list');
 	//
 	Route::get('/hrm/provident-funds/', 'SalaryPaymentController@provident_fund');
 
