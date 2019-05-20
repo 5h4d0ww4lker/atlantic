@@ -47,7 +47,7 @@
                     </tr>
                     <tr>
                         <td>Bonus Month</td>
-                        <td>{{ date("F Y", strtotime($bonus['bonus_month'])) }} - {{ date("F Y", strtotime($bonus['bonus_month_to'])) }}</td>
+                        <td>{{ date("d F Y", strtotime($bonus['bonus_month'])) }} - {{ date("d F Y", strtotime($bonus['bonus_month_to'])) }}</td>
                     </tr>
                     <tr>
                         <td>Bonus Amount</td>

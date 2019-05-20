@@ -66,7 +66,7 @@
                             <td>{{ $deduction['name'] }}&nbsp;{{ $deduction['father_name'] }}&nbsp;{{ $deduction['grand_father_name'] }}</td>
                             <td>{{ $deduction['designation'] }}</td>
                             <td>{{ $deduction['deduction_name'] }}</td>
-                            <td>{{ date("F Y", strtotime($deduction['deduction_month'])) }} - {{ date("F Y", strtotime($deduction['deduction_month_to'])) }}</td>
+                            <td>{{ date("d F Y", strtotime($deduction['deduction_month'])) }} - {{ date("d F Y", strtotime($deduction['deduction_month_to'])) }}</td>
                             <td>{{ $deduction['deduction_amount'] }}</td>
                             <td>{{ date("d F Y", strtotime($deduction['created_at'])) }}</td>
                             <td class="text-center">

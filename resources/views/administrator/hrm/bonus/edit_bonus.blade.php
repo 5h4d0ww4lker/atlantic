@@ -85,11 +85,11 @@
                             </div>
                             <!-- /.form-group -->
 
-                            <label for="bonus_month">Bonus Month From<span class="text-danger">*</span></label>
+                            <label for="bonus_month">Bonus Date From<span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('bonus_month') ? ' has-error' : '' }} has-feedback">
                                 <div class="input-group date">
                                     <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                    <input type="text" name="bonus_month" class="form-control pull-right" value="{{ $bonus['bonus_month'] }}" id="monthpicker2">
+                                    <input type="text" name="bonus_month" class="form-control pull-right" value="{{ $bonus['bonus_month'] }}" id="datepicker3">
                                 </div>
                                 @if ($errors->has('bonus_month'))
                                 <span class="help-block">
@@ -99,11 +99,11 @@
                             </div>
                             <!-- /.form-group -->
 
-                            <label for="bonus_month">Bonus Month To <span class="text-danger">*</span></label>
+                            <label for="bonus_month">Bonus Date To <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('bonus_month_to') ? ' has-error' : '' }} has-feedback">
                                 <div class="input-group date">
                                     <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                    <input type="text" name="bonus_month_to" class="form-control pull-right" value="{{ $bonus['bonus_month_to'] }}" id="monthpicker3">
+                                    <input type="text" name="bonus_month_to" class="form-control pull-right" value="{{ $bonus['bonus_month_to'] }}" id="datepicker4">
                                 </div>
                                 @if ($errors->has('bonus_month'))
                                 <span class="help-block">

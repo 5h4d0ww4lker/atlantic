@@ -89,7 +89,7 @@
                             <td>{{ $bonus['name'] }}&nbsp;{{ $bonus['father_name'] }}&nbsp;{{ $bonus['grand_father_name'] }}</td>
                             <td>{{ $bonus['designation'] }}</td>
                             <td>{{ $bonus['bonus_name'] }}</td>
-                            <td>{{ date("F Y", strtotime($bonus['bonus_month'])) }} - {{ date("F Y", strtotime($bonus['bonus_month_to'])) }}</td>
+                            <td>{{ date("d F Y", strtotime($bonus['bonus_month'])) }} - {{ date("d F Y", strtotime($bonus['bonus_month_to'])) }}</td>
                             <td>{{ $bonus['bonus_amount'] }}</td>
                             <td>{{ date("d F Y", strtotime($bonus['created_at'])) }}</td>
                             <td class="text-center">

@@ -68,8 +68,8 @@ class DeductionController extends Controller
             'created_by' => auth()->user()->id,
             'user_id' => $request->user_id,
             'deduction_name' => $request->deduction_name,
-            'deduction_month' => $request->deduction_month .'-01',
-            'deduction_month_to' => $request->deduction_month_to .'-01',
+            'deduction_month' => $request->deduction_month,
+            'deduction_month_to' => $request->deduction_month_to,
             'deduction_amount' => $request->deduction_amount,
             'deduction_description' => $request->deduction_description,
         ]);
@@ -149,8 +149,8 @@ class DeductionController extends Controller
 
         $deduction->user_id = $request->get('user_id');
         $deduction->deduction_name = $request->get('deduction_name');
-        $deduction->deduction_month = $request->get('deduction_month') . '-01';
-         $deduction->deduction_month_to = $request->get('deduction_month_to') . '-01';
+        $deduction->deduction_month = $request->get('deduction_month');
+         $deduction->deduction_month_to = $request->get('deduction_month_to');
         $deduction->deduction_amount = $request->get('deduction_amount');
         $deduction->deduction_description = $request->get('deduction_description');
         $affected_row = $deduction->save();

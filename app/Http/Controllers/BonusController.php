@@ -107,8 +107,8 @@ class BonusController extends Controller
             'created_by' => auth()->user()->id,
             'user_id' => $request->user_id,
             'bonus_name' => $request->bonus_name,
-            'bonus_month' => $request->bonus_month .'-01',
-            'bonus_month_to' => $request->bonus_month .'-01',
+            'bonus_month' => $request->bonus_month,
+            'bonus_month_to' => $request->bonus_month_to,
             'bonus_amount' => $request->bonus_amount,
             'bonus_description' => $request->bonus_description,
         ]);
@@ -197,8 +197,8 @@ class BonusController extends Controller
 
         $bonus->user_id = $request->get('user_id');
         $bonus->bonus_name = $request->get('bonus_name');
-        $bonus->bonus_month = $request->get('bonus_month') . '-01';
-         $bonus->bonus_month_to = $request->get('bonus_month_to') . '-01';
+        $bonus->bonus_month = $request->get('bonus_month');
+         $bonus->bonus_month_to = $request->get('bonus_month_to');
         $bonus->bonus_amount = $request->get('bonus_amount');
         $bonus->bonus_description = $request->get('bonus_description');
         $affected_row = $bonus->save();
