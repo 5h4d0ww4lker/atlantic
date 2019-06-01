@@ -397,6 +397,16 @@
                                 @endif
                             </div>
 
+                            <label for="finger_print_id">Finger Print Id </label>
+                            <div class="form-group{{ $errors->has('finger_print_id') ? ' has-error' : '' }} has-feedback">
+                                <input type="tel" name="finger_print_id" id="finger_print_id" class="form-control" value="{{ old('finger_print_id') }}" placeholder="Enter Finger print Id..">
+                                @if ($errors->has('finger_print_id'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('finger_print_id') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+
                            
 
                         </div>

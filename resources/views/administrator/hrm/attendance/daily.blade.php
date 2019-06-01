@@ -31,6 +31,7 @@ use Carbon\Carbon;
                 </div>
             </div>
             <div class="box-body">
+            <a href="{{ url('/attendanceImportView') }}" class="tip btn btn-success btn-flat pull-right" title="Print" data-original-title="Label Printer"> <i class="fa fa-arrow-down"></i><span class="hidden-sm hidden-xs"> Import</span> </a>
               <div class="btn-group pull-right">
                                     <button type="button" class="tip btn btn-info btn-flat pull-right dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         Reports <span class="caret"></span>

@@ -119,6 +119,7 @@ class EmployeeController extends Controller {
 			'employement_status' => 'required',
 			'branch_id' => 'required',
 			'department_id' => 'required',
+			'finger_print_id' => 'nullable',
 			'profile_picture' => 'nullable|mimes:jpeg,png,jpg,gif',
 			'cv' => 'nullable|mimes:pdf,doc,docx',
 		], [
@@ -317,6 +318,7 @@ class EmployeeController extends Controller {
 			'employement_status' => 'required',
 			'branch_id' => 'required',
 			'department_id' => 'required',
+			'finger_print_id' => 'required',
 			'profile_picture' => 'nullable|mimes:jpeg,png,jpg,gif',
 			'cv' => 'nullable|mimes:pdf,doc,docx',
 
@@ -369,6 +371,7 @@ class EmployeeController extends Controller {
 		$employee->role = $request->get('role');
 		$employee->tin = $request->tin;
 		$employee->branch_id = $request->branch_id;
+		$employee->finger_print_id = $request->get('finger_print_id');
 
 
 

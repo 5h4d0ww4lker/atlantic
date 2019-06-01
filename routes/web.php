@@ -217,7 +217,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/people/employees/pdf', 'ReportsController@employeesPDF');
 	Route::get('/people/employees/excel', 'ReportsController@employeesExcel');
 	Route::get('/importExportView', 'ReportsController@importExportView');
+	Route::get('/attendanceImportView', 'ReportsController@attendanceImportView');
 	Route::post('/import', 'ReportsController@import');
+	Route::post('/importAttendance', 'ReportsController@importAttendance');
 	Route::post('people/employees/report-selector', 'ReportsController@reportSelector');
 	Route::post('reports_by_date_filter', 'ReportsController@reports_by_date_filter');
 

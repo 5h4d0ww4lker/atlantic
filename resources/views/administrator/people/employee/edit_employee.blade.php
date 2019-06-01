@@ -361,7 +361,15 @@
                                 </span>
                                 @endif
                             </div>
-
+                            <label for="tin">Finger Print Id</label>
+                            <div class="form-group{{ $errors->has('finger_print_id') ? ' has-error' : '' }} has-feedback">
+                                <input type="text" name="finger_print_id" id="finger_print_id" class="form-control" value="{{ $employee['finger_print_id'] }}" placeholder="Enter finge print Id">
+                                @if ($errors->has('tin'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('tin') }}</strong>
+                                </span>
+                                @endif
+                            </div>
                              <label for="profile_picture">Profile Picture <span class="text-danger">*</span></label>
                             <div class="form-group{{ $errors->has('profile_picture') ? ' has-error' : '' }} has-feedback">
                                 <input type="file" name="profile_picture" id="profile_picture" class="form-control">
@@ -378,6 +386,7 @@
                             <img src="{{ url('/public/profile_picture/blank_profile_picture.png') }}" alt="blank_profile_picture" class="img-responsive img-thumbnail" width="250px">
                             @endif
                             </div>
+                           
                         </div>
                         <!-- /.col -->
                         <div class="col-md-12">

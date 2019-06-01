@@ -41,6 +41,8 @@
                                 <br>
                                 <b>Employee ID:</b> {{ $employee->employee_id }}
                                 <br>
+                                <b>Finger print ID:</b> {{ $employee->finger_print_id }}
+                                <br>
                                 <b>Designation:</b> {{ $employee->designation }}
 
                                 <br>
